@@ -22,7 +22,7 @@ if ! type "docker" > /dev/null; then
 
     apt-cache policy docker-ce
 
-    sudo apt install docker-ce
+    sudo apt install -y docker-ce
     sudo usermod -aG docker ${USER}
 else
     echo 'docker already installed'
