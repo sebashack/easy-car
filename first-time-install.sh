@@ -5,8 +5,8 @@ set -xeuf -o pipefail
 export ROOT="$( readlink -f "$( dirname "${BASH_SOURCE[0]}" )" )"
 export INSTALL_DIR=$ROOT/_install
 
-rm -rf  $INSTALL_DIR/style
-mkdir -p $INSTALL_DIR/style
+rm -rf  $INSTALL_DIR
+mkdir -p $INSTALL_DIR
 
 sudo apt update
 sudo apt install -y php8.1-mbstring php8.1 php8.1-mysql php8.1-curl net-tools php-xmlwriter wget \
