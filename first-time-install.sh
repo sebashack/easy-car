@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# set -xeuf -o pipefail
+set -xeuf -o pipefail
 
 export ROOT="$( readlink -f "$( dirname "${BASH_SOURCE[0]}" )" )"
 export INSTALL_DIR=$ROOT/_install
@@ -22,6 +22,7 @@ if ! type "docker" > /dev/null; then
 
     apt-cache policy docker-ce
 
+    sudo groupadd docker
     sudo usermod -aG docker ${USER}
 else
     echo 'docker already installed'
