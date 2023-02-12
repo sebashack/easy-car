@@ -1,0 +1,4 @@
+_install
+vendor
+cache
+docker/data

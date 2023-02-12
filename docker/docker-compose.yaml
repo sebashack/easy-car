@@ -1,0 +1,22 @@
+version: '3.1'
+networks:
+  laravel_mysql:
+    external: false
+
+services:
+  db-server:
+    container_name: laravel_mysql
+    image: mysql:8.0.31
+    ports:
+      - "3306:3306"
+    restart: always
+    environment:
+      MYSQL_DATABASE: laraveldb
+      MYSQL_USER: laravel
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_PASSWORD: secret
+    networks:
+      - laravel_mysql
+    volumes:
+      - ${MYSQL_DATA_DIR}:/var/lib/mysql
+      - ${MYSQL_SCRIPTS_DIR}:/opt/mysql/scripts
