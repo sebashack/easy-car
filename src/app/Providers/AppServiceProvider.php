@@ -21,11 +21,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // Check database connection.
-        try {
-            DB::connection()->getPDO();
-            dump('Database is connected. Database Name is : '.DB::connection()->getDatabaseName());
-        } catch (Exception $e) {
-            dump('Database connection failed');
-        }
+        //try {
+        //    DB::connection()->getPDO();
+        //    dump('Database is connected. Database Name is : '.DB::connection()->getDatabaseName());
+        //} catch (Exception $e) {
+        //    dump('Database connection failed');
+        //}
     }
 }
