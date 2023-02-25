@@ -46,4 +46,11 @@ class ReviewController extends Controller
 
         return back()->with('status', 'successfully created');
     }
+
+    public function delete(string $id): \Illuminate\Http\RedirectResponse
+    {
+        Review::destroy($id);
+
+        return redirect('reviews');
+    }
 }

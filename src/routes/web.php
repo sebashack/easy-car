@@ -22,3 +22,5 @@ Route::get('/reviews/create', 'App\Http\Controllers\ReviewController@create')->n
 Route::get('/reviews/{id}', 'App\Http\Controllers\ReviewController@show')->name('review.show');
 
 Route::post('/reviews/save', 'App\Http\Controllers\ReviewController@save')->name('review.save');
+
+Route::delete('/reviews/delete/{id}', 'App\Http\Controllers\ReviewController@delete')->name('review.delete');
