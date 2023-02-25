@@ -38,8 +38,8 @@ class ReviewController extends Controller
     public function save(Request $request): \Illuminate\Http\RedirectResponse
     {
         $request->validate([
-            'content' => 'required',
-            'rating' => 'required',
+            'content' => 'required|min:3|max:650',
+            'rating' => 'required|gte:1|lte:5',
         ]);
 
         Review::create($request->only(["content","rating"]));

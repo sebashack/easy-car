@@ -7,6 +7,13 @@
       <div class="card">
         <div class="card-header">Create Review</div>
           <div class="card-body">
+            @if($errors->any())
+            <ul id="errors" class="alert alert-danger list-unstyled">
+              @foreach($errors->all() as $error)
+              <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+            @endif
             <form method="POST" action="{{ route('review.save') }}">
               @csrf
               <input type="text" class="form-control mb-2" placeholder="Enter review" name="content" value="{{ old('content') }}" />
