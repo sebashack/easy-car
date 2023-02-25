@@ -44,6 +44,6 @@ class ReviewController extends Controller
 
         Review::create($request->only(["content","rating"]));
 
-        return back();
+        return back()->with('status', 'successfully created');
     }
 }

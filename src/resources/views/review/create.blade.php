@@ -14,7 +14,12 @@
               @endforeach
             </ul>
             @endif
-            <form method="POST" action="{{ route('review.save') }}">
+            @if (session('status'))
+            <div class="alert alert-success">
+              {{ session('status') }}
+            </div>
+            @endif
+          <form method="POST" action="{{ route('review.save') }}">
               @csrf
               <input type="text" class="form-control mb-2" placeholder="Enter review" name="content" value="{{ old('content') }}" />
               <input type="text" class="form-control mb-2" placeholder="Enter rating" name="rating" value="{{ old('rating') }}" />
