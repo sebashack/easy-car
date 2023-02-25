@@ -8,8 +8,9 @@
     <div class="col-md-4 col-lg-3 mb-2">
     <div class="card">
       <div class="card-body text-center">
-        <p>{{ $review["content"] }}</p>
-        <p>Rating: {{ $review["rating"] }} / 5</p>
+        <h4>Id: {{ $review['id'] }}</h4>
+        <p>{{ $review['content'] }}</p>
+        <p>Rating: {{ $review['rating'] }} / 5</p>
       </div>
     </div>
   </div>
