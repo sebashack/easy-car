@@ -9,8 +9,8 @@
     <div class="card">
       <div class="card-body text-center">
         <h4>Id: {{ $review['id'] }}</h4>
-        <p>{{ $review['content'] }}</p>
         <p>Rating: {{ $review['rating'] }} / 5</p>
+        <a href="{{ route('review.show', ['id'=> $review["id"]]) }}" class="btn bg-primary text-white">Check review</a>
       </div>
     </div>
   </div>
