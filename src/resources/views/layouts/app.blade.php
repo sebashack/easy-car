@@ -19,6 +19,8 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ms-auto">
           <a class="nav-link active" href="{{ route('home.index') }}">Home</a>
+          <a class="nav-link active" href="{{ route('review.index') }}">Reviews</a>
+          <a class="nav-link active" href="{{ route('review.create') }}">Create Review</a>
         </div>
       </div>
     </div>
