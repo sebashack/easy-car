@@ -9,7 +9,7 @@
     <div class="card">
       <div class="card-body text-center">
         <p>{{ $review["content"] }}</p>
-        <p>Rating: {{ $review["rating"] }} out of 5</p>
+        <p>Rating: {{ $review["rating"] }} / 5</p>
       </div>
     </div>
   </div>

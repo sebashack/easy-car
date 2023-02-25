@@ -17,8 +17,14 @@ class ReviewController extends Controller
         return view('review.index')->with('viewData', $viewData);
     }
 
-    public function show(): View
+    public function show(string $id): View
     {
+        $viewData = [];
+        $review = Review::findOrFail($id);
+        $viewData["title"] = "User Review";
+        $viewData["review"] = $review;
+
+        return view('review.show')->with("viewData", $viewData);
     }
 
     public function create(): View
