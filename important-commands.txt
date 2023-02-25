@@ -1,0 +1,4 @@
+./artisan make:migration <migration_name>
+./artisan migrate
+./artisan make:model <ClassName>
+./artisan db:seed
