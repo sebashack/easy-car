@@ -12,9 +12,13 @@ class ReviewController extends Controller
     {
         $viewData = [];
         $viewData['title'] = 'Reviews - EasyCar';
-        # $viewData['reviews'] = Review::all();;
+        $viewData['reviews'] = Review::all();;
 
         return view('review.index')->with('viewData', $viewData);
+    }
+
+    public function show(): View
+    {
     }
 
     public function create(): View
