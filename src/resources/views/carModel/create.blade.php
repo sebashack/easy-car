@@ -7,6 +7,13 @@
       <div class="card">
         <div class="card-header">Add Car Model</div>
           <div class="card-body">
+            @if($errors->any())
+            <ul id="errors" class="alert alert-danger list-unstyled">
+              @foreach($errors->all() as $error)
+              <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+            @endif
             <form method="POST" action="{{ route('carModel.save') }}">
               @csrf
               <input type="text" class="form-control mb-2" placeholder="Enter brand" name="brand" value="{{ old('brand') }}" />
