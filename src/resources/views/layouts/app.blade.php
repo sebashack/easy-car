@@ -22,6 +22,8 @@
           <a class="nav-link active" href="{{ route('review.index') }}">Reviews</a>
           <a class="nav-link active" href="{{ route('review.create') }}">Create Review</a>
           <a class="nav-link active" href="{{ route('car.index') }}">Car</a>
+          <a class="nav-link active" href="{{ route('car.index') }}">Cars</a>
+          <a class="nav-link active" href="{{ route('car.create') }}">Create Car</a>
         </div>
       </div>
     </div>
