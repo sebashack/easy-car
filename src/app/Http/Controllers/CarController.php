@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\View\View;
+use App\Models\Car;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Models\Car;
+use Illuminate\View\View;
 
 class CarController extends Controller
 {
@@ -39,8 +39,8 @@ class CarController extends Controller
     public function save(Request $request): RedirectResponse
     {
         $request->validate([
-            'color'=>'required',
-            'kilometers'=>'required',
+            'color' => 'required',
+            'kilometers' => 'required',
             'price' => 'required',
         ]);
         // dd($request->all());
@@ -49,7 +49,7 @@ class CarController extends Controller
             'kilometers' => $request->kilometers,
             'price' => $request->price,
             'isNew' => $request->isNew === 'on',
-            'isAvailable' => $request->isAvailable === 'on'
+            'isAvailable' => $request->isAvailable === 'on',
         ]);
 
         return back()->with('status', 'Successfully created');
@@ -62,10 +62,10 @@ class CarController extends Controller
     {
         $viewData = [];
         $car = Car::findOrFail($id);
-        $viewData["title"] = "Car";
-        $viewData["car"] = $car;
+        $viewData['title'] = 'Car';
+        $viewData['car'] = $car;
 
-        return view('car.show')->with("viewData", $viewData);
+        return view('car.show')->with('viewData', $viewData);
     }
 
     /**
@@ -90,6 +90,7 @@ class CarController extends Controller
     public function delete(string $id): RedirectResponse
     {
         Car::destroy($id);
+
         return redirect('cars');
     }
 }

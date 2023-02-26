@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
             $table->string('color');
-            $table->floatval('kilometers');
-            $table->doubleval('price');
-            $table->boolval('isNew');
-            $table->boolval('isAvailable');
+            $table->double('kilometers', 8, 2);
+            $table->double('price', 20, 2);
+            $table->boolean('isNew');
+            $table->boolean('isAvailable');
             $table->timestamps();
         });
     }

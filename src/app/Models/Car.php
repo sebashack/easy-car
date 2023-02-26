@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Car extends Model
 {
-
     /**
      * REVIEW ATTRIBUTES
      * $this->attributes['id'] - int - contains the review primary key (id)
@@ -17,8 +16,7 @@ class Car extends Model
      * $this->attributes['isNew'] - bool - contains a boolean indicating if car is new
      * $this->attributes['isAvailable'] - bool - contains a boolean indicating if car is available
      * $this->attributes['isAvailable'] - bool - contains a boolean indicating if car is available
-    */
-
+     */
     use HasFactory;
 
     protected $fillable = ['color', 'kilometers', 'price', 'isNew', 'isAvailable'];
@@ -33,7 +31,7 @@ class Car extends Model
         return $this->attributes['color'];
     }
 
-    public function setColor($color) : void
+    public function setColor($color): void
     {
         $this->attributes['color'] = $color;
     }
@@ -43,7 +41,7 @@ class Car extends Model
         return $this->attributes['kilometers'];
     }
 
-    public function setKilometers($kilometers) : void
+    public function setKilometers($kilometers): void
     {
         $this->attributes['kilometers'] = $kilometers;
     }
@@ -68,7 +66,7 @@ class Car extends Model
         $this->attributes['isNew'] = $isNew;
     }
 
-    public function getIsAvailable(): bool 
+    public function getIsAvailable(): bool
     {
         return $this->attributes['isAvailable'];
     }
