@@ -38,13 +38,13 @@ class CarController extends Controller
      */
     public function save(Request $request): RedirectResponse
     {
-        // $request->validate([
-        //     'color'=>'required',
-        //     'kilometers'=>'required',
-        //     'price' => 'required',
-        //     'isNew' => 'required',
-        //     'isAvailable' => 'required'
-        // ]);
+        $request->validate([
+            'color'=>'required',
+            'kilometers'=>'required',
+            'price' => 'required',
+            'isNew' => 'required',
+            'isAvailable' => 'required'
+        ]);
         // dd($request->all());
         Car::create([
             'color' => $request->color,
