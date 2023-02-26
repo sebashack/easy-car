@@ -11,7 +11,7 @@
               @csrf
               <input type="text" class="form-control mb-2" placeholder="Enter brand" name="brand" value="{{ old('brand') }}" />
               <input type="text" class="form-control mb-2" placeholder="Enter model" name="model" value="{{ old('model') }}" />
-              <inout type="text" class="form-control mb-2" placeholder="Enter description" name="description" value="{{ old('description') }}" />
+              <input type="text" class="form-control mb-2" placeholder="Enter description" name="description" value="{{ old('description') }}" />
               <input type="submit" class="btn btn-primary" value="Send" />
             </form>
           </div>
@@ -20,5 +20,4 @@
     </div>
   </div>
 </div>
-@endsection
 @endsection
