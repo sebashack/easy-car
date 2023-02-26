@@ -69,22 +69,6 @@ class CarController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id): Response
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id): RedirectResponse
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      */
     public function delete(string $id): RedirectResponse
