@@ -40,8 +40,8 @@ class CarController extends Controller
     {
         $request->validate([
             'color' => 'required',
-            'kilometers' => 'required',
-            'price' => 'required',
+            'kilometers' => 'required | min: 0 | lt: 320000',
+            'price' => 'required | min:1 ',
         ]);
         // dd($request->all());
         Car::create([

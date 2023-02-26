@@ -14,16 +14,16 @@
 
         <p>
         @if ($viewData['car']['price'] ) 
-        Nuevo
+        New model
         @else 
-        Usado
+        Used car
         @endif   
         </p>
         <p>
         @if ($viewData['car']['price']) 
-        Disponible
+        Available
         @else 
-        No Disponible
+        No available
         @endif   
         </p>
 
