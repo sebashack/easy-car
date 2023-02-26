@@ -48,9 +48,15 @@ class CarModelController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id): Response
+    public function show(string $id): View
     {
-        //
+        $viewData = [];
+        $carModel = CarModel::findOrFail($id);
+        $viewData['title'] = "Car Model Info - Easy Car";
+        $viewData['id'] = $carModel->getId();
+        $viewData['carModel'] = $carModel;
+
+        return view('carModel.show')->with('viewData',$viewData);
     }
 
     /**
