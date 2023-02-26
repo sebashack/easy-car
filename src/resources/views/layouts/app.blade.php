@@ -26,6 +26,8 @@
           <a class="nav-link active" href="{{ route('car.create') }}">Create Car</a>
           <a class="nav-link active" href="{{ route('carModel.index') }}">Car models</a>
           <a class="nav-link active" href="{{ route('carModel.create') }}">Add car model</a>
+          <a class="nav-link active" href="{{ route('publishRequest.index') }}">PublishRequests</a>
+          <a class="nav-link active" href="{{ route('publishRequest.create') }}">Create PublishRequest</a>
         </div>
       </div>
     </div>

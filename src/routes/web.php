@@ -34,3 +34,13 @@ Route::get('/car-model/create', 'App\Http\Controllers\CarModelController@create'
 Route::get('/car-model/{id}', 'App\Http\Controllers\CarModelController@show')->name('carModel.show');
 Route::post('/car-model/save', 'App\Http\Controllers\CarModelController@save')->name('carModel.save');
 Route::delete('/car-model/delete/{id}', 'App\Http\Controllers\CarModelController@delete')->name('carModel.delete');
+Route::get('/publishRequest', 'App\Http\Controllers\PublishRequestController@index')->name("publishRequest.index");
+
+Route::get('/publishRequest/create', 'App\Http\Controllers\PublishRequestController@create')->name("publishRequest.create");
+
+Route::get('/publishRequest/saving', 'App\Http\Controllers\PublishRequestController@saving')->name("publishRequest.saving");
+
+Route::get('/publishRequest/{id}', 'App\Http\Controllers\PublishRequestController@show')->name("publishRequest.show");
+
+Route::get('/publishRequest/delete', 'App\Http\Controllers\PublishRequestController@delete')->name("publishRequest.delete");
+
