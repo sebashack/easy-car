@@ -42,8 +42,6 @@ class CarController extends Controller
             'color'=>'required',
             'kilometers'=>'required',
             'price' => 'required',
-            'isNew' => 'required',
-            'isAvailable' => 'required'
         ]);
         // dd($request->all());
         Car::create([
@@ -54,7 +52,7 @@ class CarController extends Controller
             'isAvailable' => $request->isAvailable === 'on'
         ]);
 
-        return back();
+        return back()->with('status', 'Successfully created');
     }
 
     /**
@@ -89,8 +87,9 @@ class CarController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id): RedirectResponse
+    public function delete(string $id): RedirectResponse
     {
-        //
+        Car::destroy($id);
+        return redirect('cars');
     }
 }

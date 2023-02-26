@@ -26,6 +26,13 @@
         No Disponible
         @endif   
         </p>
+
+
+        <form action="{{ route('car.delete', ['id'=> $viewData['car']['id']]) }}" method="post">
+          <input class="btn bg-primary text-white" type="submit" value="Delete" />
+          @csrf
+          @method('delete')
+        </form  >
       </div>
     </div>
   </div>
