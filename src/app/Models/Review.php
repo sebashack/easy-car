@@ -12,10 +12,10 @@ class Review extends Model
      * $this->attributes['id'] - int - contains the review primary key (id)
      * $this->attributes['content'] - string - contains the review's text content
      * $this->attributes['rating'] - int - contains the car model's numeric rating (from 1 to 5)
-    */
+     */
     use HasFactory;
 
-    protected $fillable = ['content','rating'];
+    protected $fillable = ['content', 'rating'];
 
     public function getId(): int
     {
@@ -27,7 +27,7 @@ class Review extends Model
         return $this->attributes['content'];
     }
 
-    public function setContet($content) : void
+    public function setContet($content): void
     {
         $this->attributes['content'] = $content;
     }
@@ -37,7 +37,7 @@ class Review extends Model
         return $this->attributes['rating'];
     }
 
-    public function setRating($rating) : void
+    public function setRating($rating): void
     {
         $this->attributes['rating'] = $rating;
     }

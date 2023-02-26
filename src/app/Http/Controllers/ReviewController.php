@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\View\View;
-use Illuminate\Http\Request;
 use App\Models\Review;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ReviewController extends Controller
 {
@@ -12,7 +12,7 @@ class ReviewController extends Controller
     {
         $viewData = [];
         $viewData['title'] = 'Reviews - EasyCar';
-        $viewData['reviews'] = Review::all();;
+        $viewData['reviews'] = Review::all();
 
         return view('review.index')->with('viewData', $viewData);
     }
@@ -21,10 +21,10 @@ class ReviewController extends Controller
     {
         $viewData = [];
         $review = Review::findOrFail($id);
-        $viewData["title"] = "User Review";
-        $viewData["review"] = $review;
+        $viewData['title'] = 'User Review';
+        $viewData['review'] = $review;
 
-        return view('review.show')->with("viewData", $viewData);
+        return view('review.show')->with('viewData', $viewData);
     }
 
     public function create(): View
@@ -42,7 +42,7 @@ class ReviewController extends Controller
             'rating' => 'required|gte:1|lte:5',
         ]);
 
-        Review::create($request->only(["content","rating"]));
+        Review::create($request->only(['content', 'rating']));
 
         return back()->with('status', 'successfully created');
     }
