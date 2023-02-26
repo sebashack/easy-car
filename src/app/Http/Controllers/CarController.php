@@ -17,6 +17,7 @@ class CarController extends Controller
     {
         $viewData = [];
         $viewData['title'] = 'Cars - EasyCar';
+        $viewData['cars'] = Car::all();
 
         return view('car.index')->with('viewData', $viewData);
     }
