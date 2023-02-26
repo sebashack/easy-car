@@ -14,6 +14,11 @@
               @endforeach
             </ul>
             @endif
+            @if (session('status'))
+            <div class="alert alert-success">
+              {{ session('status') }}
+            </div>
+            @endif
             <form method="POST" action="{{ route('carModel.save') }}">
               @csrf
               <input type="text" class="form-control mb-2" placeholder="Enter brand" name="brand" value="{{ old('brand') }}" />
