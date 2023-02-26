@@ -69,6 +69,6 @@ class CarModelController extends Controller
     {
         CarModel::destroy($id);
 
-        return redirect('carModel');
+        return redirect('car-model');
     }
 }
