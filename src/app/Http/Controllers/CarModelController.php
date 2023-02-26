@@ -37,9 +37,9 @@ class CarModelController extends Controller
     public function save(Request $request): RedirectResponse
     {
         $request->validate([
-            'model'=>'required',
-            'brand'=>'required',
-            'description'=>'required'
+            'model'=>'required|min:10|max:20',
+            'brand'=>'required|min:10|max:20',
+            'description'=>'required|min:10|max:670'
         ]);
         CarModel::create($request->only(["brand","model","description"]));
         return back();
