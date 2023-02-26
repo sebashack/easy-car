@@ -31,4 +31,4 @@ Route::post('/cars/save', 'App\Http\Controllers\CarController@save')->name('car.
 Route::delete('/cars/delete/{id}', 'App\Http\Controllers\CarController@delete')->name('car.delete');
 Route::get('/carModel', 'App\Http\Controllers\CarModelController@index')->name('carModel.index');
 Route::get('/carModel/create', 'App\Http\Controllers\CarModelController@create')->name('carModel.create');
-Route::post('/carModel/save', 'App\Http\Controllers\CarModelController@create')->name('carModel.save');
+Route::post('/carModel/save', 'App\Http\Controllers\CarModelController@save')->name('carModel.save');
