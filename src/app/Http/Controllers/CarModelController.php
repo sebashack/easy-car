@@ -24,15 +24,17 @@ class CarModelController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): Response
+    public function create(): View
     {
-        //
+        $viewData = [];
+        $viewData['title'] = 'Car Models - EasyCar';
+        return view('carModel.create')->with('viewData',$viewData);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function save(Request $request): RedirectResponse
     {
         $request->validate([
             'model'=>'required',
