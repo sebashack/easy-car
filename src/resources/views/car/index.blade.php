@@ -8,24 +8,9 @@
     <div class="col-md-4 col-lg-3 mb-2">
     <div class="card">
       <div class="card-body text-center">
-        <p>Color: {{ $car["color"] }}</p>
-        <p>Price: ${{ $car["price"] }} </p>
-        <p>Kilometers: {{ $car["price"] }} km </p>
-
-        <p>
-        @if ($car["isNew"] ) 
-        Nuevo
-        @else 
-        Usado
-        @endif   
-        </p>
-        <p>
-        @if ($car["isAvailable"] ) 
-        Disponible
-        @else 
-        No Disponible
-        @endif   
-        </p>
+        <p>ID: {{ $car["id"] }}</p>
+        <p>Color: {{ $car["color"] }} </p>
+        <a href="{{ route('car.show', ['id'=> $car['id']]) }}" class="btn bg-primary text-white">Check Car</a>
       </div>
     </div>
   </div>
