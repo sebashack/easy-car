@@ -10,13 +10,11 @@ class PublishRequest extends Model
     use HasFactory;
 
     /**
-    * PRODUCT ATTRIBUTES
-    * $this->attributes['id'] - int - contains the product primary key (id)
-    * $this->attributes['message'] - string - contains the request message
-    * $this->attributes['state'] - enum[Pending, Accepted, Rejected] - contains the request state
-    */
-
-
+     * PRODUCT ATTRIBUTES
+     * $this->attributes['id'] - int - contains the product primary key (id)
+     * $this->attributes['message'] - string - contains the request message
+     * $this->attributes['state'] - enum[Pending, Accepted, Rejected] - contains the request state
+     */
     protected $fillable = ['message', 'state'];
 
     public function getId(): int
@@ -34,7 +32,7 @@ class PublishRequest extends Model
         $this->attributes['message'] = $content;
     }
 
-    public function getState(): String
+    public function getState(): string
     {
         return $this->attributes['state'];
     }

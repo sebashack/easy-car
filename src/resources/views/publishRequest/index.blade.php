@@ -9,8 +9,8 @@
     <div class="card">
       <div class="card-body text-center">
         <h4>Id: {{ $publishRequest['id'] }}</h4>
-        <p>State: {{ $publishRequest['state'] }}</p>
-        <a href="{{ route('publishRequest.show', ['id'=> $publishRequest["id"]]) }}" class="btn bg-primary text-white">See PublishRequest</a>
+        <p>State: {{ $publishRequest['message'] }}</p>
+        <a href="{{ route('publishRequest.show', ['id'=> $publishRequest["id"]]) }}" class="btn bg-primary text-white">See More</a>
       </div>
     </div>
   </div>

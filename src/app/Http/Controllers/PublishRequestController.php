@@ -1,11 +1,11 @@
 <?php
- 
+
 namespace App\Http\Controllers;
 
+use App\Models\PublishRequest;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use App\Models\PublishRequest;
- 
+
 class PublishRequestController extends Controller
 {
     public function index(): View
