@@ -78,8 +78,9 @@ class CarModelController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id): RedirectResponse
+    public function delete(string $id): RedirectResponse
     {
-        //
+        CarModel::destroy($id);
+        return redirect('carModel');
     }
 }
