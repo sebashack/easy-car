@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CarModel;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Models\CarModel;
 use Illuminate\View\View;
 
 class CarModelController extends Controller
@@ -18,7 +18,8 @@ class CarModelController extends Controller
         $viewData = [];
         $viewData['title'] = 'Car Models - EasyCar';
         $viewData['carModels'] = CarModel::all();
-        return view('carModel.index')->with('viewData',$viewData);
+
+        return view('carModel.index')->with('viewData', $viewData);
     }
 
     /**
@@ -28,7 +29,8 @@ class CarModelController extends Controller
     {
         $viewData = [];
         $viewData['title'] = 'Car Models - EasyCar';
-        return view('carModel.create')->with('viewData',$viewData);
+
+        return view('carModel.create')->with('viewData', $viewData);
     }
 
     /**
@@ -37,12 +39,13 @@ class CarModelController extends Controller
     public function save(Request $request): RedirectResponse
     {
         $request->validate([
-            'model'=>'required|min:1|max:20',
-            'brand'=>'required|min:1|max:20',
-            'description'=>'required|min:3|max:670'
+            'model' => 'required|min:1|max:20',
+            'brand' => 'required|min:1|max:20',
+            'description' => 'required|min:3|max:670',
         ]);
-        CarModel::create($request->only(["brand","model","description"]));
-        return back()->with('status','successfully created');
+        CarModel::create($request->only(['brand', 'model', 'description']));
+
+        return back()->with('status', 'successfully created');
     }
 
     /**
@@ -52,11 +55,11 @@ class CarModelController extends Controller
     {
         $viewData = [];
         $carModel = CarModel::findOrFail($id);
-        $viewData['title'] = "Car Model Info - Easy Car";
+        $viewData['title'] = 'Car Model Info - Easy Car';
         $viewData['id'] = $carModel->getId();
         $viewData['carModel'] = $carModel;
 
-        return view('carModel.show')->with('viewData',$viewData);
+        return view('carModel.show')->with('viewData', $viewData);
     }
 
     /**
@@ -81,6 +84,7 @@ class CarModelController extends Controller
     public function delete(string $id): RedirectResponse
     {
         CarModel::destroy($id);
+
         return redirect('carModel');
     }
 }
