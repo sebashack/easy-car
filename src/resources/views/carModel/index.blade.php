@@ -12,6 +12,7 @@
         <p>Brand: {{ $carModel["brand"] }}</p>
         <p>Model: {{ $carModel["model"] }}</p>
         <p>Description: {{ $carModel["description"] }}</p>
+        <a href="{{ route('carModel.show', ['id'=> $carModel['id']]) }} class="btn bg-primary text-white">Check car model</a>
       </div>
     </div>
   </div>
