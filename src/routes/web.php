@@ -24,3 +24,6 @@ Route::get('/reviews/{id}', 'App\Http\Controllers\ReviewController@show')->name(
 Route::post('/reviews/save', 'App\Http\Controllers\ReviewController@save')->name('review.save');
 
 Route::delete('/reviews/delete/{id}', 'App\Http\Controllers\ReviewController@delete')->name('review.delete');
+Route::get('/cars', 'App\Http\Controllers\CarController@index')->name('car.index');
+Route::get('/cars/create', 'App\Http\Controllers\CarController@create')->name('car.create');
+Route::post('/cars/save', 'App\Http\Controllers\CarController@save')->name('car.save');
