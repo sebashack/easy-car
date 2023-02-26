@@ -42,7 +42,7 @@ class CarModelController extends Controller
             'description'=>'required|min:3|max:670'
         ]);
         CarModel::create($request->only(["brand","model","description"]));
-        return back();
+        return back()->with('status','successfully created');
     }
 
     /**
