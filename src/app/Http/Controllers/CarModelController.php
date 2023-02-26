@@ -61,23 +61,7 @@ class CarModelController extends Controller
 
         return view('carModel.show')->with('viewData', $viewData);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id): Response
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id): RedirectResponse
-    {
-        //
-    }
-
+    
     /**
      * Remove the specified resource from storage.
      */
