@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('publish_requests', function (Blueprint $table) {
             $table->id();
             $table->string('message');
-            $table->enum('state', ['Pending', 'Accepted', 'Rejected']);
+            $table->enum('state', ['pending', 'accepted', 'rejected']);
             $table->timestamps();
         });
     }
