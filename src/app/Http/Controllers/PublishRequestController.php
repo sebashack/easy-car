@@ -51,6 +51,6 @@ class PublishRequestController extends Controller
     {
         PublishRequest::destroy($id);
 
-        return redirect('publishRequest');
+        return redirect('publish-request');
     }
 }
