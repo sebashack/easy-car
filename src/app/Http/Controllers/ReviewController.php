@@ -38,11 +38,7 @@ class ReviewController extends Controller
 
     public function save(Request $request): RedirectResponse
     {
-        $request->validate([
-            'content' => 'required|min:3|max:650',
-            'rating' => 'required|gte:1|lte:5',
-        ]);
-
+        Review::validate($request);
         Review::create($request->only(['content', 'rating']));
 
         return back()->with('status', 'successfully created');
