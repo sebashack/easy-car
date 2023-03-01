@@ -8,9 +8,9 @@
     <div class="col-md-4 col-lg-3 mb-2">
     <div class="card">
       <div class="card-body text-center">
-        <h4>Id: {{ $review['id'] }}</h4>
-        <p>Rating: {{ $review['rating'] }} / 5</p>
-        <a href="{{ route('review.show', ['id'=> $review["id"]]) }}" class="btn bg-primary text-white">Check review</a>
+        <h4>Id: {{ $review->getId() }}</h4>
+        <p>Rating: {{ $review->getRating() }} / 5</p>
+        <a href="{{ route('review.show', ['id'=> $review->getId()]) }}" class="btn bg-primary text-white">Check review</a>
       </div>
     </div>
   </div>
