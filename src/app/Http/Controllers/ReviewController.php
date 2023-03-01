@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use \Illuminate\Http\RedirectResponse;
 
 class ReviewController extends Controller
 {
@@ -35,7 +36,7 @@ class ReviewController extends Controller
         return view('review.create')->with('viewData', $viewData);
     }
 
-    public function save(Request $request): \Illuminate\Http\RedirectResponse
+    public function save(Request $request): RedirectResponse
     {
         $request->validate([
             'content' => 'required|min:3|max:650',
@@ -47,7 +48,7 @@ class ReviewController extends Controller
         return back()->with('status', 'successfully created');
     }
 
-    public function delete(string $id): \Illuminate\Http\RedirectResponse
+    public function delete(string $id): RedirectResponse
     {
         Review::destroy($id);
 
