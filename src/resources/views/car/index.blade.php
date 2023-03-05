@@ -8,9 +8,9 @@
     <div class="col-md-4 col-lg-3 mb-2">
     <div class="card">
       <div class="card-body text-center">
-        <p>ID: {{ $car["id"] }}</p>
-        <p>Color: {{ $car["color"] }} </p>
-        <a href="{{ route('car.show', ['id'=> $car['id']]) }}" class="btn bg-primary text-white">Check Car</a>
+        <p>ID: {{ $car->getId() }}</p>
+        <p>Color: {{ $car->getColor() }} </p>
+        <a href="{{ route('car.show', ['id'=> $car->getId()]) }}" class="btn bg-primary text-white">Check Car</a>
       </div>
     </div>
   </div>
