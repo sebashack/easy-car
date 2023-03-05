@@ -60,5 +60,3 @@ Route::post('/publish-request/save', 'App\Http\Controllers\PublishRequestControl
 Route::delete('/publish-request/delete/{id}', 'App\Http\Controllers\PublishRequestController@delete')->name('publishRequest.delete');
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
