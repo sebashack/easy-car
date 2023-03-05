@@ -12,7 +12,7 @@
         <p>Brand: {{ $carModel->getBrand() }}</p>
         <p>Model: {{ $carModel->getModel() }}</p>
         <p>Description: {{ $carModel->getDescription() }}</p>
-        <a href="{{ route('carModel.show', ['id'=> $carModel->getId() }} class="btn bg-primary text-white">Check car model</a>
+        <a href="{{ route('carModel.show', ['id'=> $carModel->getId()]) }}" class="btn bg-primary text-white">Check car model</a>
       </div>
     </div>
   </div>
