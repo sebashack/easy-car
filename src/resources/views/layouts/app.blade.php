@@ -19,15 +19,6 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ms-auto">
           <a class="nav-link active" href="{{ route('home.index') }}">Home</a>
-          <a class="nav-link active" href="{{ route('review.index') }}">Reviews</a>
-          <a class="nav-link active" href="{{ route('review.create') }}">Create Review</a>
-          <a class="nav-link active" href="{{ route('car.index') }}">Car</a>
-          <a class="nav-link active" href="{{ route('car.index') }}">Cars</a>
-          <a class="nav-link active" href="{{ route('car.create') }}">Create Car</a>
-          <a class="nav-link active" href="{{ route('carModel.index') }}">Car models</a>
-          <a class="nav-link active" href="{{ route('carModel.create') }}">Add car model</a>
-          <a class="nav-link active" href="{{ route('publishRequest.index') }}">PublishRequests</a>
-          <a class="nav-link active" href="{{ route('publishRequest.create') }}">Create PublishRequest</a>
         </div>
       </div>
     </div>
