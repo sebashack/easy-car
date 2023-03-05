@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class PublishRequest extends Model
 {
@@ -40,5 +41,13 @@ class PublishRequest extends Model
     public function setState($state): void
     {
         $this->attributes['state'] = $state;
+    }
+
+    public static function validate(Request $request): void
+    {
+        $request->validate([
+            'message' => 'required|max: 250',
+            'state' => 'required|in:pending,accepted,rejected',
+        ]);
     }
 }

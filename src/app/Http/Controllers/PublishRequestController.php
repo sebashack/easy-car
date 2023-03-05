@@ -37,11 +37,7 @@ class PublishRequestController extends Controller
 
     public function save(Request $request): \Illuminate\Http\RedirectResponse
     {
-        $request->validate([
-            'message' => 'required|max: 250',
-            'state' => 'required|in:pending,accepted,rejected',
-        ]);
-
+        PublishRequest::validate($request);
         PublishRequest::create($request->only(['message', 'state']));
 
         return back()->with('status', 'successfully created');
