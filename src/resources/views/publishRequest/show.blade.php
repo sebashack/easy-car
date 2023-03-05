@@ -6,15 +6,15 @@
     <div class="col-md-8">
       <div class="card-body">
       <h5 class="card-title">
-           Id: {{ $viewData['publishRequest']['id'] }}
+           Id: {{ $viewData['publishRequest']->getId() }}
         </h5>
         <h5 class="card-title">
-           State: {{ $viewData['publishRequest']['state'] }}
+           State: {{ $viewData['publishRequest']->getState() }}
         </h5>
         <h5 class="card-title">
-           Message: {{ $viewData['publishRequest']['message'] }}
+           Message: {{ $viewData['publishRequest']->getMessage() }}
         </h5>
-        <form action="{{ route('publishRequest.delete', ['id'=> $viewData['publishRequest']['id']]) }}" method="post">
+        <form action="{{ route('publishRequest.delete', ['id'=> $viewData['publishRequest']->getId()]) }}" method="post">
           <input class="btn bg-primary text-white" type="submit" value="Delete" />
           @csrf
           @method('delete')
