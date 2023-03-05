@@ -30,7 +30,7 @@ class PublishRequest extends Model
 
     public function setMessage($message): void
     {
-        $this->attributes['message'] = $content;
+        $this->attributes['message'] = $message;
     }
 
     public function getState(): string
