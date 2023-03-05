@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 
+
 class CarModelController extends Controller
 {
     /**
@@ -38,11 +39,7 @@ class CarModelController extends Controller
      */
     public function save(Request $request): RedirectResponse
     {
-        $request->validate([
-            'model' => 'required|min:1|max:20',
-            'brand' => 'required|min:1|max:20',
-            'description' => 'required|min:3|max:670',
-        ]);
+        CarModel::validate($request);
         CarModel::create($request->only(['brand', 'model', 'description']));
 
         return back()->with('status', 'successfully created');

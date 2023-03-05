@@ -14,7 +14,6 @@ class CarModel extends Model
      * $this->attributes['model'] - string - contains the car model
      * $this->attributes['description'] - string - contains the car description
     */
-    use HasFactory;
 
     protected $fillable = ['brand', 'model', 'description'];
 
@@ -28,7 +27,7 @@ class CarModel extends Model
         return $this->attributes['brand'];
     }
 
-    public function setBrand($brand): void
+    public function setBrand(string $brand): void
     {
         $this->attributes['brand'] = $brand;
     }
@@ -38,7 +37,7 @@ class CarModel extends Model
         return $this->attributes['model'];
     }
 
-    public function setModel($model): void
+    public function setModel(string $model): void
     {
         $this->attributes['model'] = $model;
     }
@@ -48,8 +47,17 @@ class CarModel extends Model
         return $this->attributes['description'];
     }
 
-    public function setDescription($description): void
+    public function setDescription(string $description): void
     {
         $this->attributes['description'] = $description;
+    }
+
+    public static function validate(Request $request): void 
+    {
+        $request->validate([
+            'model' => 'required|min:1|max:20',
+            'brand' => 'required|min:1|max:20',
+            'description' => 'required|min:3|max:670',
+        ]);
     }
 }
