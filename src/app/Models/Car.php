@@ -29,9 +29,9 @@ class Car extends Model
             'color' => 'required',
             'kilometers' => 'required | min: 0 | lt: 320000',
             'price' => 'required | gte:1 ',
-        ]); 
+        ]);
     }
-    
+
     public function getId(): int
     {
         return $this->attributes['id'];

@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
@@ -14,8 +13,7 @@ class CarModel extends Model
      * $this->attributes['brand'] - string - contains the car brand
      * $this->attributes['model'] - string - contains the car model
      * $this->attributes['description'] - string - contains the car description
-    */
-
+     */
     protected $fillable = ['brand', 'model', 'description'];
 
     public function getId(): int
@@ -53,7 +51,7 @@ class CarModel extends Model
         $this->attributes['description'] = $description;
     }
 
-    public static function validate(Request $request): void 
+    public static function validate(Request $request): void
     {
         $request->validate([
             'model' => 'required|min:1|max:20',

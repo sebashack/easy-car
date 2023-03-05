@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\CarModel;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Response;
-use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class CarModelController extends Controller
 {
@@ -57,7 +56,7 @@ class CarModelController extends Controller
 
         return view('carModel.show')->with('viewData', $viewData);
     }
-    
+
     /**
      * Remove the specified resource from storage.
      */
