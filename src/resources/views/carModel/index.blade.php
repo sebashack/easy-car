@@ -9,10 +9,10 @@
     <div class="col-md-4 col-lg-3 mb-2">
     <div class="card">
       <div class="card-body text-center">
-        <p>Brand: {{ $carModel["brand"] }}</p>
-        <p>Model: {{ $carModel["model"] }}</p>
-        <p>Description: {{ $carModel["description"] }}</p>
-        <a href="{{ route('carModel.show', ['id'=> $carModel['id']]) }} class="btn bg-primary text-white">Check car model</a>
+        <p>Brand: {{ $carModel->getBrand() }}</p>
+        <p>Model: {{ $carModel->getModel() }}</p>
+        <p>Description: {{ $carModel->getDescription() }}</p>
+        <a href="{{ route('carModel.show', ['id'=> $carModel->getId() }} class="btn bg-primary text-white">Check car model</a>
       </div>
     </div>
   </div>

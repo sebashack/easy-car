@@ -8,11 +8,11 @@
         <h5 class="card-title">
            Car Model: {{$viewData['id']}}
         </h5>
-        <p class="card-text">Brand: {{ $viewData['carModel']['brand'] }}</p>
-        <p class="card-text">Model: {{ $viewData['carModel']['model'] }}</p>
-        <p class="card-text">Description: {{ $viewData['carModel']['description'] }}</p>
+        <p class="card-text">Brand: {{ $viewData['carModel']->getBrand() }}</p>
+        <p class="card-text">Model: {{ $viewData['carModel']->getModel() }}</p>
+        <p class="card-text">Description: {{ $viewData['carModel']->getDescription() }}</p>
 
-        <form action="{{ route('carModel.delete', ['id'=> $viewData['carModel']['id']]) }}" method="post">
+        <form action="{{ route('carModel.delete', ['id'=> $viewData['carModel']->getId()]) }}" method="post">
           <input class="btn bg-primary text-white" type="submit" value="Delete" />
           @csrf
           @method('delete')
