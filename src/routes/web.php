@@ -26,6 +26,6 @@ Route::post('/reviews/save', 'App\Http\Controllers\ReviewController@save')->name
 Route::delete('/reviews/delete/{id}', 'App\Http\Controllers\ReviewController@delete')->name('review.delete');
 Route::get('/cars', 'App\Http\Controllers\CarController@index')->name('car.index');
 Route::get('/cars/create', 'App\Http\Controllers\CarController@create')->name('car.create');
-Route::get('/cars/{id}', 'App\Http\Controllers\CarController@show')->name('car.show');
+Route::get('/cars/{id}', 'App\Http\Controllers\CarController@show')->name('car.show')->where(['id' => '[0-9]+']);
 Route::post('/cars/save', 'App\Http\Controllers\CarController@save')->name('car.save');
-Route::delete('/cars/delete/{id}', 'App\Http\Controllers\CarController@delete')->name('car.delete');
+Route::delete('/cars/delete/{id}', 'App\Http\Controllers\CarController@delete')->name('car.delete')->where(['id' => '[0-9]+']);;
