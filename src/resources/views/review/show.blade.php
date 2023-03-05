@@ -6,7 +6,7 @@
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">
-           Rating: {{ $viewData['review']['rating'] }} / 5
+           Rating: {{ $viewData['review']->getRating() }} / 5
         </h5>
         <p> {{ $viewData['review']->getContent() }} </p>
         <form action="{{ route('review.delete', ['id'=> $viewData['review']->getId()]) }}" method="post">
