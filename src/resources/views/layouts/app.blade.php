@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
   <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
-  <title>EasyCar</title>
+  <title>@yield('title', 'EasyCar')</title>
 </head>
 <body>
   <!-- header -->
@@ -19,6 +19,8 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ms-auto">
           <a class="nav-link active" href="{{ route('home.index') }}">Home</a>
+          <a class="nav-link active" href="{{ route('review.index') }}">Reviews</a>
+          <a class="nav-link active" href="{{ route('review.create') }}">Create Review</a>
         </div>
       </div>
     </div>

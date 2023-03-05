@@ -2,3 +2,4 @@
 ./artisan migrate
 ./artisan make:model <ClassName>
 ./artisan db:seed
+./artisan ui bootstrap --auth
