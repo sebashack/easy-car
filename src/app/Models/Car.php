@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Car extends Model
 {
@@ -21,6 +22,16 @@ class Car extends Model
 
     protected $fillable = ['color', 'kilometers', 'price', 'isNew', 'isAvailable'];
 
+    // Validators
+    public static function validate(Request $request): void
+    {
+        $request->validate([
+            'color' => 'required',
+            'kilometers' => 'required | min: 0 | lt: 320000',
+            'price' => 'required | gte:1 ',
+        ]); 
+    }
+    
     public function getId(): int
     {
         return $this->attributes['id'];

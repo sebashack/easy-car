@@ -38,11 +38,7 @@ class CarController extends Controller
      */
     public function save(Request $request): RedirectResponse
     {
-        $request->validate([
-            'color' => 'required',
-            'kilometers' => 'required | min: 0 | lt: 320000',
-            'price' => 'required | min:1 ',
-        ]);
+        Car::validate($request);
         // dd($request->all());
         Car::create([
             'color' => $request->color,
