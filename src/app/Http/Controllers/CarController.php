@@ -6,6 +6,7 @@ use App\Models\Car;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use App\Interfaces\ImageStorage;
 
 class CarController extends Controller
 {
@@ -39,12 +40,18 @@ class CarController extends Controller
     {
         Car::validate($request);
         // dd($request->all());
+        $storeInterface = app(ImageStorage::class);
+        $imageName = $storeInterface->store($request);
         Car::create([
             'color' => $request->color,
             'kilometers' => $request->kilometers,
             'price' => $request->price,
-            'isNew' => $request->isNew === 'on',
-            'isAvailable' => $request->isAvailable === 'on',
+            'is_new' => $request->is_new === 'on',
+            'is_available' => $request->is_available === 'on',
+            'image_uri' => $imageName,
+            'transmission_type' => $request->transmission_type,
+            'type' => $request->type,
+            'manufacture_date' => $request->manufacture_date,
         ]);
 
         return back()->with('status', 'Successfully created');
