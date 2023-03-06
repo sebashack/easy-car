@@ -88,6 +88,7 @@ class Car extends Model
 
     public function setIsAvailable($is_available): void
     {
+<<<<<<< HEAD
         $this->attributes['is_available'] = $is_available;
     }
 
@@ -129,5 +130,8 @@ class Car extends Model
     public function setManufactureDate($manufacture_date): void
     {
         $this->attributes['manufacture_date'] = $manufacture_date;
+=======
+        $this->attributes['is_available'] = $isAvailable;
+>>>>>>> 4b99f60 (Adding new columns in the fillable array)
     }
 }
