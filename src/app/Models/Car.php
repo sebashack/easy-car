@@ -20,7 +20,7 @@ class Car extends Model
      */
     use HasFactory;
 
-    protected $fillable = ['color', 'kilometers', 'price', 'isNew', 'isAvailable'];
+    protected $fillable = ['color', 'kilometers', 'price', 'is_new', 'is_available', 'transmission_type', 'type', 'manufacture_date', 'image_uri'];
 
     // Validators
     public static function validate(Request $request): void
@@ -69,21 +69,21 @@ class Car extends Model
 
     public function getIsNew(): bool
     {
-        return $this->attributes['isNew'];
+        return $this->attributes['is_new'];
     }
 
     public function setIsNew($isNew): void
     {
-        $this->attributes['isNew'] = $isNew;
+        $this->attributes['is_new'] = $isNew;
     }
 
     public function getIsAvailable(): bool
     {
-        return $this->attributes['isAvailable'];
+        return $this->attributes['is_available'];
     }
 
     public function setIsAvailable($isAvailable): void
     {
-        $this->attributes['isAvailable'] = $isAvailable;
+        $this->attributes['is_available'] = $isAvailable;
     }
 }
