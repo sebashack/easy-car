@@ -19,6 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'last_name',
         'email',
         'password',
     ];
@@ -41,4 +42,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getName(): string
+    {
+        return $this->attributes['name'];
+    }
+
+    public function setName($name): void
+    {
+        $this->attributes['name'] = $name;
+    }
+
+    public function getLastName(): string
+    {
+        return $this->attributes['last_name'];
+    }
+
+    public function setLastName($lastName): void
+    {
+        $this->attributes['last_name'] = $lastName;
+    }
 }
