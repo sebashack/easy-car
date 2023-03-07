@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
 
+// Users
+Route::get('/users', 'App\Http\Controllers\UserController@index')->name('user.index');
+
+Route::get('/users/{id}', 'App\Http\Controllers\UserController@show')->name('user.show')->middleware('auth');
+
 // Reviews
 Route::get('/reviews', 'App\Http\Controllers\ReviewController@index')->name('review.index');
 

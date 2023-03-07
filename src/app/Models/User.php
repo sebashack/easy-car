@@ -43,6 +43,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function getId(): int
+    {
+        return $this->attributes['id'];
+    }
+
     public function getName(): string
     {
         return $this->attributes['name'];
@@ -61,5 +66,20 @@ class User extends Authenticatable
     public function setLastName($lastName): void
     {
         $this->attributes['last_name'] = $lastName;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->attributes['email'];
+    }
+
+    public function setEmail($email): void
+    {
+        $this->attributes['email'] = $email;
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->attributes['is_admin'];
     }
 }
