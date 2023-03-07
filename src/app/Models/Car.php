@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use App\Models\CarModel;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Car extends Model
 {
@@ -17,10 +19,31 @@ class Car extends Model
      * $this->attributes['isNew'] - bool - contains a boolean indicating if car is new
      * $this->attributes['isAvailable'] - bool - contains a boolean indicating if car is available
      * $this->attributes['isAvailable'] - bool - contains a boolean indicating if car is available
+     * $this->carModel - CarModel - contains the associate car model
      */
     use HasFactory;
 
-    protected $fillable = ['color', 'kilometers', 'price', 'isNew', 'isAvailable'];
+    protected $fillable = ['color', 'kilometers', 'price', 'isNew', 'isAvailable','car_model_id'];
+
+    public function carModel(): BelongsTo
+    {
+        return $this->BelongsTo(CarModel::class);
+    }
+
+    public function getCarModelId(): int 
+    {
+        return $this->attribues['car_model_id'];
+    }
+
+    public function getCarModel(): CarModel 
+    {
+        return $this->carModel;
+    }
+
+    public function setCarModel(CarModel $carModel): void 
+    {
+        $this->carModel = $carModel;
+    }
 
     // Validators
     public static function validate(Request $request): void
