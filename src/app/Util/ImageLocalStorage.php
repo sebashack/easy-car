@@ -19,4 +19,12 @@ class ImageLocalStorage implements ImageStorage
         }
         return $newImageName;
     }
+
+    public function delete(string $imageName): bool
+    {
+        if (Storage::disk('public')->exists($imageName)) {
+            return Storage::disk('public')->delete($imageName);
+        }
+        return false;
+    }
 }
