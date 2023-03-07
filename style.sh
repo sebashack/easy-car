@@ -6,9 +6,10 @@ export PINT_BIN="$ROOT/src/vendor/bin/pint"
 if [[ $1 == "fix" ]]; then
     cd $SRC_DIR
     $PINT_BIN
-fi
-
-if [[ $1 == "check" ]]; then
+elif [[ $1 == "check" ]]; then
     cd $SRC_DIR
     $PINT_BIN --test
+else
+    echo "Invalid option, please select one of '[fix, check]'"
+    exit 1
 fi
