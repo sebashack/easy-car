@@ -10,4 +10,9 @@ class HomeController extends Controller
     {
         return view('home.index');
     }
+
+    public function unauthorized(): View
+    {
+        return view('home.unauthorized');
+    }
 }

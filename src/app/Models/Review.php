@@ -25,7 +25,7 @@ class Review extends Model
         return $this->attributes['content'];
     }
 
-    public function setContet($content): void
+    public function setContent($content): void
     {
         $this->attributes['content'] = $content;
     }
