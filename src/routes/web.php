@@ -15,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
 
+Route::get('/unauthorized', 'App\Http\Controllers\HomeController@unauthorized')->name('home.unauthorized');
+
+// Users
+Route::get('/users', 'App\Http\Controllers\UserController@index')->name('user.index');
+
+Route::get('/users/{id}', 'App\Http\Controllers\UserController@show')->name('user.show')->middleware('auth');
+
 // Reviews
 Route::get('/reviews', 'App\Http\Controllers\ReviewController@index')->name('review.index');
 
@@ -40,13 +47,13 @@ Route::delete('/cars/delete/{id}', 'App\Http\Controllers\CarController@delete')-
 // Car model
 Route::get('/car-model', 'App\Http\Controllers\CarModelController@index')->name('carModel.index');
 
-Route::get('/car-model/create', 'App\Http\Controllers\CarModelController@create')->name('carModel.create');
+Route::get('/car-model/create', 'App\Http\Controllers\CarModelController@create')->name('carModel.create')->middleware('auth', 'isAdmin');
 
 Route::get('/car-model/{id}', 'App\Http\Controllers\CarModelController@show')->name('carModel.show');
 
-Route::post('/car-model/save', 'App\Http\Controllers\CarModelController@save')->name('carModel.save');
+Route::post('/car-model/save', 'App\Http\Controllers\CarModelController@save')->name('carModel.save')->middleware('auth', 'isAdmin');
 
-Route::delete('/car-model/delete/{id}', 'App\Http\Controllers\CarModelController@delete')->name('carModel.delete');
+Route::delete('/car-model/delete/{id}', 'App\Http\Controllers\CarModelController@delete')->name('carModel.delete')->middleware('auth', 'isAdmin');
 
 // Publish request
 Route::get('/publish-request', 'App\Http\Controllers\PublishRequestController@index')->name('publishRequest.index');

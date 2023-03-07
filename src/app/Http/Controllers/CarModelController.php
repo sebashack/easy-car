@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CarModel;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class CarModelController extends Controller
@@ -24,7 +25,7 @@ class CarModelController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): View
+    public function create(): View|RedirectResponse
     {
         $viewData = [];
         $viewData['title'] = 'Car Models - EasyCar';
@@ -48,11 +49,13 @@ class CarModelController extends Controller
      */
     public function show(string $id): View
     {
+        $user = Auth::user();
         $viewData = [];
         $carModel = CarModel::findOrFail($id);
         $viewData['title'] = 'Car Model Info - Easy Car';
         $viewData['id'] = $carModel->getId();
         $viewData['carModel'] = $carModel;
+        $viewData['isAdminUser'] = boolval(Auth::user()) && $user->isAdmin();
 
         return view('carModel.show')->with('viewData', $viewData);
     }
