@@ -14,10 +14,14 @@ class Car extends Model
      * $this->attributes['color'] - string - contains the car color
      * $this->attributes['kilometers'] - float - contains the car kilometers
      * $this->attributes['price'] - float - contains the car price
-     * $this->attributes['isNew'] - bool - contains a boolean indicating if car is new
-     * $this->attributes['isAvailable'] - bool - contains a boolean indicating if car is available
-     * $this->attributes['isAvailable'] - bool - contains a boolean indicating if car is available
+     * $this->attributes['is_new'] - bool - contains a boolean indicating if car is new
+     * $this->attributes['is_available'] - bool - contains a boolean indicating if car is available
+     * $this->attributes['image_uri'] - string - contains a string indicating car image
+     * $this->attributes['transmission_type'] - enum - contains a enum indicating transmission types
+     * $this->attributes['type'] - enum - contains a enum indicating car types
+     * $this->attributes['manudacture_date'] - year - contains a year indicating car year
      */
+
     use HasFactory;
 
     protected $fillable = ['color', 'kilometers', 'price', 'is_new', 'is_available', 'transmission_type', 'type', 'manufacture_date', 'image_uri'];
@@ -72,9 +76,9 @@ class Car extends Model
         return $this->attributes['is_new'];
     }
 
-    public function setIsNew($isNew): void
+    public function setIsNew($is_new): void
     {
-        $this->attributes['is_new'] = $isNew;
+        $this->attributes['is_new'] = $is_new;
     }
 
     public function getIsAvailable(): bool
@@ -82,8 +86,48 @@ class Car extends Model
         return $this->attributes['is_available'];
     }
 
-    public function setIsAvailable($isAvailable): void
+    public function setIsAvailable($is_available): void
     {
-        $this->attributes['is_available'] = $isAvailable;
+        $this->attributes['is_available'] = $is_available;
+    }
+
+    public function getImageUri(): string
+     {
+        return $this->attributes['image_uri'];
+    }
+
+    public function setImageUri($image_uri): void
+    {
+        $this->attributes['image_uri'] = $image_uri;
+    }
+
+    public function getTransmissionType(): string
+    {
+        return $this->attributes['transmission_type'];
+    }
+
+    public function setTransmissionType($transmission_type): void
+    {
+        $this->attributes['transmission_type'] = $transmission_type;
+    }
+
+    public function getType(): string
+    {
+        return $this->attributes['type'];
+    }
+
+    public function setType($type): void
+     {
+        $this->attributes['type'] = $type;
+    }
+
+    public function getManufactureDate()
+    {
+        return $this->attributes['manufacture_date'];
+    }
+
+    public function setManufactureDate($manufacture_date): void
+    {
+        $this->attributes['manufacture_date'] = $manufacture_date;
     }
 }
