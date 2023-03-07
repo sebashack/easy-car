@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use App\Models\Car;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class CarModel extends Model
 {
@@ -13,8 +15,24 @@ class CarModel extends Model
      * $this->attributes['brand'] - string - contains the car brand
      * $this->attributes['model'] - string - contains the car model
      * $this->attributes['description'] - string - contains the car description
+     * $this->cars - Car[] - contains the associated cars
      */
     protected $fillable = ['brand', 'model', 'description'];
+
+    public function cars(): HasMany
+    {
+        return $this->hasMany(Car::class);
+    }
+
+    public function getCars(): Collection 
+    {
+        return $this->cars;
+    }
+
+    public function setCars(Collection $cars): void 
+    {
+        $this->cars = $cars;
+    }
 
     public function getId(): int
     {
