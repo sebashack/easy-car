@@ -32,7 +32,6 @@ return new class extends Migration
             $table->$table->dropColumn('transmission_type');
             $table->$table->dropColumn('type');
             $table->$table->dropColumn('manufacture_date');
-        }
-        );
+        });
     }
 };
