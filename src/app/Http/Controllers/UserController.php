@@ -24,7 +24,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
 
         if ($auth_id != $user->getId()) {
-            return redirect('/');
+            return redirect('/unauthorized');
         } else {
             $viewData = [];
             $viewData['title'] = 'User Profile';
