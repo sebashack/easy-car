@@ -12,11 +12,13 @@
         <p class="card-text">Model: {{ $viewData['carModel']->getModel() }}</p>
         <p class="card-text">Description: {{ $viewData['carModel']->getDescription() }}</p>
 
+        @if ($viewData['isAdminUser'])
         <form action="{{ route('carModel.delete', ['id'=> $viewData['carModel']->getId()]) }}" method="post">
           <input class="btn bg-primary text-white" type="submit" value="Delete" />
           @csrf
           @method('delete')
-        </form 
+        </form>
+        @endif
       </div>
     </div>
   </div>
