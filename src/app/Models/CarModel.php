@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Models\Car;
+use App\Models\Review;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class CarModel extends Model
@@ -19,6 +20,8 @@ class CarModel extends Model
      */
     protected $fillable = ['brand', 'model', 'description'];
 
+    // Relation with Car
+
     public function cars(): HasMany
     {
         return $this->hasMany(Car::class);
@@ -32,6 +35,23 @@ class CarModel extends Model
     public function setCars(Collection $cars): void 
     {
         $this->cars = $cars;
+    }
+
+    // Relation with Review
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function setReviews(Collection $reviews): void 
+    {
+        $this->reviews = $reviews;
     }
 
     public function getId(): int
