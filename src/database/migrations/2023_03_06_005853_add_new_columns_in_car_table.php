@@ -15,8 +15,8 @@ return new class extends Migration
             $table->renameColumn('isNew', 'is_new')->change();
             $table->renameColumn('isAvailable', 'is_available')->change();
             $table->string('image_uri');
-            $table->enum('transmission_type', ['Mechanic', 'Automatic', 'Triptonic']);
-            $table->enum('type', ['Van', 'Sedan', 'Truck', 'SUV', 'Coupe']);
+            $table->enum('transmission_type', ['mechanic', 'automatic', 'tripronic']);
+            $table->enum('type', ['van', 'sedan', 'truck', 'suv', 'coupe']);
             $table->year('manufacture_date');
         });
     }
@@ -26,8 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('car', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('cars');
     }
 };
