@@ -13,6 +13,7 @@ class Car extends Model
     /**
      * REVIEW ATTRIBUTES
      * $this->attributes['id'] - int - contains the review primary key (id)
+     * $this->attributes['car_model_id'] - int - contains the foreign key of the corresponding car model
      * $this->attributes['color'] - string - contains the car color
      * $this->attributes['kilometers'] - float - contains the car kilometers
      * $this->attributes['price'] - float - contains the car price
@@ -31,7 +32,7 @@ class Car extends Model
 
     public function carModel(): BelongsTo
     {
-        return $this->BelongsTo(CarModel::class);
+        return $this->belongsTo(CarModel::class);
     }
 
     public function getCarModelId(): int 
