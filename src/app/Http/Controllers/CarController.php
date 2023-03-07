@@ -39,7 +39,6 @@ class CarController extends Controller
     public function save(Request $request): RedirectResponse
     {
         Car::validate($request);
-        // dd($request->all());
         $storeInterface = app(ImageStorage::class);
         $imageName = $storeInterface->store($request);
         Car::create([
@@ -75,6 +74,10 @@ class CarController extends Controller
      */
     public function delete(string $id): RedirectResponse
     {
+        $car = Car::findOrFail($id);
+        $storeInterface = app(ImageStorage::class);
+        $imageName = $storeInterface->delete($car->getImageUri());
+
         Car::destroy($id);
 
         return redirect('cars');
