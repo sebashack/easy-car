@@ -8,6 +8,7 @@
         <h3 class="card-title">
            {{ $viewData['user']->getName() }} {{ $viewData['user']->getLastName() }}
         </h3>
+        <a href="{{ route('carModel.create') }}" class="link-info">Create car model</a>
       </div>
     </div>
   </div>
