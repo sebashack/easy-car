@@ -27,10 +27,16 @@ class CarModelController extends Controller
      */
     public function create(): View|RedirectResponse
     {
-        $viewData = [];
-        $viewData['title'] = 'Car Models - EasyCar';
+        $user = Auth::user();
 
-        return view('carModel.create')->with('viewData', $viewData);
+        if (! $user->isAdmin()) {
+            return redirect('/unauthorized');
+        } else {
+            $viewData = [];
+            $viewData['title'] = 'Car Models - EasyCar';
+
+            return view('carModel.create')->with('viewData', $viewData);
+        }
     }
 
     /**
@@ -38,10 +44,16 @@ class CarModelController extends Controller
      */
     public function save(Request $request): RedirectResponse
     {
-        CarModel::validate($request);
-        CarModel::create($request->only(['brand', 'model', 'description']));
+        $user = Auth::user();
 
-        return back()->with('status', 'successfully created');
+        if (! $user->isAdmin()) {
+            return redirect('/unauthorized');
+        } else {
+            CarModel::validate($request);
+            CarModel::create($request->only(['brand', 'model', 'description']));
+
+            return back()->with('status', 'successfully created');
+        }
     }
 
     /**
@@ -65,8 +77,14 @@ class CarModelController extends Controller
      */
     public function delete(string $id): RedirectResponse
     {
-        CarModel::destroy($id);
+        $user = Auth::user();
 
-        return redirect('car-model');
+        if (! $user->isAdmin()) {
+            return redirect('/unauthorized');
+        } else {
+            CarModel::destroy($id);
+
+            return redirect('car-model');
+        }
     }
 }
