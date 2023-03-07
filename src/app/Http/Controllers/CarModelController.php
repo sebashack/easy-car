@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\CarModel;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class CarModelController extends Controller
@@ -27,16 +26,10 @@ class CarModelController extends Controller
      */
     public function create(): View|RedirectResponse
     {
-        $user = Auth::user();
+        $viewData = [];
+        $viewData['title'] = 'Car Models - EasyCar';
 
-        if (! $user->isAdmin()) {
-            return redirect('/unauthorized');
-        } else {
-            $viewData = [];
-            $viewData['title'] = 'Car Models - EasyCar';
-
-            return view('carModel.create')->with('viewData', $viewData);
-        }
+        return view('carModel.create')->with('viewData', $viewData);
     }
 
     /**
@@ -44,16 +37,10 @@ class CarModelController extends Controller
      */
     public function save(Request $request): RedirectResponse
     {
-        $user = Auth::user();
+        CarModel::validate($request);
+        CarModel::create($request->only(['brand', 'model', 'description']));
 
-        if (! $user->isAdmin()) {
-            return redirect('/unauthorized');
-        } else {
-            CarModel::validate($request);
-            CarModel::create($request->only(['brand', 'model', 'description']));
-
-            return back()->with('status', 'successfully created');
-        }
+        return back()->with('status', 'successfully created');
     }
 
     /**
@@ -77,14 +64,8 @@ class CarModelController extends Controller
      */
     public function delete(string $id): RedirectResponse
     {
-        $user = Auth::user();
+        CarModel::destroy($id);
 
-        if (! $user->isAdmin()) {
-            return redirect('/unauthorized');
-        } else {
-            CarModel::destroy($id);
-
-            return redirect('car-model');
-        }
+        return redirect('car-model');
     }
 }
