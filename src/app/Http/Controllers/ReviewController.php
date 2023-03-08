@@ -41,13 +41,13 @@ class ReviewController extends Controller
         Review::validate($request);
         Review::create($request->only(['content', 'rating']));
 
-        return back()->with('status', 'successfully created');
+        return back()->with('status', __('Successfully created'));
     }
 
     public function delete(string $id): RedirectResponse
     {
         Review::destroy($id);
 
-        return redirect('reviews');
+        return redirect()->route('review.index');
     }
 }
