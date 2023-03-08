@@ -21,7 +21,6 @@ class Car extends Model
      * $this->attributes['type'] - enum - contains a enum indicating car types
      * $this->attributes['manudacture_date'] - year - contains a year indicating car year
      */
-
     use HasFactory;
 
     protected $fillable = ['color', 'kilometers', 'price', 'is_new', 'is_available', 'transmission_type', 'type', 'manufacture_date', 'image_uri'];
@@ -93,7 +92,7 @@ class Car extends Model
     }
 
     public function getImageUri(): string
-     {
+    {
         return $this->attributes['image_uri'];
     }
 
@@ -118,7 +117,7 @@ class Car extends Model
     }
 
     public function setType($type): void
-     {
+    {
         $this->attributes['type'] = $type;
     }
 
