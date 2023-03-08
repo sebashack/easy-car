@@ -75,3 +75,17 @@ To fix the current code style run:
 ```
 ./style fix
 ```
+
+
+## Local storage for images
+
+```
+cd src && ./artisan storage:link
+```
+
+
+## Run migrations
+
+```
+cd src && ./artisan migrate
+```
