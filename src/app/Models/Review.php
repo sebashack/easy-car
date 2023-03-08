@@ -15,10 +15,12 @@ class Review extends Model
      * $this->attributes['content'] - string - contains the review's text content
      * $this->attributes['rating'] - int - contains the car model's numeric rating (from 1 to 5)
      * $this->attributes['car_model_id'] - int - contains the foreign key of the corresponding car model
+     * $this->attributes['user_id'] - int - contains the foreign key of the corresponding user
      * $this->carModel - CarModel - contains the associated car model
      */
-    protected $fillable = ['content', 'rating','car_model_id'];
+    protected $fillable = ['content', 'rating','car_model_id', 'user_id'];
 
+    //Relation with CarModel
     public function carModel(): BelongsTo
     {
         return $this->belongsTo(CarModel::class);
@@ -37,6 +39,22 @@ class Review extends Model
     public function getCarModelId(): int 
     {
         return $this->attribues['car_model_id'];
+    }
+
+    // Relation with User
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+
+    public function getUserId(): int 
+    {
+        return $this->attributes['user_id'];
     }
 
     public function getId(): int
