@@ -10,7 +10,7 @@ class ImageLocalStorage implements ImageStorage
 {
     public function store(Request $request): string
     {
-        $newImageName = 'images/' . uniqid() . '-' . 'car' . '.' . $request->image_uri->extension();
+        $newImageName = 'images/'.uniqid().'-'.'car'.'.'.$request->image_uri->extension();
         if ($request->hasFile('image_uri')) {
             Storage::disk('public')->put(
                 $newImageName,
