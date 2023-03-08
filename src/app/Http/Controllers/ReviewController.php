@@ -48,6 +48,6 @@ class ReviewController extends Controller
     {
         Review::destroy($id);
 
-        return redirect('reviews');
+        return redirect()->route('review.index');
     }
 }
