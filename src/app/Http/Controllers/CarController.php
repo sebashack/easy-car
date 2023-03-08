@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\ImageStorage;
 use App\Models\Car;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use App\Interfaces\ImageStorage;
 
 class CarController extends Controller
 {
