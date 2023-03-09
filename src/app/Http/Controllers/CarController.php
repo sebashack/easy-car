@@ -48,6 +48,7 @@ class CarController extends Controller
             'is_new' => $request->is_new === 'on',
             'is_available' => $request->is_available === 'on',
             'image_uri' => $imageName,
+            'car_model_id' => 1,
             'transmission_type' => $request->transmission_type,
             'type' => $request->type,
             'manufacture_year' => $request->manufacture_year,
@@ -65,6 +66,7 @@ class CarController extends Controller
         $car = Car::findOrFail($id);
         $viewData['title'] = 'Car';
         $viewData['car'] = $car;
+        $viewData['model'] = $car->getCarModel();
 
         return view('car.show')->with('viewData', $viewData);
     }
