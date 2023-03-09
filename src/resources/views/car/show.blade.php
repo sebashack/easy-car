@@ -23,12 +23,23 @@
         @endif
         </p>
         <p>
+          Model: {{ $viewData['model']->getModel() }} 
+        </p>
+          Brand: {{ $viewData['model']->getBrand() }}
+        <p>
         @if ($viewData['car']->getIsAvailable())
           {{ __('Available') }}
         @else
           {{ __('Not Available') }}
         @endif
         </p>
+        <div>
+            @foreach ($viewData['model']->getReviews() as $review)
+                <p>Auth: {{ $review->getUser()->getName() }}</p>
+                <p>Rating: {{ $review->getRating() }}</p>
+                <p>Content: {{ $review->getContent() }}</p>
+            @endforeach
+          </div>
 
         <form action="{{ route('car.delete', ['id'=> $viewData['car']->getId()]) }}" method="post">
           <input class="btn bg-primary text-white" type="submit" value="{{ __('Delete') }}" />

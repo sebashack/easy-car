@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Car;
 use App\Models\Review;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use  Illuminate\Database\Eloquent\Collection;
 
 class CarModel extends Model
 {
