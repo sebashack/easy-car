@@ -5,7 +5,7 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
-        <div class="card-header">Add Car Model</div>
+        <div class="card-header">{{ __('Add Car Model') }}</div>
           <div class="card-body">
             @if($errors->any())
             <ul id="errors" class="alert alert-danger list-unstyled">
@@ -21,9 +21,9 @@
             @endif
             <form method="POST" action="{{ route('carModel.save') }}">
               @csrf
-              <input type="text" class="form-control mb-2" placeholder="Enter brand" name="brand" value="{{ old('brand') }}" />
-              <input type="text" class="form-control mb-2" placeholder="Enter model" name="model" value="{{ old('model') }}" />
-              <input type="text" class="form-control mb-2" placeholder="Enter description" name="description" value="{{ old('description') }}" />
+              <input type="text" class="form-control mb-2" placeholder="{{ __('Enter brand') }}" name="brand" value="{{ old('brand') }}" />
+              <input type="text" class="form-control mb-2" placeholder="{{ __('Enter model') }}" name="model" value="{{ old('model') }}" />
+              <input type="text" class="form-control mb-2" placeholder="{{ __('Enter description') }}" name="description" value="{{ old('description') }}" />
               <input type="submit" class="btn btn-primary" value="Send" />
             </form>
           </div>

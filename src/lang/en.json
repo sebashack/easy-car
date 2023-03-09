@@ -35,5 +35,16 @@
   "New Model": "New Model",
   "Used car": "Used Car",
   "Available": "Available",
-  "Not Available": "Not Available"
+  "Not Available": "Not Available",
+  "Car Models - EasyCar": "Car Models - EasyCar",
+  "Add Car Model": "Add Car Model",
+  "Car Models": "Car Models",
+  "Check car model": "Check car model",
+  "Brand": "Brand",
+  "Model": "Model",
+  "Description": "Description",
+  "Enter brand": "Enter brand",
+  "Enter model": "Enter model",
+  "Enter description": "Enter description",
+  "Car Model": "Car Model"
 }

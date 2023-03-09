@@ -33,13 +33,16 @@
           {{ __('Not Available') }}
         @endif
         </p>
-        <div>
+        <button class="btn btn-primary">Show reviews</button>
+        <div class="reviews">
             @foreach ($viewData['model']->getReviews() as $review)
-                <p>Auth: {{ $review->getUser()->getName() }}</p>
-                <p>Rating: {{ $review->getRating() }}</p>
-                <p>Content: {{ $review->getContent() }}</p>
+                <div>
+                  <p>Auth: {{ $review->getUser()->getName() }}</p>
+                  <p>Rating: {{ $review->getRating() }}</p>
+                  <p>Content: {{ $review->getContent() }}</p>
+                </div>
             @endforeach
-          </div>
+        </div>
 
         <form action="{{ route('car.delete', ['id'=> $viewData['car']->getId()]) }}" method="post">
           <input class="btn bg-primary text-white" type="submit" value="{{ __('Delete') }}" />
@@ -50,4 +53,7 @@
     </div>
   </div>
 </div>
+@endsection
+@section('scripts')
+<script src="{{ asset('js/reviews-manage.js }}"></script>
 @endsection
