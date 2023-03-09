@@ -16,6 +16,7 @@ class Review extends Model
      * $this->attributes['car_model_id'] - int - contains the foreign key of the corresponding car model
      * $this->attributes['user_id'] - int - contains the foreign key of the corresponding user
      * $this->carModel - CarModel - contains the associated car model
+     * $this->user - User - contains the associated user
      */
     protected $fillable = ['content', 'rating', 'car_model_id', 'user_id'];
 

@@ -16,6 +16,7 @@ class CarModel extends Model
      * $this->attributes['model'] - string - contains the car model
      * $this->attributes['description'] - string - contains the car description
      * $this->cars - Car[] - contains the associated cars
+     * $this->cars - Review[] - contains the associated reviews
      */
     protected $fillable = ['brand', 'model', 'description'];
 
