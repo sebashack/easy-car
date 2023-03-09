@@ -4,9 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
-use App\Models\CarModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Http\Request;
 
 class Car extends Model
 {
@@ -28,24 +27,24 @@ class Car extends Model
      */
     use HasFactory;
 
-    protected $fillable = ['color', 'kilometers', 'price', 'is_new', 'is_available', 'transmission_type', 'type', 'manufacture_year', 'image_uri','car_model_id'];
+    protected $fillable = ['color', 'kilometers', 'price', 'is_new', 'is_available', 'transmission_type', 'type', 'manufacture_year', 'image_uri', 'car_model_id'];
 
     public function carModel(): BelongsTo
     {
         return $this->belongsTo(CarModel::class);
     }
 
-    public function getCarModelId(): int 
+    public function getCarModelId(): int
     {
         return $this->attribues['car_model_id'];
     }
 
-    public function getCarModel(): CarModel 
+    public function getCarModel(): CarModel
     {
         return $this->carModel;
     }
 
-    public function setCarModel(CarModel $carModel): void 
+    public function setCarModel(CarModel $carModel): void
     {
         $this->carModel = $carModel;
     }

@@ -8,7 +8,7 @@
 
       <div class="card-body">
         <h5 class="card-title">
-          Details
+          {{ __('Details') }}
         </h5>
         <p>{{ __('Color') }}: {{ $viewData['car']->getColor() }}</p>
         <p>{{ __('Price') }}: ${{ $viewData['car']->getPrice() }}</p>
@@ -33,9 +33,9 @@
                   <div class="col-sm col-lg-3 mb-2">
                   <div class="card">
                   <div class="card-body text-center">
-                    <p>Auth: {{ $review->getUser()->getName() }}</p>
-                    <p>Rating: {{ $review->getRating() }}</p>
-                    <p>Content: {{ $review->getContent() }}</p>
+                    <p>{{ __('Auth') }}: {{ $review->getUser()->getName() }}</p>
+                    <p>{{ __('Rating') }}: {{ $review->getRating() }}</p>
+                    <p>{{ __('Content') }}: {{ $review->getContent() }}</p>
                   </div>
                   </div>
                   </div>

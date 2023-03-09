@@ -39,12 +39,12 @@ class ReviewController extends Controller
     public function save(Request $request): RedirectResponse
     {
         Review::validate($request);
-        
+
         Review::create([
-            'content'=>$request->content,
-            'rating'=>$request->rating,
-            'car_model_id'=>1,
-            'user_id'=>1
+            'content' => $request->content,
+            'rating' => $request->rating,
+            'car_model_id' => 1,
+            'user_id' => 1,
         ]);
 
         return back()->with('status', __('Successfully created'));

@@ -46,5 +46,8 @@
   "Enter brand": "Enter brand",
   "Enter model": "Enter model",
   "Enter description": "Enter description",
-  "Car Model": "Car Model"
+  "Car Model": "Car Model",
+  "Details": "Details",
+  "Content": "Content",
+  "Auth": "Auth"
 }

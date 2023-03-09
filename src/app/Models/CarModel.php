@@ -2,12 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
-use App\Models\Car;
-use App\Models\Review;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use  Illuminate\Database\Eloquent\Collection;
+use  Illuminate\Http\Request;
 
 class CarModel extends Model
 {
@@ -28,12 +26,12 @@ class CarModel extends Model
         return $this->hasMany(Car::class);
     }
 
-    public function getCars(): Collection 
+    public function getCars(): Collection
     {
         return $this->cars;
     }
 
-    public function setCars(Collection $cars): void 
+    public function setCars(Collection $cars): void
     {
         $this->cars = $cars;
     }
@@ -50,7 +48,7 @@ class CarModel extends Model
         return $this->reviews;
     }
 
-    public function setReviews(Collection $reviews): void 
+    public function setReviews(Collection $reviews): void
     {
         $this->reviews = $reviews;
     }

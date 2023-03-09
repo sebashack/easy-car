@@ -3,9 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
-use App\Models\CarModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Http\Request;
 
 class Review extends Model
 {
@@ -18,7 +17,7 @@ class Review extends Model
      * $this->attributes['user_id'] - int - contains the foreign key of the corresponding user
      * $this->carModel - CarModel - contains the associated car model
      */
-    protected $fillable = ['content', 'rating','car_model_id', 'user_id'];
+    protected $fillable = ['content', 'rating', 'car_model_id', 'user_id'];
 
     //Relation with CarModel
     public function carModel(): BelongsTo
@@ -26,17 +25,17 @@ class Review extends Model
         return $this->belongsTo(CarModel::class);
     }
 
-    public function setCarModel(CarModel $carModel): void 
+    public function setCarModel(CarModel $carModel): void
     {
         $this->carModel = $carModel;
     }
 
-    public function getCarModel(): CarModel 
+    public function getCarModel(): CarModel
     {
         return $this->carModel;
     }
 
-    public function getCarModelId(): int 
+    public function getCarModelId(): int
     {
         return $this->attribues['car_model_id'];
     }
@@ -52,7 +51,7 @@ class Review extends Model
         return $this->user;
     }
 
-    public function getUserId(): int 
+    public function getUserId(): int
     {
         return $this->attributes['user_id'];
     }
