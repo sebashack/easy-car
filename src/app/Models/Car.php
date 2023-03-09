@@ -45,7 +45,7 @@ class Car extends Model
         return $this->attributes['color'];
     }
 
-    public function setColor($color): void
+    public function setColor(string $color): void
     {
         $this->attributes['color'] = $color;
     }
@@ -55,7 +55,7 @@ class Car extends Model
         return $this->attributes['kilometers'];
     }
 
-    public function setKilometers($kilometers): void
+    public function setKilometers(float $kilometers): void
     {
         $this->attributes['kilometers'] = $kilometers;
     }
@@ -65,7 +65,7 @@ class Car extends Model
         return $this->attributes['price'];
     }
 
-    public function setPrice($price): void
+    public function setPrice(float $price): void
     {
         $this->attributes['price'] = $price;
     }
@@ -75,7 +75,7 @@ class Car extends Model
         return $this->attributes['is_new'];
     }
 
-    public function setIsNew($is_new): void
+    public function setIsNew(bool $is_new): void
     {
         $this->attributes['is_new'] = $is_new;
     }
@@ -85,7 +85,7 @@ class Car extends Model
         return $this->attributes['is_available'];
     }
 
-    public function setIsAvailable($is_available): void
+    public function setIsAvailable(bool $is_available): void
     {
         $this->attributes['is_available'] = $is_available;
     }
@@ -95,7 +95,7 @@ class Car extends Model
         return $this->attributes['image_uri'];
     }
 
-    public function setImageUri($image_uri): void
+    public function setImageUri(string $image_uri): void
     {
         $this->attributes['image_uri'] = $image_uri;
     }
@@ -105,7 +105,7 @@ class Car extends Model
         return $this->attributes['transmission_type'];
     }
 
-    public function setTransmissionType($transmission_type): void
+    public function setTransmissionType(string $transmission_type): void
     {
         $this->attributes['transmission_type'] = $transmission_type;
     }
@@ -115,17 +115,17 @@ class Car extends Model
         return $this->attributes['type'];
     }
 
-    public function setType($type): void
+    public function setType(string $type): void
     {
         $this->attributes['type'] = $type;
     }
 
-    public function getManufactureDate()
+    public function getManufactureDate(): int
     {
         return $this->attributes['manufacture_date'];
     }
 
-    public function setManufactureDate($manufacture_date): void
+    public function setManufactureDate(int $manufacture_date): void
     {
         $this->attributes['manufacture_date'] = $manufacture_date;
     }
