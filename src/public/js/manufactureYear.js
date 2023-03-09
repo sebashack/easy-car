@@ -5,9 +5,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // Escuchar el evento "change" del campo "manufacture_year"
     kilometers.addEventListener('change', function(event) {    
       // Verificar si el año de fabricación es igual al año actual
-      if (kilometers.value === '0') {
+      if (parseInt(kilometers.value) > 0) {
         // Marcar la casilla "is_new"
-        isNewCheckbox.checked = true;
+        isNewCheckbox.checked = false;
         isNewCheckbox.disabled = true;
       } else {
         // Desmarcar la casilla "is_new"
