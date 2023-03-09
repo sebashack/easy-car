@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\ImageStorage;
 use App\Models\Car;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -38,13 +39,18 @@ class CarController extends Controller
     public function save(Request $request): RedirectResponse
     {
         Car::validate($request);
-        // dd($request->all());
+        $storeInterface = app(ImageStorage::class);
+        $imageName = $storeInterface->store($request);
         Car::create([
             'color' => $request->color,
             'kilometers' => $request->kilometers,
             'price' => $request->price,
-            'isNew' => $request->isNew === 'on',
-            'isAvailable' => $request->isAvailable === 'on',
+            'is_new' => $request->is_new === 'on',
+            'is_available' => $request->is_available === 'on',
+            'image_uri' => $imageName,
+            'transmission_type' => $request->transmission_type,
+            'type' => $request->type,
+            'manufacture_year' => $request->manufacture_year,
         ]);
 
         return back()->with('status', 'Successfully created');
@@ -68,6 +74,10 @@ class CarController extends Controller
      */
     public function delete(string $id): RedirectResponse
     {
+        $car = Car::findOrFail($id);
+        $storeInterface = app(ImageStorage::class);
+        $imageName = $storeInterface->delete($car->getImageUri());
+
         Car::destroy($id);
 
         return redirect('cars');

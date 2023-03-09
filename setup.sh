@@ -7,5 +7,4 @@ export COMPOSER_BIN="php $INSTALL_DIR/composer/composer.phar"
 
 cd $ROOT/src
 mkdir -p bootstrap/cache
-$COMPOSER_BIN dump-autoload
 $COMPOSER_BIN install
