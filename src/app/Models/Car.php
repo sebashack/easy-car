@@ -54,8 +54,10 @@ class Car extends Model
     {
         $request->validate([
             'color' => 'required',
-            'kilometers' => 'required | min: 0 | lt: 320000',
-            'price' => 'required | gte:1 ',
+            'kilometers' => 'required | numeric | min: 0 | lt: 320000',
+            'price' => 'required | numeric | gte:1 ',
+            'image_uri' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'manufacture_year' => 'required|numeric|min:1900|max:'.(date('Y')+1),
         ]);
     }
 
