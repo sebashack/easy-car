@@ -11,28 +11,28 @@
         <h5 class="card-title">
            ID: {{ $viewData['car']->getId() }} 
         </h5>
-        <p>Color: {{ $viewData['car']->getColor() }}</p>
-        <p>Price: ${{ $viewData['car']->getPrice() }}</p>
-        <p>Kilometers: {{ $viewData['car']->getKilometers() }} km </p>
+        <p>{{ __('Color') }}: {{ $viewData['car']->getColor() }}</p>
+        <p>{{ __('Price') }}: ${{ $viewData['car']->getPrice() }}</p>
+        <p>{{ __('Kilometers') }}: {{ $viewData['car']->getKilometers() }} km </p>
 
         <p>
         @if ($viewData['car']->getIsNew()) 
-        New model
+          {{ __('New Model') }}
         @else 
-        Used car
+          {{ __('Used Car') }}
         @endif   
         </p>
         <p>
         @if ($viewData['car']->getIsAvailable()) 
-        Available
+          {{ __('Available') }}
         @else 
-        No available
+          {{ __('No Available') }}
         @endif   
         </p>
 
 
         <form action="{{ route('car.delete', ['id'=> $viewData['car']->getId()]) }}" method="post">
-          <input class="btn bg-primary text-white" type="submit" value="Delete" />
+          <input class="btn bg-primary text-white" type="submit" value="{{ __('Delete') }}" />
           @csrf
           @method('delete')
         </form  >

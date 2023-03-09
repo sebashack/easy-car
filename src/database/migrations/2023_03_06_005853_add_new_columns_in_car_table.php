@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('image_uri');
             $table->enum('transmission_type', ['mechanic', 'automatic', 'tripronic']);
             $table->enum('type', ['van', 'sedan', 'truck', 'suv', 'coupe']);
-            $table->year('manufacture_date');
+            $table->year('manufacture_year');
         });
     }
 
@@ -27,10 +27,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('cars', function (Blueprint $table) {
-            $table->$table->dropColumn('image_uri');
-            $table->$table->dropColumn('transmission_type');
-            $table->$table->dropColumn('type');
-            $table->$table->dropColumn('manufacture_date');
+            $table->dropColumn(['image_uri', 'transmission_type', 'type', 'manufacture_year']);
         });
     }
 };

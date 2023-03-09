@@ -19,11 +19,11 @@ class Car extends Model
      * $this->attributes['image_uri'] - string - contains a string indicating car image
      * $this->attributes['transmission_type'] - enum - contains a enum indicating transmission types
      * $this->attributes['type'] - enum - contains a enum indicating car types
-     * $this->attributes['manudacture_date'] - year - contains a year indicating car year
+     * $this->attributes['manudacture_year'] - year - contains a year indicating car year
      */
     use HasFactory;
 
-    protected $fillable = ['color', 'kilometers', 'price', 'is_new', 'is_available', 'transmission_type', 'type', 'manufacture_date', 'image_uri'];
+    protected $fillable = ['color', 'kilometers', 'price', 'is_new', 'is_available', 'transmission_type', 'type', 'manufacture_year', 'image_uri'];
 
     // Validators
     public static function validate(Request $request): void
@@ -120,13 +120,13 @@ class Car extends Model
         $this->attributes['type'] = $type;
     }
 
-    public function getManufactureDate(): int
+    public function getManufactureYear(): int
     {
-        return $this->attributes['manufacture_date'];
+        return $this->attributes['manufacture_year'];
     }
 
-    public function setManufactureDate(int $manufacture_date): void
+    public function setManufactureDate(int $manufacture_year): void
     {
-        $this->attributes['manufacture_date'] = $manufacture_date;
+        $this->attributes['manufacture_year'] = $manufacture_year;
     }
 }

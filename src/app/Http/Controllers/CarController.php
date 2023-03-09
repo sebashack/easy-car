@@ -50,7 +50,7 @@ class CarController extends Controller
             'image_uri' => $imageName,
             'transmission_type' => $request->transmission_type,
             'type' => $request->type,
-            'manufacture_date' => $request->manufacture_date,
+            'manufacture_year' => $request->manufacture_year,
         ]);
 
         return back()->with('status', 'Successfully created');
