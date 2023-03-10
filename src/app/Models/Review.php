@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
 
 class Review extends Model
@@ -12,8 +13,49 @@ class Review extends Model
      * $this->attributes['id'] - int - contains the review primary key (id)
      * $this->attributes['content'] - string - contains the review's text content
      * $this->attributes['rating'] - int - contains the car model's numeric rating (from 1 to 5)
+     * $this->attributes['car_model_id'] - int - contains the foreign key of the corresponding car model
+     * $this->attributes['user_id'] - int - contains the foreign key of the corresponding user
+     * $this->carModel - CarModel - contains the associated car model
+     * $this->user - User - contains the associated user
      */
-    protected $fillable = ['content', 'rating'];
+    protected $fillable = ['content', 'rating', 'car_model_id', 'user_id'];
+
+    //Relation with CarModel
+    public function carModel(): BelongsTo
+    {
+        return $this->belongsTo(CarModel::class);
+    }
+
+    public function setCarModel(CarModel $carModel): void
+    {
+        $this->carModel = $carModel;
+    }
+
+    public function getCarModel(): CarModel
+    {
+        return $this->carModel;
+    }
+
+    public function getCarModelId(): int
+    {
+        return $this->attribues['car_model_id'];
+    }
+
+    // Relation with User
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+
+    public function getUserId(): int
+    {
+        return $this->attributes['user_id'];
+    }
 
     public function getId(): int
     {

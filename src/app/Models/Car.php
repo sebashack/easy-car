@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
 
 class Car extends Model
@@ -11,6 +12,7 @@ class Car extends Model
     /**
      * REVIEW ATTRIBUTES
      * $this->attributes['id'] - int - contains the review primary key (id)
+     * $this->attributes['car_model_id'] - int - contains the foreign key of the corresponding car model
      * $this->attributes['color'] - string - contains the car color
      * $this->attributes['kilometers'] - float - contains the car kilometers
      * $this->attributes['price'] - float - contains the car price
@@ -20,10 +22,32 @@ class Car extends Model
      * $this->attributes['transmission_type'] - enum - contains a enum indicating transmission types
      * $this->attributes['type'] - enum - contains a enum indicating car types
      * $this->attributes['manudacture_year'] - year - contains a year indicating car year
+     * $this->attributes['car_model_id'] - int - contains the id of the corresponding car model
+     * $this->carMdoel - CarModel - contains the associate car model
      */
     use HasFactory;
 
-    protected $fillable = ['color', 'kilometers', 'price', 'is_new', 'is_available', 'transmission_type', 'type', 'manufacture_year', 'image_uri'];
+    protected $fillable = ['color', 'kilometers', 'price', 'is_new', 'is_available', 'transmission_type', 'type', 'manufacture_year', 'image_uri', 'car_model_id'];
+
+    public function carModel(): BelongsTo
+    {
+        return $this->belongsTo(CarModel::class);
+    }
+
+    public function getCarModelId(): int
+    {
+        return $this->attribues['car_model_id'];
+    }
+
+    public function getCarModel(): CarModel
+    {
+        return $this->carModel;
+    }
+
+    public function setCarModel(CarModel $carModel): void
+    {
+        $this->carModel = $carModel;
+    }
 
     // Validators
     public static function validate(Request $request): void

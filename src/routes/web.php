@@ -45,15 +45,15 @@ Route::post('/cars/save', 'App\Http\Controllers\CarController@save')->name('car.
 Route::delete('/cars/delete/{id}', 'App\Http\Controllers\CarController@delete')->name('car.delete');
 
 // Car model
-Route::get('/car-model', 'App\Http\Controllers\CarModelController@index')->name('carModel.index');
+Route::get('/car-models', 'App\Http\Controllers\CarModelController@index')->name('carModel.index');
 
-Route::get('/car-model/create', 'App\Http\Controllers\CarModelController@create')->name('carModel.create')->middleware('auth', 'isAdmin');
+Route::get('/car-models/create', 'App\Http\Controllers\CarModelController@create')->name('carModel.create')->middleware('auth', 'isAdmin');
 
-Route::get('/car-model/{id}', 'App\Http\Controllers\CarModelController@show')->name('carModel.show');
+Route::get('/car-models/{id}', 'App\Http\Controllers\CarModelController@show')->name('carModel.show');
 
-Route::post('/car-model/save', 'App\Http\Controllers\CarModelController@save')->name('carModel.save')->middleware('auth', 'isAdmin');
+Route::post('/car-models/save', 'App\Http\Controllers\CarModelController@save')->name('carModel.save')->middleware('auth', 'isAdmin');
 
-Route::delete('/car-model/delete/{id}', 'App\Http\Controllers\CarModelController@delete')->name('carModel.delete')->middleware('auth', 'isAdmin');
+Route::delete('/car-models/delete/{id}', 'App\Http\Controllers\CarModelController@delete')->name('carModel.delete')->middleware('auth', 'isAdmin');
 
 // Publish request
 Route::get('/publish-request', 'App\Http\Controllers\PublishRequestController@index')->name('publishRequest.index');

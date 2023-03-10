@@ -67,6 +67,6 @@ class CarModelController extends Controller
     {
         CarModel::destroy($id);
 
-        return redirect('car-model');
+        return redirect()->route('carModel.index');
     }
 }

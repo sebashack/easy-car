@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
   <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ asset('/css/reviews.css') }}">
   <title>@yield('title', 'EasyCar')</title>
 </head>
 <body>
@@ -50,7 +51,7 @@
     </div>
   </div>
   <!-- footer -->
-
+  @yield('scripts')
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
   </script>
 </body>
