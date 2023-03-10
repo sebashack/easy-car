@@ -31,11 +31,11 @@
             <div class="row">
                 @foreach ($viewData['model']->getReviews() as $review)
                   <div class="col-sm col-lg-3 mb-2">
-                  <div class="card">
+                  <div class="card bg-light mb-3">
+                  <div class="car-header text-center mt-2">{{ __('Auth') }}: {{ $review->getUser()->getName() }}</div>
                   <div class="card-body text-center">
-                    <p>{{ __('Auth') }}: {{ $review->getUser()->getName() }}</p>
-                    <p>{{ __('Rating') }}: {{ $review->getRating() }}</p>
-                    <p>{{ __('Content') }}: {{ $review->getContent() }}</p>
+                    <h5 class="car-title">{{ __('Rating') }}: {{ $review->getRating() }}</h5>
+                    <p class="car-text">{{ __('Content') }}: {{ $review->getContent() }}</p>
                   </div>
                   </div>
                   </div>
