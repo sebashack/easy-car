@@ -53,6 +53,7 @@ class CarController extends Controller
             'transmission_type' => $request->transmission_type,
             'type' => $request->type,
             'manufacture_year' => $request->manufacture_year,
+            'car_model_id' => $request->car_model_id,
         ]);
 
         return back()->with('status', 'Successfully created');
