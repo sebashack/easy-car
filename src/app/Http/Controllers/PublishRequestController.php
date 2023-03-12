@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PublishRequest;
 use App\Interfaces\ImageStorage;
 use App\Models\Car;
+use App\Models\PublishRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
