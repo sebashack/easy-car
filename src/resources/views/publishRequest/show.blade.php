@@ -1,3 +1,4 @@
+@auth
 @extends('layouts.app')
 @section('title', $viewData["title"])
 @section('content')
@@ -30,3 +31,7 @@
     </div>
 </div>
 @endsection
+<<<<<<< HEAD
+=======
+@endauth
+>>>>>>> 29286e5 (Add auth to publish-request pages)
