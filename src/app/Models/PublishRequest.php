@@ -2,21 +2,27 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class PublishRequest extends Model
 {
-    use HasFactory;
-
     /**
-     * PRODUCT ATTRIBUTES
-     * $this->attributes['id'] - int - contains the product primary key (id)
+     * PUBLISHREQUEST ATTRIBUTES
+     * $this->attributes['id'] - int - contains the publishRquest primary key (id)
      * $this->attributes['message'] - string - contains the request message
      * $this->attributes['state'] - enum[Pending, Accepted, Rejected] - contains the request state
+     * $this->attributes['carId'] - int - contains the car foreign key (id) associeted
      */
-    protected $fillable = ['message', 'state'];
+    protected $fillable = ['message', 'state', 'car_id'];
+
+    public static function validate(Request $request): void
+    {
+        $request->validate([
+            'message' => 'required|max: 250',
+            'state' => 'in:pending,accepted,rejected',
+        ]);
+    }
 
     public function getId(): int
     {
@@ -43,11 +49,13 @@ class PublishRequest extends Model
         $this->attributes['state'] = $state;
     }
 
-    public static function validate(Request $request): void
+    public function getCarId(): string
     {
-        $request->validate([
-            'message' => 'required|max: 250',
-            'state' => 'required|in:pending,accepted,rejected',
-        ]);
+        return $this->attributes['state'];
+    }
+
+    public function setCarId($carId): void
+    {
+        $this->attributes['carId'] = $carId;
     }
 }

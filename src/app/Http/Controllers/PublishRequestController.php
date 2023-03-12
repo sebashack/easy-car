@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\PublishRequest;
+use App\Interfaces\ImageStorage;
+use App\Models\Car;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -38,8 +40,20 @@ class PublishRequestController extends Controller
 
     public function save(Request $request): RedirectResponse
     {
-        PublishRequest::validate($request);
-        PublishRequest::create($request->only(['message', 'state']));
+        Car::validate($request);
+        $storeInterface = app(ImageStorage::class);
+        $imageName = $storeInterface->store($request);
+        $car = Car::create([
+            'color' => $request->color,
+            'kilometers' => $request->kilometers,
+            'price' => $request->price,
+            'is_new' => false,
+            'is_available' => false,
+            'image_uri' => $imageName,
+            'transmission_type' => $request->transmission_type,
+            'type' => $request->type,
+            'manufacture_year' => $request->manufacture_year,
+        ]);
 
         return back()->with('status', __('Successfully created'));
     }
@@ -48,6 +62,6 @@ class PublishRequestController extends Controller
     {
         PublishRequest::destroy($id);
 
-        return redirect('publish-request');
+        return redirect('publish-requests');
     }
 }
