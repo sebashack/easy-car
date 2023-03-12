@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Create PublishRequest</div>
+                <div class="card-header">{{__('Create publishrequest')}}</div>
                 <div class="card-body">
                     @if ($errors->any())
                     <ul id="errors" class="alert alert-danger list-unstyled">
@@ -22,7 +22,7 @@
                     @endif
                     <form method="POST" action="{{ route('publishRequest.save') }}" enctype="multipart/form-data">
                         @csrf
-                        <input type="text" class="form-control mb-2" placeholder="Enter message for admin" name="message" value="{{ old('message') }}" />
+                        <input type="text" class="form-control mb-2" placeholder="{{ __('Message placeholder') }}" name="message" value="{{ old('message') }}" />
                         <h6>Car info</h6>
                         <input type="text" class="form-control mb-2" placeholder="Enter car color" name="color" value="{{ old('color') }}" />
                         <input type="number" class="form-control mb-2" placeholder="{{ __('Enter kilometers') }}" name="kilometers" value="{{ old('kilometers') }}" />
