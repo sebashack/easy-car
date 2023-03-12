@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Interfaces\ImageStorage;
 use App\Models\Car;
+use App\Models\CarModel;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -29,7 +30,7 @@ class CarController extends Controller
     {
         $viewData = [];
         $viewData['title'] = 'Create Car';
-
+        $viewData['carModels'] = CarModel::all();
         return view('car.create')->with('viewData', $viewData);
     }
 
