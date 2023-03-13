@@ -11,8 +11,8 @@
       <div class="card">
         <img src="{{ URL::asset('storage/' . $car->getImageUri())}}"  class="img-fluid rounded-start">
         <div class="card-body text-center">
-          <p>ID: {{ $car->getId() }}</p>
-          <p>Color: {{ $car->getColor() }} </p>
+          <p>{{ $car->getCarModel()->getBrand() . ' ' . $car->getCarModel()->getModel()}}</p>
+          <p>{{ __('Color') }}: {{ $car->getColor() }} </p>
           <a href="{{ route('car.show', ['id'=> $car->getId()]) }}" class="btn bg-primary text-white">{{ __('Check Car') }}</a>
         </div>
       </div>

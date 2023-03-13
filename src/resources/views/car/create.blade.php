@@ -38,6 +38,14 @@
                 </select>
               </div>
               <div class="form-group">
+                <label for="carModels">{{ __('Car Models') }}:</label>
+                <select class="form-control" name="car_model_id">
+                  @foreach($viewData['carModels'] as $carModel)
+                    <option value="{{ $carModel->getId() }}">{{ $carModel->getBrand() . ' ' . $carModel->getModel() }}</option>
+                  @endforeach
+                </select>
+              </div>
+              <div class="form-group">
                 <label for="vehicle-type">{{ __('Type of Vehicle') }}:</label>
                 <select class="form-control" name="type">
                   <option value="van">{{ __('Van') }}</option>

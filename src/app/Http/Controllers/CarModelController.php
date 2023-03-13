@@ -41,7 +41,7 @@ class CarModelController extends Controller
         CarModel::validate($request);
         CarModel::create($request->only(['brand', 'model', 'description']));
 
-        return back()->with('status', 'successfully created');
+        return back()->with('status', __('Successfully created'));
     }
 
     /**
