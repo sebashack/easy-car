@@ -23,7 +23,7 @@
             <form method="POST" action="{{ route('car.save') }}" enctype="multipart/form-data">
               @csrf
               <input type="text" class="form-control mb-2" placeholder="{{ __('Enter color') }}" name="color" value="{{ old('color') }}" />
-              <input type="number" class="form-control mb-2" placeholder="{{ __('Enter kilometers') }}" name="kilometers" value="{{ old('kilometers') }}" />
+              <input type="number" class="form-control mb-2" placeholder="{{ __('Enter kilometers') }}" name="kilometers" id="kilometers" value="{{ old('kilometers') }}" />
               <input type="number" class="form-control mb-2" placeholder="{{ __('Enter price') }}" name="price" value="{{ old('price') }}" />
               <div class="form-group">
                 <label>{{ __('Image') }}:</label>
@@ -49,10 +49,10 @@
               </div>
               <div class="form-group">
                 <label for="year">{{ __('Manufacture year') }}:</label>
-                <input type="number" class="form-control"  name="manufacture_year" min="2000" max="2023">
+                <input type="number" class="form-control"  name="manufacture_year" id="manufacture_year" min="2000" max="2023">
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="is_new">
+                <input class="form-check-input" type="checkbox" name="is_new" id="is_new">
                 <label class="form-check-label" for="flexCheckDefault">
                   {{ __('Mark if the car is new') }}
                 </label>
@@ -71,4 +71,8 @@
     </div>
   </div>
 </div>
+@endsection
+
+@section('scripts')
+  <script src="{{ asset('js/manufactureYear.js') }}"></script>
 @endsection

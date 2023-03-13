@@ -49,16 +49,6 @@ class Car extends Model
         $this->carModel = $carModel;
     }
 
-    // Validators
-    public static function validate(Request $request): void
-    {
-        $request->validate([
-            'color' => 'required',
-            'kilometers' => 'required | min: 0 | lt: 320000',
-            'price' => 'required | gte:1 ',
-        ]);
-    }
-
     public function getId(): int
     {
         return $this->attributes['id'];
@@ -152,5 +142,17 @@ class Car extends Model
     public function setManufactureDate(int $manufacture_year): void
     {
         $this->attributes['manufacture_year'] = $manufacture_year;
+    }
+
+    // Validators
+    public static function validate(Request $request): void
+    {
+        $request->validate([
+            'color' => 'required',
+            'kilometers' => 'required|numeric|min:0|lt:320000',
+            'price' => 'required|numeric|gte:1 ',
+            'image_uri' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'manufacture_year' => 'required|numeric|min:1900|max:'.(date('Y') + 1),
+        ]);
     }
 }
