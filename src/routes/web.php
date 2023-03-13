@@ -69,4 +69,8 @@ Route::delete('/publish-request/delete/{id}', 'App\Http\Controllers\PublishReque
 Auth::routes();
 
 // Order
+Route::get('/orders/create', 'App\Http\Controllers\OrderController@create')->name('order.create')->middleware('auth');
+
 Route::post('/orders/save', 'App\Http\Controllers\OrderController@save')->name('order.save')->middleware('auth');
+
+Route::get('/orders/removeAll', 'App\Http\Controllers\OrderController@removeAll')->name('order.removeAll')->middleware('auth');
