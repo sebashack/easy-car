@@ -87,4 +87,16 @@ class CarController extends Controller
 
         return redirect('cars');
     }
+
+    /**
+     * Add car to session Cart.
+     */
+    public function addToCart(string $id, Request $request): RedirectResponse
+    {
+        $cartData = $request->session()->get('cart_data');
+        $cartData[$id] = $id;
+        $request->session()->put('cart_data', $cartData);
+
+        return back();
+    }
 }
