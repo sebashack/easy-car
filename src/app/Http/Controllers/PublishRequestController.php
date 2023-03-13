@@ -41,7 +41,7 @@ class PublishRequestController extends Controller
         PublishRequest::validate($request);
         PublishRequest::create($request->only(['message', 'state']));
 
-        return back()->with('status', 'successfully created');
+        return back()->with('status', __('Successfully created'));
     }
 
     public function delete(string $id): RedirectResponse

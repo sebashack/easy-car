@@ -31,6 +31,7 @@ class CarController extends Controller
         $viewData = [];
         $viewData['title'] = 'Create Car';
         $viewData['carModels'] = CarModel::all();
+
         return view('car.create')->with('viewData', $viewData);
     }
 
@@ -56,7 +57,7 @@ class CarController extends Controller
             'car_model_id' => $request->car_model_id,
         ]);
 
-        return back()->with('status', 'Successfully created');
+        return back()->with('status', __('Successfully created'));
     }
 
     /**
