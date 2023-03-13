@@ -14,6 +14,9 @@
           <p>{{ $car->getCarModel()->getBrand() . ' ' . $car->getCarModel()->getModel()}}</p>
           <p>{{ __('Color') }}: {{ $car->getColor() }} </p>
           <a href="{{ route('car.show', ['id'=> $car->getId()]) }}" class="btn bg-primary text-white">{{ __('Check Car') }}</a>
+          @auth
+          <a href="{{ route('car.addToCart', ['id'=> $car->getId()]) }}" class="btn bg-primary text-white">{{ __('Add to cart') }}</a>
+          @endauth
         </div>
       </div>
     </div>

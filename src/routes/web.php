@@ -42,7 +42,10 @@ Route::get('/cars/{id}', 'App\Http\Controllers\CarController@show')->name('car.s
 
 Route::post('/cars/save', 'App\Http\Controllers\CarController@save')->name('car.save')->middleware('auth', 'isAdmin');
 
-Route::delete('/cars/delete/{id}', 'App\Http\Controllers\CarController@delete')->name('car.delete')->middleware('auth', 'isAdmin');
+Route::get('/cars/addToCart/{id}', 'App\Http\Controllers\CarController@addToCart')->name('car.addToCart');
+
+Route::delete('/cars/delete/{id}', 'App\Http\Controllers\CarController@delete')->name('car.delete');
+
 
 // Car model
 Route::get('/car-models', 'App\Http\Controllers\CarModelController@index')->name('carModel.index');
