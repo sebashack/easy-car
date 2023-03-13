@@ -51,7 +51,7 @@ class PublishRequest extends Model
 
     public function getCarId(): string
     {
-        return $this->attributes['state'];
+        return $this->attributes['car_id'];
     }
 
     public function setCarId($carId): void
