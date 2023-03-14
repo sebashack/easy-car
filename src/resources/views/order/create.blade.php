@@ -26,9 +26,15 @@
                       <br/>
                       @endforeach
                     </div>
-                    <p class=""> Total: {{ $viewData["total"] }} </p>
+                        <p class=""> Total: {{ $viewData["total"] }} </p>
+                        <form method="POST" action="{{ route('order.save') }}">
+                            @csrf
+                            <input type="text" class="form-control mb-2" placeholder="Enter shipping_adress" name="shipping_address"
+                                value="{{ old('shipping_address') }}" />
+                            <input type="submit" class="btn btn-primary" value="{{ __('Create order') }}" />
+                        </form>
+                        <br/>
                         <a href="{{ route('order.removeAll') }}" class="btn bg-primary text-white">{{ __('Delete') }}</a>
-                        <a href="#" class="btn bg-primary text-white">{{ __('Create order') }}</a>
                     </div>
                 </div>
             </div>
