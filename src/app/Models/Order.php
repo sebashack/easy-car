@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Http\Request;
 
 class Order extends Model
 {
@@ -12,10 +13,11 @@ class Order extends Model
      * ORDER ATTRIBUTES
      * $this->attributes['id'] - int
      * $this->attributes['shipping_address'] - string
-     * $this->user - User - assosicated user
-     * $this->items - Item[] - assosicated orders
+     * $this->attributes['user_id'] - string - associated user
+     * $this->attributes['total'] - int - total price
+     * $this->items - Item[] - assosicated items
      */
-    protected $fillable = ['shipping_address', 'total'];
+    protected $fillable = ['shipping_address', 'total', 'user_id'];
 
     public function items(): HasMany
     {
@@ -57,13 +59,16 @@ class Order extends Model
         return $this->items;
     }
 
-    public function setItems(Collection $items): void
-    {
-        $this->items = $items;
-    }
-
     public function getUser(): User
     {
         return $this->user;
+    }
+
+    // Validators
+    public static function validate(Request $request): void
+    {
+        $request->validate([
+            'shipping_address' => 'required|min:1|max:300',
+        ]);
     }
 }

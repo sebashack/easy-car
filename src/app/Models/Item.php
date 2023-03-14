@@ -10,10 +10,10 @@ class Item extends Model
      * ITEM ATTRIBUTES
      * $this->attributes['id'] - int
      * $this->attributes['price_to_date'] - int
-     * $this->order - Order - assosicated order
-     * $this->car - Car - assosicated car
+     * $this->attributes['order_id'] - int - associated order
+     * $this->attributes['car_id'] - int - associated car
      */
-    protected $fillable = ['price_to_date'];
+    protected $fillable = ['price_to_date', 'car_id'];
 
     public function car(): HasOne
     {
@@ -28,11 +28,6 @@ class Item extends Model
     public function getCar(): Car
     {
         return $this->car;
-    }
-
-    public function setCar(Car $car): void
-    {
-        $this->car = $car;
     }
 
     public function getPriceToDate(): int
