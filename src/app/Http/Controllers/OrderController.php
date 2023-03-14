@@ -18,13 +18,16 @@ class OrderController extends Controller
         $viewData['title'] = 'Create Order';
 
         $cars = [];
+        $total = 0;
         $carsFetch = $request->session()->get('cart_data'); //we get the products stored in session
         if ($carsFetch) {
             foreach ($carsFetch as $key => $car) {
                 $cars[$key] = Car::findOrFail($key);
+                $total = $total + $cars[$key]->getPrice();
             }
         }
         $viewData['cars'] = $cars;
+        $viewData['total'] = $total;
 
         return view('order.create')->with('viewData', $viewData);
     }
