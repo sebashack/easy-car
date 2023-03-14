@@ -46,7 +46,6 @@ Route::get('/cars/addToCart/{id}', 'App\Http\Controllers\CarController@addToCart
 
 Route::delete('/cars/delete/{id}', 'App\Http\Controllers\CarController@delete')->name('car.delete');
 
-
 // Car model
 Route::get('/car-models', 'App\Http\Controllers\CarModelController@index')->name('carModel.index');
 
