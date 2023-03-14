@@ -44,7 +44,7 @@ Route::post('/cars/save', 'App\Http\Controllers\CarController@save')->name('car.
 
 Route::get('/cars/addToCart/{id}', 'App\Http\Controllers\CarController@addToCart')->name('car.addToCart');
 
-Route::delete('/cars/delete/{id}', 'App\Http\Controllers\CarController@delete')->name('car.delete');
+Route::delete('/cars/delete/{id}', 'App\Http\Controllers\CarController@delete')->name('car.delete')->middleware('auth', 'isAdmin');
 
 // Car model
 Route::get('/car-models', 'App\Http\Controllers\CarModelController@index')->name('carModel.index');
