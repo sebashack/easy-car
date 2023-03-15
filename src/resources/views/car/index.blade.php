@@ -1,9 +1,19 @@
 @extends('layouts.app')
 @section('title', $viewData["title"])
 @section('content')
-<div class="text-center">
-    <h1>{{ __("Cars") }}</h1>
+<div class="text-left">
+    <div class="text-center">
+        <h1>{{ __("Cars") }}</h1>
+    </div>
+
     <br />
+    @auth
+    <a class="btn bg-danger text-white" href="orders/create">
+        Cart: {{ $viewData["cart_length"] }} !
+    </a>
+    <br />
+    <br />
+    @endauth
     <div class="row">
         @foreach ($viewData["cars"] as $car)
         <div class="col-md-4 col-lg-3 mb-2">

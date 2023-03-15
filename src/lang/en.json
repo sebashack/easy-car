@@ -51,5 +51,6 @@
   "Content": "Content",
   "Auth": "Auth",
   "Add to cart": "Add to Cart",
-  "Create order": "Create Order"
+  "Create order": "Create Order",
+  "No items": "There's no items :("
 }

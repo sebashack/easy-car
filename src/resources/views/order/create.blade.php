@@ -17,41 +17,48 @@
                             <li>{{ $error }}</li>
                             @endforeach
                         </ul>
-                        @endif @if (session('status'))
+                        @endif
+                        @if (session('status'))
                         <div class="alert alert-success">
                             {{ session("status") }}
                         </div>
-                        @endif @foreach($viewData["cars"] as $key => $car)
-                        <div class="card">
-                            <div class="row">
-                                <div class="col">
-                                    <img
-                                        src="{{ URL::asset('storage/' . $car->getImageUri())}}"
-                                        style="width: '100%'"
-                                        class="img-thumbnail"
-                                        alt="car not found :("
-                                    />
-                                </div>
-                                <div class="col text-left">
-                                    <div class="card-body">
-                                        <h5 class="card-title">
-                                            {{$car->getCarModel()->getModel()}}
-                                        </h5>
-                                        <p class="card-text">
-                                            Color: {{ $car->getColor()}}
-                                        </p>
-                                        <p class="card-text">
-                                            <small class="text-muted">
-                                                ${{ $car->getPrice()}}
-                                            </small>
-                                        </p>
+                        @endif 
+                        @foreach($viewData["cars"] as $key => $car)
+                            <div class="card">
+                                <div class="row">
+                                    <div class="col">
+                                        <img
+                                            src="{{ URL::asset('storage/' . $car->getImageUri())}}"
+                                            style="width: '100%'"
+                                            class="img-thumbnail"
+                                            alt="car not found :("
+                                        />
+                                    </div>
+                                    <div class="col text-left">
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                {{ $car->getCarModel()->getBrand() . ' ' . $car->getCarModel()->getModel()}}
+                                            </h5>
+                                            <p class="card-text">
+                                                Color: {{ $car->getColor()}}
+                                            </p>
+                                            <p class="card-text">
+                                                <small class="text-muted">
+                                                    ${{ $car->getPrice()}}
+                                                </small>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <br />
+                            <br />
                         @endforeach
                     </div>
+                    @if(count($viewData['cars']) == 0)
+                    <div class="container text-center">
+                        <p>{{ __("No items") }}</p>
+                    </div>
+                    @else
                     <p class="">Total: {{ $viewData["total"] }}</p>
                     <form method="POST" action="{{ route('order.save') }}">
                         @csrf
@@ -75,6 +82,7 @@
                     >
                         {{ __("Delete") }}
                     </a>
+                    @endif
                 </div>
             </div>
         </div>

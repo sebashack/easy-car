@@ -11,11 +11,17 @@ use Illuminate\View\View;
 
 class CarController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
         $viewData = [];
         $viewData['title'] = 'Cars - EasyCar';
         $viewData['cars'] = Car::all();
+        $carIds = $request->session()->get('cart_car_ids');
+        if ($carIds) {
+            $viewData['cart_length'] =  count($carIds);
+        } else {
+            $viewData['cart_length'] =  0;
+        }
 
         return view('car.index')->with('viewData', $viewData);
     }
