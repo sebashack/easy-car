@@ -44,10 +44,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // Relation with Review
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
+    }
+
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
     }
 
     public function getReviews(): Collection
@@ -55,9 +59,9 @@ class User extends Authenticatable
         return $this->reviews;
     }
 
-    public function setReviews(Collection $reviews): void
+    public function getOrders(): Collection
     {
-        $this->reviews = $reviews;
+        return $this->orders;
     }
 
     public function getId(): int
