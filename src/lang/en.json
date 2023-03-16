@@ -54,9 +54,9 @@
   "Create order": "Create order",
   "No items in cart": "No items in cart",
   "Check out your cars": "Check out your cars"
-  "Publishrequest title": "PublishRequests",
-  "Create publishrequest": "Create PublishRequest",
-  "Message placeholder": "Enter message for admin",
+  "Car publish requests": "Car publish requests",
+  "Create car publish request": "Create car publish request",
+  "Enter message for admin": "Enter message for admin",
   "See more": "See more",
   "Message": "Message",
   "State": "State",

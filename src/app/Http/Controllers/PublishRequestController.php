@@ -34,7 +34,7 @@ class PublishRequestController extends Controller
     public function create(): View
     {
         $viewData = [];
-        $viewData['title'] = 'Create PublishRequest';
+        $viewData['title'] = __('Create car publish request');
         $viewData['carModels'] = CarModel::all();
 
         return view('publishRequest.create')->with('viewData', $viewData);

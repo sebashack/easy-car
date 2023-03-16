@@ -2,7 +2,7 @@
 @section('title', $viewData["title"])
 @section('content')
 <div class="text-center">
-  <h1>{{__('Publishrequest title')}}</h1>
+  <h1>{{__('Car publish requests')}}</h1>
   </br>
   @foreach ($viewData["publishRequests"] as $publishRequest)
     <div class="col-md-4 col-lg-3 mb-2">
