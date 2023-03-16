@@ -34,9 +34,7 @@
                 @endif
             </p>
             <button class="btn btn-primary mb-3">Show reviews</button>
-            @if ($viewData['isAuthUser'])
-                <a href="{{ route('carModel.show',['id'=>$viewData['model']->getId()]) }}" class="btn btn-primary mb-3">Check model</a>
-            @endif
+            <a href="{{ route('carModel.show',['id'=>$viewData['model']->getId()]) }}" class="btn btn-primary mb-3">Check model</a>
             <div class="hide">
                 <div class="row">
                     @foreach ($viewData['model']->getReviews() as $review)
