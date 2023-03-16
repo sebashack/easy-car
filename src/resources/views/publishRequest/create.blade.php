@@ -32,7 +32,7 @@
                         </div>
                         <div class="form-group">
                             <label for="transmission">{{ __('Transmission') }}:</label>
-                            <select class="form-select mb-2" name="transmission_type">
+                            <select class="form-select mb-2" name="transmission_type" default="automatic">
                                 <option value="automatic">{{ __('Automatic') }}</option>
                                 <option value="mechanic">{{ __('Mechanic') }}</option>
                                 <option value="triptronic">{{ __('Triptonic') }}</option>
@@ -40,7 +40,7 @@
                         </div>
                         <div class="form-group">
                             <label for="vehicle-type">{{ __('Type of Vehicle') }}:</label>
-                            <select class="form-select mb-2" name="type">
+                            <select class="form-select mb-2" name="type" default="van">
                                 <option value="van">{{ __('Van') }}</option>
                                 <option value="sedan">{{ __('Sedan') }}</option>
                                 <option value="truck">{{ __('Truck') }}</option>
@@ -48,6 +48,14 @@
                                 <option value="coupe">{{ __('Coupe') }}</option>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label for="carModels">{{ __('Car Models') }}:</label>
+                            <select class="form-select mb-2" name="car_model_id">
+                              @foreach($viewData['carModels'] as $carModel)
+                                <option value="{{ $carModel->getId() }}">{{ $carModel->getBrand() . ' ' . $carModel->getModel() }}</option>
+                              @endforeach
+                            </select>
+                          </div>
                         <div class="form-group">
                             <label for="year">{{ __('Manufacture year') }}:</label>
                             <input type="number" class="form-control" name="manufacture_year" min="2000" max="2023">

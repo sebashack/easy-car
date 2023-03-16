@@ -58,7 +58,7 @@
   "Create publishrequest": "Create PublishRequest",
   "Message placeholder": "Enter message for admin",
   "See more": "See more",
-  "Car state": "State",
   "Message": "Message",
-  "State": "State"
+  "State": "State",
+  "Car id": "Car id"
 }

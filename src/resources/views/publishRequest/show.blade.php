@@ -12,8 +12,11 @@
            {{__('State')}}: {{ $viewData['publishRequest']->getState() }}
         </h5>
         <h5 class="card-title">
-           {{('Message')}}: {{ $viewData['publishRequest']->getMessage() }}
+           {{__('Message')}}: {{ $viewData['publishRequest']->getMessage() }}
         </h5>
+        <h5 class="card-title">
+          {{__('Car id')}}: {{ $viewData['publishRequest']->getCarId() }}
+       </h5>
         <form action="{{ route('publishRequest.delete', ['id'=> $viewData['publishRequest']->getId()]) }}" method="post">
           <input class="btn bg-primary text-white" type="submit" value="{{__('Delete')}}" />
           @csrf
