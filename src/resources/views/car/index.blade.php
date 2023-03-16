@@ -9,7 +9,7 @@
     <br />
     @auth
     <a class="btn bg-danger text-white" href="orders/create">
-        Cart: {{ $viewData["cart_length"] }} !
+        {{ __("Check out your cars") }}: {{ $viewData["cart_length"] }}
     </a>
     <br />
     <br />

@@ -50,7 +50,8 @@
   "Details": "Details",
   "Content": "Content",
   "Auth": "Auth",
-  "Add to cart": "Add to Cart",
-  "Create order": "Create Order",
-  "No items": "There's no items :("
+  "Add to cart": "Add to cart",
+  "Create order": "Create order",
+  "No items in cart": "No items in cart",
+  "Check out your cars": "Check out your cars"
 }

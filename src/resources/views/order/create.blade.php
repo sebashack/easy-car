@@ -22,7 +22,7 @@
                         <div class="alert alert-success">
                             {{ session("status") }}
                         </div>
-                        @endif 
+                        @endif
                         @foreach($viewData["cars"] as $key => $car)
                             <div class="card">
                                 <div class="row">
@@ -56,10 +56,10 @@
                     </div>
                     @if(count($viewData['cars']) == 0)
                     <div class="container text-center">
-                        <p>{{ __("No items") }}</p>
+                        <p>{{ __("No items in cart") }}</p>
                     </div>
                     @else
-                    <p class="">Total: {{ $viewData["total"] }}</p>
+                    <p class="">Total: {{ $viewData['total'] }}</p>
                     <form method="POST" action="{{ route('order.save') }}">
                         @csrf
                         <input
