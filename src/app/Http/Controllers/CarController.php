@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Auth;
 
 class CarController extends Controller
 {
@@ -60,6 +61,7 @@ class CarController extends Controller
 
     public function show(string $id): View
     {
+        $user = Auth::user();
         $viewData = [];
         $car = Car::findOrFail($id);
         $viewData['title'] = 'Car';
@@ -67,6 +69,7 @@ class CarController extends Controller
         $viewData['model'] = $car->getCarModel();
         $user = Auth::user();
         $viewData['is_admin'] = boolval($user) && $user->isAdmin();
+        $viewData['is_auth_user'] = boolval($user);
 
         return view('car.show')->with('viewData', $viewData);
     }

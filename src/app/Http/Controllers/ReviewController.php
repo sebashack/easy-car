@@ -21,6 +21,7 @@ class ReviewController extends Controller
 
     public function show(string $id): View
     {
+        $user_id = Auth::id();
         $viewData = [];
         $review = Review::findOrFail($id);
         $viewData['title'] = 'User Review';
@@ -39,7 +40,6 @@ class ReviewController extends Controller
 
     public function save(Request $request): RedirectResponse
     {
-        $user_id = Auth::id();
         Review::validate($request);
 
         Review::create([

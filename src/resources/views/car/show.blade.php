@@ -73,6 +73,15 @@
             </form>
             @endif
         </div>
+
+        @if ($viewData['isAdminUser'])
+          <form action="{{ route('car.delete', ['id'=> $viewData['car']->getId()]) }}" method="post">
+            <input class="btn bg-primary text-white" type="submit" value="{{ __('Delete') }}" />
+            @csrf
+            @method('delete')
+          </form  >
+        @endif
+      </div>
     </div>
 </div>
 @endsection
