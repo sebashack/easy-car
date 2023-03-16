@@ -1,4 +1,3 @@
-@auth
 @extends('layouts.app')
 @section('title', $viewData["title"])
 @section('content')
@@ -14,7 +13,7 @@
         <a href="{{ route('publishRequest.show', ['id'=> $publishRequest->getId()]) }}" class="btn bg-primary text-white">{{__('See More')}}</a>
       </div>
     </div>
-    @endforeach
+  </div>
+  @endforeach
 </div>
 @endsection
-@endauth
