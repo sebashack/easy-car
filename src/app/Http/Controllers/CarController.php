@@ -11,21 +11,21 @@ use Illuminate\View\View;
 
 class CarController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index(): View
+    public function index(Request $request): View
     {
         $viewData = [];
         $viewData['title'] = 'Cars - EasyCar';
         $viewData['cars'] = Car::all();
+        $carIds = $request->session()->get('cart_car_ids');
+        if ($carIds) {
+            $viewData['cart_length'] =  count($carIds);
+        } else {
+            $viewData['cart_length'] =  0;
+        }
 
         return view('car.index')->with('viewData', $viewData);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create(): View
     {
         $viewData = [];
@@ -35,9 +35,6 @@ class CarController extends Controller
         return view('car.create')->with('viewData', $viewData);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function save(Request $request): RedirectResponse
     {
         Car::validate($request);
@@ -60,9 +57,6 @@ class CarController extends Controller
         return back()->with('status', __('Successfully created'));
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id): View
     {
         $viewData = [];
@@ -74,9 +68,6 @@ class CarController extends Controller
         return view('car.show')->with('viewData', $viewData);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function delete(string $id): RedirectResponse
     {
         $car = Car::findOrFail($id);
@@ -86,5 +77,14 @@ class CarController extends Controller
         Car::destroy($id);
 
         return redirect('cars');
+    }
+
+    public function addToCart(string $id, Request $request): RedirectResponse
+    {
+        $carIds = $request->session()->get('cart_car_ids');
+        $carIds[$id] = $id;
+        $request->session()->put('cart_car_ids', $carIds);
+
+        return back();
     }
 }

@@ -32,13 +32,6 @@ class CarModel extends Model
         return $this->cars;
     }
 
-    public function setCars(Collection $cars): void
-    {
-        $this->cars = $cars;
-    }
-
-    // Relation with Review
-
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
@@ -47,11 +40,6 @@ class CarModel extends Model
     public function getReviews(): Collection
     {
         return $this->reviews;
-    }
-
-    public function setReviews(Collection $reviews): void
-    {
-        $this->reviews = $reviews;
     }
 
     public function getId(): int

@@ -42,6 +42,8 @@ Route::get('/cars/{id}', 'App\Http\Controllers\CarController@show')->name('car.s
 
 Route::post('/cars/save', 'App\Http\Controllers\CarController@save')->name('car.save')->middleware('auth', 'isAdmin');
 
+Route::get('/cars/addToCart/{id}', 'App\Http\Controllers\CarController@addToCart')->name('car.addToCart');
+
 Route::delete('/cars/delete/{id}', 'App\Http\Controllers\CarController@delete')->name('car.delete')->middleware('auth', 'isAdmin');
 
 // Car model
@@ -67,3 +69,10 @@ Route::post('/publish-request/save', 'App\Http\Controllers\PublishRequestControl
 Route::delete('/publish-request/delete/{id}', 'App\Http\Controllers\PublishRequestController@delete')->name('publishRequest.delete');
 
 Auth::routes();
+
+// Order
+Route::get('/orders/create', 'App\Http\Controllers\OrderController@create')->name('order.create')->middleware('auth');
+
+Route::post('/orders/save', 'App\Http\Controllers\OrderController@save')->name('order.save')->middleware('auth');
+
+Route::get('/orders/removeAll', 'App\Http\Controllers\OrderController@removeAll')->name('order.removeAll')->middleware('auth');

@@ -49,6 +49,9 @@
   "Car Model": "Car Model",
   "Details": "Details",
   "Content": "Content",
-  "Auth": "Auth"
-
+  "Auth": "Auth",
+  "Add to cart": "Add to cart",
+  "Create order": "Create order",
+  "No items in cart": "No items in cart",
+  "Check out your cars": "Check out your cars"
 }
