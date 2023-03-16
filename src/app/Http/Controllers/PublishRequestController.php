@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Interfaces\ImageStorage;
 use App\Models\Car;
+use App\Models\CarModel;
 use App\Models\PublishRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -34,6 +35,7 @@ class PublishRequestController extends Controller
     {
         $viewData = [];
         $viewData['title'] = 'Create PublishRequest';
+        $viewData['carModels'] = CarModel::all();
 
         return view('publishRequest.create')->with('viewData', $viewData);
     }
@@ -53,6 +55,15 @@ class PublishRequestController extends Controller
             'transmission_type' => $request->transmission_type,
             'type' => $request->type,
             'manufacture_year' => $request->manufacture_year,
+            'car_model_id' => $request->car_model_id,
+        ]);
+
+        PublishRequest::validate($request);
+
+        PublishRequest::create([
+            'car_id' => $car->getId(),
+            'message' => $request->message,
+            'state' => 'Pending',
         ]);
 
         return back()->with('status', __('Successfully created'));
