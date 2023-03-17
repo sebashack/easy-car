@@ -8,6 +8,7 @@ use App\Models\CarModel;
 use App\Models\PublishRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class PublishRequestController extends Controller
@@ -63,7 +64,8 @@ class PublishRequestController extends Controller
         PublishRequest::create([
             'car_id' => $car->getId(),
             'message' => $request->message,
-            'state' => 'Pending',
+            'state' => 'pending',
+            'user_id' => Auth::id(),
         ]);
 
         return back()->with('status', __('Successfully created'));
