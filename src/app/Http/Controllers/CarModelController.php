@@ -49,13 +49,13 @@ class CarModelController extends Controller
      */
     public function show(string $id): View
     {
-        $user = Auth::user();
         $viewData = [];
         $carModel = CarModel::findOrFail($id);
         $viewData['title'] = 'Car Model Info - Easy Car';
         $viewData['id'] = $carModel->getId();
         $viewData['carModel'] = $carModel;
-        $viewData['isAdminUser'] = boolval(Auth::user()) && $user->isAdmin();
+        $user = Auth::user();
+        $viewData['isAdminUser'] = boolval($user) && $user->isAdmin();
 
         return view('carModel.show')->with('viewData', $viewData);
     }

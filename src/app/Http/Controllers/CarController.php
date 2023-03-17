@@ -7,6 +7,7 @@ use App\Models\Car;
 use App\Models\CarModel;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class CarController extends Controller
@@ -18,9 +19,9 @@ class CarController extends Controller
         $viewData['cars'] = Car::all();
         $carIds = $request->session()->get('cart_car_ids');
         if ($carIds) {
-            $viewData['cart_length'] =  count($carIds);
+            $viewData['cart_length'] = count($carIds);
         } else {
-            $viewData['cart_length'] =  0;
+            $viewData['cart_length'] = 0;
         }
 
         return view('car.index')->with('viewData', $viewData);
@@ -64,6 +65,8 @@ class CarController extends Controller
         $viewData['title'] = 'Car';
         $viewData['car'] = $car;
         $viewData['model'] = $car->getCarModel();
+        $user = Auth::user();
+        $viewData['is_admin'] = boolval($user) && $user->isAdmin();
 
         return view('car.show')->with('viewData', $viewData);
     }

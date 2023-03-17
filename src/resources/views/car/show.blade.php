@@ -59,6 +59,7 @@
                 </div>
             </div>
 
+            @if ($viewData['is_admin'])
             <form
                 action="{{ route('car.delete', ['id'=> $viewData['car']->getId()]) }}"
                 method="post"
@@ -70,6 +71,7 @@
                 />
                 @csrf @method('delete')
             </form>
+            @endif
         </div>
     </div>
 </div>
