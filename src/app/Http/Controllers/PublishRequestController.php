@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\ImageStorage;
+use App\Models\Car;
+use App\Models\CarModel;
 use App\Models\PublishRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class PublishRequestController extends Controller
@@ -31,15 +35,38 @@ class PublishRequestController extends Controller
     public function create(): View
     {
         $viewData = [];
-        $viewData['title'] = 'Create PublishRequest';
+        $viewData['title'] = __('Create car publish request');
+        $viewData['carModels'] = CarModel::all();
 
         return view('publishRequest.create')->with('viewData', $viewData);
     }
 
     public function save(Request $request): RedirectResponse
     {
+        Car::validate($request);
+        $storeInterface = app(ImageStorage::class);
+        $imageName = $storeInterface->store($request);
+        $car = Car::create([
+            'color' => $request->color,
+            'kilometers' => $request->kilometers,
+            'price' => $request->price,
+            'is_new' => false,
+            'is_available' => false,
+            'image_uri' => $imageName,
+            'transmission_type' => $request->transmission_type,
+            'type' => $request->type,
+            'manufacture_year' => $request->manufacture_year,
+            'car_model_id' => $request->car_model_id,
+        ]);
+
         PublishRequest::validate($request);
-        PublishRequest::create($request->only(['message', 'state']));
+
+        PublishRequest::create([
+            'car_id' => $car->getId(),
+            'message' => $request->message,
+            'state' => 'pending',
+            'user_id' => Auth::id(),
+        ]);
 
         return back()->with('status', __('Successfully created'));
     }
@@ -48,6 +75,6 @@ class PublishRequestController extends Controller
     {
         PublishRequest::destroy($id);
 
-        return redirect('publish-request');
+        return redirect('publish-requests');
     }
 }

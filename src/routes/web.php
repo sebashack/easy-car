@@ -58,15 +58,15 @@ Route::post('/car-models/save', 'App\Http\Controllers\CarModelController@save')-
 Route::delete('/car-models/delete/{id}', 'App\Http\Controllers\CarModelController@delete')->name('carModel.delete')->middleware('auth', 'isAdmin');
 
 // Publish request
-Route::get('/publish-request', 'App\Http\Controllers\PublishRequestController@index')->name('publishRequest.index');
+Route::get('/publish-requests', 'App\Http\Controllers\PublishRequestController@index')->name('publishRequest.index')->middleware('auth', 'isAdmin');
 
-Route::get('/publish-request/create', 'App\Http\Controllers\PublishRequestController@create')->name('publishRequest.create');
+Route::get('/publish-requests/create', 'App\Http\Controllers\PublishRequestController@create')->name('publishRequest.create')->middleware('auth');
 
-Route::get('/publish-request/{id}', 'App\Http\Controllers\PublishRequestController@show')->name('publishRequest.show');
+Route::get('/publish-requests/{id}', 'App\Http\Controllers\PublishRequestController@show')->name('publishRequest.show')->middleware('auth');
 
-Route::post('/publish-request/save', 'App\Http\Controllers\PublishRequestController@save')->name('publishRequest.save');
+Route::post('/publish-requests/save', 'App\Http\Controllers\PublishRequestController@save')->name('publishRequest.save')->middleware('auth');
 
-Route::delete('/publish-request/delete/{id}', 'App\Http\Controllers\PublishRequestController@delete')->name('publishRequest.delete');
+Route::delete('/publish-requests/delete/{id}', 'App\Http\Controllers\PublishRequestController@delete')->name('publishRequest.delete')->middleware('auth', 'isAdmin');
 
 Auth::routes();
 
