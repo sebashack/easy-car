@@ -82,7 +82,7 @@
             @endif
         </div>
 
-        @if ($viewData['isAdminUser'])
+        @if ($viewData['is_admin'])
           <form action="{{ route('car.delete', ['id'=> $viewData['car']->getId()]) }}" method="post">
             <input class="btn bg-primary text-white" type="submit" value="{{ __('Delete') }}" />
             @csrf

@@ -18,7 +18,7 @@
                         {{ session("status") }}
                     </div>
                     @endif
-                    <form method="POST" action="{{ route('review.save') }}">
+                    <form method="POST" action="{{ route('review.save', ['id'=>$viewData['model_id']]) }}">
                         @csrf
                         <input
                             type="text"
@@ -42,17 +42,6 @@
                     </form>
                 </div>
             </div>
-<<<<<<< HEAD
-=======
-            @endif
-          <form method="POST" action="{{ route('review.save', ['id'=>$viewData['model_id']]) }}">
-              @csrf
-              <input type="text" class="form-control mb-2" placeholder="{{ __('Enter review') }}" name="content" value="{{ old('content') }}" />
-              <input type="text" class="form-control mb-2" placeholder="{{ __('Enter rating') }}" name="rating" value="{{ old('rating') }}" />
-              <input type="submit" class="btn btn-primary" value="{{ __('Send') }}" />
-            </form>
-          </div>
->>>>>>> a71c7be (Implement review in the corresponding car model)
         </div>
     </div>
 </div>
