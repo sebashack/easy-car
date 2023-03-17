@@ -13,20 +13,23 @@ class PublishRequest extends Model
      * $this->attributes['message'] - string - contains the request message
      * $this->attributes['state'] - enum[Pending, Accepted, Rejected] - contains the request state
      * $this->attributes['carId'] - int - contains the car foreign key (id) associeted
+     * $this->attributes['user_id'] - int - contains the foreign key of the corresponding user
      */
-    protected $fillable = ['message', 'state', 'car_id'];
+    protected $fillable = ['message', 'state', 'car_id', 'user_id'];
 
-    public static function validate(Request $request): void
+    public function user(): BelongsTo
     {
-        $request->validate([
-            'message' => 'required|max: 250',
-            'state' => 'in:pending,accepted,rejected',
-        ]);
+        return $this->belongsTo(User::class);
     }
 
     public function getId(): int
     {
         return $this->attributes['id'];
+    }
+
+    public function getUser(): User
+    {
+        return $this->user;
     }
 
     public function getMessage(): string
@@ -57,5 +60,14 @@ class PublishRequest extends Model
     public function setCarId($carId): void
     {
         $this->attributes['carId'] = $carId;
+    }
+
+    // Validations
+    public static function validate(Request $request): void
+    {
+        $request->validate([
+            'message' => 'required|max: 250',
+            'state' => 'in:pending,accepted,rejected',
+        ]);
     }
 }
