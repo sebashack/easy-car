@@ -45,10 +45,17 @@
                                 {{ $review->getUser()->getName() }}
                             </div>
                             <div class="card-body text-center">
-                                <h5 class="car-title">
-                                    {{ __("Rating") }}:
-                                    {{ $review->getRating() }}
-                                </h5>
+                                @if ($review->getRating() == 5)
+                                <h5 class="car-title star">★★★★★</h5>
+                                @elseif ($review->getRating() == 4)
+                                <h5 class="car-title star">★★★★</h5>
+                                @elseif ($review->getRating() == 3)
+                                <h5 class="car-title star">★★★</h5>
+                                @elseif ($review->getRating() == 2)
+                                <h5 class="car-title star">★★</h5>
+                                @else
+                                <h5 class="car-title star">★</h5>
+                                @endif
                                 <p class="car-text">
                                     {{ __("Content") }}:
                                     {{ $review->getContent() }}

@@ -77,6 +77,7 @@ class Review extends Model
     {
         $this->attributes['rating'] = $rating;
     }
+    
 
     // Validators
     public static function validate(Request $request): void
