@@ -46,7 +46,6 @@ class CarController extends Controller
             'kilometers' => $request->kilometers,
             'price' => $request->price,
             'is_new' => $request->is_new === 'on',
-            'is_available' => $request->is_available === 'on',
             'image_uri' => $imageName,
             'car_model_id' => 1,
             'transmission_type' => $request->transmission_type,
