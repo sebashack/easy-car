@@ -121,19 +121,6 @@
                                 {{ __("Mark if the car is new") }}
                             </label>
                         </div>
-                        <div class="form-check">
-                            <input
-                                class="form-check-input"
-                                type="checkbox"
-                                name="is_available"
-                            />
-                            <label
-                                class="form-check-label"
-                                for="flexCheckDefault"
-                            >
-                                {{ __("Mark if the car is available") }}
-                            </label>
-                        </div>
                         <input
                             type="submit"
                             class="btn btn-primary"

@@ -29,6 +29,11 @@ class Car extends Model
 
     protected $fillable = ['color', 'kilometers', 'price', 'is_new', 'is_available', 'transmission_type', 'type', 'manufacture_year', 'image_uri', 'car_model_id'];
 
+    //Default value true
+    protected $attributes = [
+        'is_available' => true,
+    ];
+
     public function carModel(): BelongsTo
     {
         return $this->belongsTo(CarModel::class);
