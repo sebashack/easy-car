@@ -42,6 +42,14 @@
                         {{ __("Add to cart") }}
                     </a>
                     @endauth
+                    @if ($viewData['is_admin'])
+                    <a
+                        href="{{ route('car.edit', ['id'=> $car->getId()]) }}"
+                        class="btn bg-primary text-white"
+                    >
+                    <span>&#9998;</span>
+                    </a>
+                    @endif
                 </div>
             </div>
         </div>

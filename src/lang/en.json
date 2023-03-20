@@ -68,7 +68,6 @@
   "Logout": "Logout",
   "Register": "Register",
   "Login": "Login",
-  "State": "State",
   "pending": "pending",
   "rejected": "rejected",
   "accpeted": "accepted",
@@ -82,5 +81,6 @@
   "Total": "Total",
   "Price to date": "Price to date",
   "Check car": "Check car",
-  "View registered users": "View registered users"
+  "View registered users": "View registered users",
+  "Edit": "Edit"
 }

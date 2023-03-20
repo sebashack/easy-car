@@ -65,7 +65,7 @@
                                 <option value="mechanic">
                                     {{ __("Mechanic") }}
                                 </option>
-                                <option value="triptronic">
+                                <option value="triptonic">
                                     {{ __("Triptonic") }}
                                 </option>
                             </select>
