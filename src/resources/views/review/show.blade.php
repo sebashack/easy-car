@@ -23,7 +23,7 @@
                 @endif
                 <p class="mt-3"><strong>User:</strong> {{ $viewData['review_owner']->getName() }}</p>
                 <p><strong>Review:</strong> {{ $viewData['review']->getContent() }}</p>
-                @if ($viewData['current_user_id'] == $viewData['review_owner']->getId())
+                @if ($viewData['is_the_review_owner'])
                     <form
                         action="{{ route('review.delete', ['id'=> $viewData['review']->getId()]) }}"
                         method="post"
