@@ -1,12 +1,9 @@
 <?php
-
 namespace App\Models;
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Http\Request;
-
 class Car extends Model
 {
     /**
@@ -24,126 +21,131 @@ class Car extends Model
      * $this->attributes['manudacture_year'] - year - contains a year indicating car year
      * $this->attributes['car_model_id'] - int - contains the id of the corresponding car model
      * $this->carMdoel - CarModel - contains the associate car model
+     * $this->publishRequest - PublishRequest - contains the associate publishRequest
      */
-    use HasFactory;
-
     protected $fillable = ['color', 'kilometers', 'price', 'is_new', 'is_available', 'transmission_type', 'type', 'manufacture_year', 'image_uri', 'car_model_id'];
-
+    //Default value true
+    protected $attributes = [
+        'is_available' => true,
+    ];
+    //Car model relation
     public function carModel(): BelongsTo
     {
         return $this->belongsTo(CarModel::class);
     }
-
-    public function getCarModelId(): int
-    {
-        return $this->attribues['car_model_id'];
-    }
-
     public function getCarModel(): CarModel
     {
         return $this->carModel;
     }
-
     public function setCarModel(CarModel $carModel): void
     {
         $this->carModel = $carModel;
     }
-
+    public function getCarModelId(): int
+    {
+        return $this->attribues['car_model_id'];
+    }
+    // PublishRquest relation
+    public function publishRequest(): HasOne
+    {
+        return $this->hasOne(PublishRequest::class);
+    }
+    public function getPublishRequest(): PublishRequest
+    {
+        return $this->publishRequest;
+    }
+    public function setPublishRequest(PublishRequest $publishRquest): void
+    {
+        $this->publishRequest = $publishRequest;
+    }
     public function getId(): int
     {
         return $this->attributes['id'];
     }
-
     public function getColor(): string
     {
         return $this->attributes['color'];
     }
-
     public function setColor(string $color): void
     {
         $this->attributes['color'] = $color;
     }
-
     public function getKilometers(): float
     {
         return $this->attributes['kilometers'];
     }
-
     public function setKilometers(float $kilometers): void
     {
         $this->attributes['kilometers'] = $kilometers;
     }
-
     public function getPrice(): float
     {
         return $this->attributes['price'];
     }
-
     public function setPrice(float $price): void
     {
         $this->attributes['price'] = $price;
     }
-
     public function getIsNew(): bool
     {
         return $this->attributes['is_new'];
     }
-
     public function setIsNew(bool $is_new): void
     {
         $this->attributes['is_new'] = $is_new;
     }
-
     public function getIsAvailable(): bool
     {
         return $this->attributes['is_available'];
     }
-
     public function setIsAvailable(bool $is_available): void
     {
         $this->attributes['is_available'] = $is_available;
     }
-
     public function getImageUri(): string
     {
         return $this->attributes['image_uri'];
     }
-
     public function setImageUri(string $image_uri): void
     {
         $this->attributes['image_uri'] = $image_uri;
     }
-
     public function getTransmissionType(): string
     {
         return $this->attributes['transmission_type'];
     }
-
     public function setTransmissionType(string $transmission_type): void
     {
         $this->attributes['transmission_type'] = $transmission_type;
     }
-
     public function getType(): string
     {
         return $this->attributes['type'];
     }
-
     public function setType(string $type): void
     {
         $this->attributes['type'] = $type;
     }
-
     public function getManufactureYear(): int
     {
         return $this->attributes['manufacture_year'];
     }
-
     public function setManufactureDate(int $manufacture_year): void
     {
         $this->attributes['manufacture_year'] = $manufacture_year;
     }
-
+    public function carIsVisible(): bool
+    {
+        if($this->getIsAvailable()){
+            if($this->publishRequest !== null && !($this->publishRequest->getState() == "accepted")){
+                return false;
+            }else{
+                return true;
+            }
+        }else{
+            return false;
+        }
+    }
     // Validators
     public static function validate(Request $request): void
     {
