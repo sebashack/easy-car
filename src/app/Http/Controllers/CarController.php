@@ -74,13 +74,13 @@ class CarController extends Controller
 
     public function edit(string $id): View
     {
-        $user = Auth::user();
         $viewData = [];
         $car = Car::findOrFail($id);
         $viewData['title'] = 'Car';
         $viewData['car'] = $car;
         $viewData['model'] = $car->getCarModel();
         $viewData['carModels'] = CarModel::all();
+        $user = Auth::user();
         $viewData['is_admin'] = boolval($user) && $user->isAdmin();
 
         return view('car.edit')->with('viewData', $viewData);

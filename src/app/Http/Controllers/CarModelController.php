@@ -12,8 +12,8 @@ class CarModelController extends Controller
 {
     public function index(): View
     {
-        $user = Auth::user();
         $viewData = [];
+        $user = Auth::user();
         $viewData['is_admin'] = boolval($user) && $user->isAdmin();
         $viewData['title'] = 'Car Models - EasyCar';
         $viewData['carModels'] = CarModel::all();
@@ -48,6 +48,32 @@ class CarModelController extends Controller
         $viewData['is_admin'] = boolval($user) && $user->isAdmin();
 
         return view('carModel.show')->with('viewData', $viewData);
+    }
+
+    public function edit(string $id): View
+    {
+        $viewData = [];
+        $carModel = CarModel::findOrFail($id);
+        $viewData['title'] = 'Car Model Info - Easy Car';
+        $viewData['id'] = $carModel->getId();
+        $viewData['carModel'] = $carModel;
+        $user = Auth::user();
+        $viewData['is_admin'] = boolval($user) && $user->isAdmin();
+
+        return view('carModel.edit')->with('viewData', $viewData);
+    }
+
+    public function update(request $request, string $id): RedirectResponse
+    {
+        CarModel::validate($request);
+
+        CarModel::where('id', $id)->update([
+            'brand' => $request->brand,
+            'model' => $request->model,
+            'description' => $request->description,
+        ]);
+
+        return redirect(route('carModel.index'));
     }
 
     public function delete(string $id): RedirectResponse
