@@ -9,7 +9,22 @@
         <div class="card">
             <div class="card-body text-center">
                 <h4>Id: {{ $review->getId() }}</h4>
-                <p>{{ __("Rating") }}: {{ $review->getRating() }} / 5</p>
+                @if ($review->getRating() == 5)
+                    Rating:
+                    <p class="star">★★★★★</p>
+                    @elseif ($review->getRating() == 4)
+                    Rating:
+                    <p class="star">★★★★</p>
+                    @elseif ($review->getRating() == 3)
+                    Rating:
+                    <p class="star">★★★</p>
+                    @elseif ($review->getRating() == 2)
+                    Rating:
+                    <p class="star">★★</p>
+                    @else
+                    Rating:
+                    <p class="star">★</p>
+                @endif
                 <a
                     href="{{ route('review.show', ['id'=> $review->getId()]) }}"
                     class="btn bg-primary text-white"

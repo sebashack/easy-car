@@ -22,7 +22,7 @@
                     <h5 class="car-title star">★</h5>
                 @endif
                 <p class="mt-3"><strong>User:</strong> {{ $viewData['review_owner']->getName() }}</p>
-                <p><strong>Review:</strong>{{ $viewData['review']->getContent() }}</p>
+                <p><strong>Review:</strong> {{ $viewData['review']->getContent() }}</p>
                 @if ($viewData['current_user_id'] == $viewData['review_owner']->getId())
                     <form
                         action="{{ route('review.delete', ['id'=> $viewData['review']->getId()]) }}"
