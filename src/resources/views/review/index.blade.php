@@ -8,21 +8,21 @@
         <div class="col-md-4 col-lg-3 mb-2">
             <div class="card">
                 <div class="card-body text-center">
-                    <h4>Id: {{ $review->getId() }}</h4>
+                    <h4>{{ __("Id") }}:: {{ $review->getId() }}</h4>
                     @if ($review->getRating() == 5)
-                        Rating:
+                        {{ __("Rating") }}:
                         <p class="star">★★★★★</p>
                         @elseif ($review->getRating() == 4)
-                        Rating:
+                        {{ __("Rating") }}:
                         <p class="star">★★★★</p>
                         @elseif ($review->getRating() == 3)
-                        Rating:
+                        {{ __("Rating") }}:
                         <p class="star">★★★</p>
                         @elseif ($review->getRating() == 2)
-                        Rating:
+                        {{ __("Rating") }}:
                         <p class="star">★★</p>
                         @else
-                        Rating:
+                        {{ __("Rating") }}:
                         <p class="star">★</p>
                     @endif
                     <a

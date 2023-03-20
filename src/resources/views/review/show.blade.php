@@ -6,23 +6,23 @@
         <div class="col-md-8">
             <div class="card-body">
                 @if ($viewData['review']->getRating() == 5)
-                    <h5>Rating:</h5>
+                    <h5>{{ __("Rating") }}:</h5>
                     <h5 class="car-title star d-line">★★★★★</h5>
                     @elseif ($viewData['review']->getRating() == 4)
-                    <h5>Rating:</h5>
+                    <h5>{{ __("Rating") }}:</h5>
                     <h5 class="car-title star">★★★★</h5>
                     @elseif ($viewData['review']->getRating() == 3)
-                    <h5>Rating:</h5>
+                    <h5>{{ __("Rating") }}:</h5>
                     <h5 class="car-title star">★★★</h5>
                     @elseif ($viewData['review']->getRating() == 2)
-                    <h5>Rating:</h5>
+                    <h5>{{ __("Rating") }}:</h5>
                     <h5 class="car-title star">★★</h5>
                     @else
-                    <h5>Rating:</h5>
+                    <h5>{{ __("Rating") }}:</h5>
                     <h5 class="car-title star">★</h5>
                 @endif
-                <p class="mt-3"><strong>User:</strong> {{ $viewData['review_owner']->getName() }}</p>
-                <p><strong>Review:</strong> {{ $viewData['review']->getContent() }}</p>
+                <p class="mt-3"><strong>{{ __("User") }}:</strong> {{ $viewData['review_owner']->getName() }}</p>
+                <p><strong>{{ __("Review") }}:</strong> {{ $viewData['review']->getContent() }}</p>
                 @if ($viewData['is_the_review_owner'] || $viewData['is_admin'])
                     <form
                         action="{{ route('review.delete', ['id'=> $viewData['review']->getId()]) }}"

@@ -45,6 +45,7 @@ class CarModelController extends Controller
         $viewData['id'] = $carModel->getId();
         $viewData['carModel'] = $carModel;
         $user = Auth::user();
+        $viewData['current_user_id'] = $user->getId();
         $viewData['is_admin'] = boolval($user) && $user->isAdmin();
 
         return view('carModel.show')->with('viewData', $viewData);

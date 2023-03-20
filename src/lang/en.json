@@ -62,7 +62,6 @@
   "Enter message for admin": "Enter message for admin",
   "See more": "See more",
   "Message": "Message",
-  "State": "State",
   "Car id": "Car id",
   "My profile": "My profile",
   "Home": "Home",
@@ -84,5 +83,6 @@
   "Check car": "Check car",
   "View registered users": "View registered users",
   "Edit Car": "Edit Car",
-  "Edit CarModel": "Edit CarModel"
+  "Edit CarModel": "Edit CarModel",
+  "Id": "Id"
 }
