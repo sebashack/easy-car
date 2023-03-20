@@ -15,7 +15,7 @@
                     method="post"
                 >
                     <input class="btn bg-primary text-white" type="submit"
-                    value={{ __("Delete") }} /> 
+                    value={{ __("Delete") }} />
                 @csrf @method('delete')
                 </form>
             </div>

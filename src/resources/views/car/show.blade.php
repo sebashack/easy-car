@@ -41,8 +41,7 @@
                     <div class="col-sm col-lg-3 mb-2">
                         <div class="card bg-light mb-3">
                             <div class="car-header text-center mt-2">
-                                {{ __("Auth") }}:
-                                {{ $review->getUser()->getName() }}
+                                {{ __("User") }}: {{ $review->getUser()->getName() }}
                             </div>
                             <div class="card-body text-center">
                                 @if ($review->getRating() == 5)
@@ -57,8 +56,7 @@
                                 <h5 class="car-title star">★</h5>
                                 @endif
                                 <p class="car-text">
-                                    {{ __("Content") }}:
-                                    {{ $review->getContent() }}
+                                    {{ __("Review") }}: {{ $review->getContent() }}
                                 </p>
                             </div>
                         </div>
