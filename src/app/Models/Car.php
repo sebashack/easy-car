@@ -184,4 +184,15 @@ class Car extends Model
             'manufacture_year' => 'required|numeric|min:1900|max:'.(date('Y') + 1),
         ]);
     }
+
+    public static function validateUpdate(Request $request): void
+    {
+        $request->validate([
+            'color' => 'required',
+            'kilometers' => 'required|numeric|min:0|lt:320000',
+            'price' => 'required|numeric|gte:1',
+            'image_uri' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'manufacture_year' => 'required|numeric|min:1900|max:'.(date('Y') + 1),
+        ]);
+    }
 }

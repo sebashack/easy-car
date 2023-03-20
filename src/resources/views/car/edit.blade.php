@@ -64,7 +64,7 @@
                                 <option value="mechanic"  {{ $viewData['car']->getTransmissionType() == 'mechanic' ? 'selected' : ''}}>
                                     {{ __("Mechanic") }}
                                 </option>
-                                <option value="triptronic"  {{ $viewData['car']->getTransmissionType() == 'triptonic' ? 'selected' : ''}}>
+                                <option value="triptonic"  {{ $viewData['car']->getTransmissionType() == 'triptonic' ? 'selected' : ''}}>
                                     {{ __("Triptonic") }}
                                 </option>
                             </select>

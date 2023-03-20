@@ -14,11 +14,11 @@ class CarController extends Controller
 {
     public function index(Request $request): View
     {
+        $user = Auth::user();
         $viewData = [];
+        $viewData['is_admin'] = boolval($user) && $user->isAdmin();
         $viewData['title'] = 'Cars - EasyCar';
         $viewData['cars'] = Car::all();
-        $user = Auth::user();
-        $viewData['is_admin'] = boolval($user) && $user->isAdmin();
         $carIds = $request->session()->get('cart_car_ids');
         if ($carIds) {
             $viewData['cart_length'] = count($carIds);
@@ -88,7 +88,7 @@ class CarController extends Controller
 
     public function update(request $request, string $id): RedirectResponse
     {
-        //Car::validate($request);
+        Car::validateUpdate($request);
         if ($request->hasFile('image_uri')) {
             $car = Car::findOrFail($id);
             $storeInterface = app(ImageStorage::class);
