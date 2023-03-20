@@ -20,7 +20,6 @@ class PublishRequest extends Model
      */
     protected $fillable = ['message', 'state', 'car_id', 'user_id'];
 
-    // User Relation
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -36,8 +35,7 @@ class PublishRequest extends Model
         $this->user = $user;
     }
 
-    // Car relation
-    public function car(): HasOne
+    public function car(): BelongsTo
     {
         return $this->belongsTo(Car::class);
     }
