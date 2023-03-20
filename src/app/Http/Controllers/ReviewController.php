@@ -18,6 +18,7 @@ class ReviewController extends Controller
         $viewData['reviews'] = Review::all();
         $viewData['current_user_id'] = Auth::id();
         $viewData['is_admin'] = boolval($user) && $user->isAdmin();
+
         return view('review.index')->with('viewData', $viewData);
     }
 
