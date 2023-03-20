@@ -12,9 +12,6 @@
                 <div class="card-body text-center">
                     <p>{{ __("Brand") }}: {{ $carModel->getBrand() }}</p>
                     <p>{{ __("Model") }}: {{ $carModel->getModel() }}</p>
-                    <p>
-                        {{ __("Description") }}: {{ $carModel->getDescription() }}
-                    </p>
                     <a
                         href="{{ route('carModel.show', ['id'=> $carModel->getId()]) }}"
                         class="btn bg-primary text-white"

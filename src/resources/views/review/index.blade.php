@@ -8,7 +8,7 @@
         <div class="col-md-4 col-lg-3 mb-2">
             <div class="card">
                 <div class="card-body text-center">
-                    <h4>{{ __("Id") }}:: {{ $review->getId() }}</h4>
+                    <h4>{{ __("Id") }}: {{ $review->getId() }}</h4>
                     @if ($review->getRating() == 5)
                         {{ __("Rating") }}:
                         <p class="star">★★★★★</p>
