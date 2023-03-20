@@ -66,5 +66,9 @@
   "Home": "Home",
   "Logout": "Logout",
   "Register": "Register",
-  "Login": "Login"
+  "Login": "Login",
+  "State": "State",
+  "pending": "pending",
+  "rejected": "rejected",
+  "accpeted": "accepted"
 }

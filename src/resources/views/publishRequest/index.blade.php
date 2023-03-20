@@ -8,8 +8,8 @@
     <div class="col-md-4 col-lg-3 mb-2">
     <div class="card">
       <div class="card-body text-center">
-        <h4>Id: {{ $publishRequest->getId() }}</h4>
-        <p>{{__('Car state')}} : {{ $publishRequest->getState() }}</p>
+        <strong>Id: {{ $publishRequest->getId() }}</strong>
+        <p><strong>{{__('State') }}</strong> : {{ __($publishRequest->getState()) }}</p>
         <a href="{{ route('publishRequest.show', ['id'=> $publishRequest->getId()]) }}" class="btn bg-primary text-white">{{__('See More')}}</a>
       </div>
     </div>
