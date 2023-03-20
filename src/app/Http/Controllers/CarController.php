@@ -89,12 +89,12 @@ class CarController extends Controller
     public function update(request $request, string $id): RedirectResponse
     {
         //Car::validate($request);
-        if($request->hasFile('image_uri')){
+        if ($request->hasFile('image_uri')) {
             $car = Car::findOrFail($id);
             $storeInterface = app(ImageStorage::class);
             $imageName = $storeInterface->store($request);
             Car::where('id', $id)->update([
-                'image_uri' => $imageName
+                'image_uri' => $imageName,
             ]);
             $imageName = $storeInterface->delete($car->getImageUri());
         }
