@@ -16,7 +16,6 @@
     @endauth
     <div class="row">
         @foreach ($viewData["cars"] as $car)
-        @if($car->carIsVisible())
         <div class="col-md-4 col-lg-3 mb-2">
             <div class="card">
                 <img
@@ -45,7 +44,6 @@
                 </div>
             </div>
         </div>
-        @endif
         @endforeach
     </div>
 </div>

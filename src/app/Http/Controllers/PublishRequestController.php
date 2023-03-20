@@ -51,6 +51,7 @@ class PublishRequestController extends Controller
             'kilometers' => $request->kilometers,
             'price' => $request->price,
             'is_new' => false,
+            'is_available' => false,
             'image_uri' => $imageName,
             'transmission_type' => $request->transmission_type,
             'type' => $request->type,
