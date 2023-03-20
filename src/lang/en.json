@@ -48,6 +48,7 @@
   "Enter model": "Enter model",
   "Enter description": "Enter description",
   "Car Model": "Car Model",
+  "Car model": "Car model",
   "Details": "Details",
   "Review": "Review",
   "User": "User",
@@ -70,5 +71,6 @@
   "State": "State",
   "pending": "pending",
   "rejected": "rejected",
-  "accpeted": "accepted"
+  "accpeted": "accepted",
+  "Id": "Id"
 }

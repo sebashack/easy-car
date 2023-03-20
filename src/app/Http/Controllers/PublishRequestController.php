@@ -27,7 +27,15 @@ class PublishRequestController extends Controller
         $viewData = [];
         $publishRequest = PublishRequest::findOrFail($id);
         $viewData['title'] = 'User PublishRequest';
+
         $viewData['publishRequest'] = $publishRequest;
+
+        $car = $publishRequest->getCar();
+        $viewData['car'] = $car;
+        $viewData['carModel'] = $car->getCarModel();
+
+        $publisher = $publishRequest->getUser();
+        $viewData['publisher_name'] = $publisher->getName()." ".$publisher->getLastName();
 
         return view('publishRequest.show')->with('viewData', $viewData);
     }
