@@ -25,7 +25,7 @@
                 </br>
                 @if ($viewData['is_admin'])
                 <form action="{{ route('carModel.delete', ['id'=> $viewData['carModel']->getId()]) }}" method="post">
-                    <input class="btn bg-primary text-white" type="submit" value="{{ __('Delete') }}"/>
+                    <input class="btn bg-danger text-white" type="submit" value="{{ __('Delete') }}"/>
                     @csrf
                     @method('delete')
                 </form>
