@@ -21,14 +21,15 @@ class ReviewController extends Controller
 
     public function show(string $id): View
     {
-        $current_user = Auth::user();
+        $user = Auth::user();
         $viewData = [];
         $review = Review::findOrFail($id);
         $review_owner = $review->getUser();
         $viewData['title'] = 'User Review';
-        $viewData['is_the_review_owner'] = $current_user->getId() == $review_owner->getId();
+        $viewData['is_the_review_owner'] = $user->getId() == $review_owner->getId();
         $viewData['review_owner'] = $review_owner;
         $viewData['review'] = $review;
+        $viewData['is_admin'] = boolval($user) && $user->isAdmin();
 
         return view('review.show')->with('viewData', $viewData);
     }
