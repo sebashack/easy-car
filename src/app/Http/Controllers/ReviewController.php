@@ -13,9 +13,11 @@ class ReviewController extends Controller
     public function index(): View
     {
         $viewData = [];
+        $user = Auth::user();
         $viewData['title'] = 'Reviews - EasyCar';
         $viewData['reviews'] = Review::all();
-
+        $viewData['current_user_id'] = Auth::id();
+        $viewData['is_admin'] = boolval($user) && $user->isAdmin();
         return view('review.index')->with('viewData', $viewData);
     }
 
