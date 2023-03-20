@@ -60,6 +60,7 @@ class CarController extends Controller
 
     public function show(string $id): View
     {
+        $user = Auth::user();
         $viewData = [];
         $car = Car::findOrFail($id);
         $viewData['title'] = 'Car';
@@ -67,7 +68,6 @@ class CarController extends Controller
         $viewData['model'] = $car->getCarModel();
         $user = Auth::user();
         $viewData['is_admin'] = boolval($user) && $user->isAdmin();
-
         return view('car.show')->with('viewData', $viewData);
     }
 

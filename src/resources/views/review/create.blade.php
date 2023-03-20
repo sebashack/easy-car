@@ -18,7 +18,7 @@
                         {{ session("status") }}
                     </div>
                     @endif
-                    <form method="POST" action="{{ route('review.save') }}">
+                    <form method="POST" action="{{ route('review.save', ['id'=>$viewData['model_id']]) }}">
                         @csrf
                         <input
                             type="text"

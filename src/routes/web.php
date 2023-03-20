@@ -25,13 +25,13 @@ Route::get('/users/{id}', 'App\Http\Controllers\UserController@show')->name('use
 // Reviews
 Route::get('/reviews', 'App\Http\Controllers\ReviewController@index')->name('review.index');
 
-Route::get('/reviews/create', 'App\Http\Controllers\ReviewController@create')->name('review.create');
+Route::get('/reviews/create/{id}', 'App\Http\Controllers\ReviewController@create')->name('review.create')->middleware('auth');
 
 Route::get('/reviews/{id}', 'App\Http\Controllers\ReviewController@show')->name('review.show');
 
-Route::post('/reviews/save', 'App\Http\Controllers\ReviewController@save')->name('review.save');
+Route::post('/reviews/save/{id}', 'App\Http\Controllers\ReviewController@save')->name('review.save')->middleware('auth');
 
-Route::delete('/reviews/delete/{id}', 'App\Http\Controllers\ReviewController@delete')->name('review.delete');
+Route::delete('/reviews/delete/{id}', 'App\Http\Controllers\ReviewController@delete')->name('review.delete')->middleware('auth');
 
 // Cars
 Route::get('/cars', 'App\Http\Controllers\CarController@index')->name('car.index');

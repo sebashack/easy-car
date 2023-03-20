@@ -5,31 +5,23 @@
     <div class="row g-0">
         <div class="col-md-8">
             <div class="card-body">
-                <h5 class="card-title">
-                    {{ __("Car Model") }}: {{ $viewData["id"] }}
-                </h5>
+                <h3 class="card-text">{{ __("Brand") }}: {{ $viewData['carModel']->getBrand() }}</h3>
                 <p class="card-text">
-                    {{ __("Brand") }}: {{ $viewData['carModel']->getBrand() }}
+                    <strong>{{ __("Model") }}:</strong> {{ $viewData['carModel']->getModel() }}
                 </p>
                 <p class="card-text">
-                    {{ __("Model") }}: {{ $viewData['carModel']->getModel() }}
+                    <strong>{{ __("Description") }}:</strong> {{ $viewData['carModel']->getDescription() }}
                 </p>
-                <p class="card-text">
-                    {{ __("Description") }}:
-                    {{ $viewData['carModel']->getDescription() }}
-                </p>
-
-                @if ($viewData['isAdminUser'])
-                <form
-                    action="{{ route('carModel.delete', ['id'=> $viewData['carModel']->getId()]) }}"
-                    method="post"
-                >
-                    <input
-                        class="btn bg-primary text-white"
-                        type="submit"
-                        value="{{ __('Delete') }}"
-                    />
-                    @csrf @method('delete')
+                @auth
+                <a class="btn btn-primary" href="{{ route('review.create',['id'=> $viewData['carModel']->getId()]) }}">Make review</a>
+                @endauth
+                @if ($viewData['is_admin'])
+                </br>
+                </br>
+                <form action="{{ route('carModel.delete', ['id'=> $viewData['carModel']->getId()]) }}" method="post">
+                    <input class="btn bg-danger text-white" type="submit" value="{{ __('Delete') }}"/>
+                    @csrf
+                    @method('delete')
                 </form>
                 @endif
             </div>

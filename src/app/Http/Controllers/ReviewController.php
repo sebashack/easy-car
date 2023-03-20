@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Review;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class ReviewController extends Controller
@@ -20,6 +21,7 @@ class ReviewController extends Controller
 
     public function show(string $id): View
     {
+        $user_id = Auth::id();
         $viewData = [];
         $review = Review::findOrFail($id);
         $viewData['title'] = 'User Review';
@@ -28,23 +30,24 @@ class ReviewController extends Controller
         return view('review.show')->with('viewData', $viewData);
     }
 
-    public function create(): View
+    public function create(string $id): View
     {
         $viewData = [];
         $viewData['title'] = 'Create Review';
+        $viewData['model_id'] = $id;
 
         return view('review.create')->with('viewData', $viewData);
     }
 
-    public function save(Request $request): RedirectResponse
+    public function save(Request $request, string $id): RedirectResponse
     {
         Review::validate($request);
-
+        $user_id = Auth::id();
         Review::create([
             'content' => $request->content,
             'rating' => $request->rating,
-            'car_model_id' => 1,
-            'user_id' => 1,
+            'car_model_id' => $id,
+            'user_id' => $user_id,
         ]);
 
         return back()->with('status', __('Successfully created'));
