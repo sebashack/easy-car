@@ -21,10 +21,13 @@ class ReviewController extends Controller
 
     public function show(string $id): View
     {
-        $user_id = Auth::id();
+        $current_user_id = Auth::id();
         $viewData = [];
         $review = Review::findOrFail($id);
+        $review_owner = $review->getUser();
         $viewData['title'] = 'User Review';
+        $viewData['current_user_id'] = $current_user_id;
+        $viewData['review_owner'] = $review_owner;
         $viewData['review'] = $review;
 
         return view('review.show')->with('viewData', $viewData);
