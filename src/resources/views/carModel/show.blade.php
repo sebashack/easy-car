@@ -21,18 +21,13 @@
                 @if ($viewData['is_auth'])
                 <a class="btn btn-primary" href="{{ route('review.create',['id'=> $viewData['carModel']->getId()]) }}">Make review</a>
                 @endif
-
+                </br>
+                </br>
                 @if ($viewData['is_admin'])
-                <form
-                    action="{{ route('carModel.delete', ['id'=> $viewData['carModel']->getId()]) }}"
-                    method="post"
-                >
-                    <input
-                        class="btn bg-primary text-white"
-                        type="submit"
-                        value="{{ __('Delete') }}"
-                    />
-                    @csrf @method('delete')
+                <form action="{{ route('carModel.delete', ['id'=> $viewData['carModel']->getId()]) }}" method="post">
+                    <input class="btn bg-primary text-white" type="submit" value="{{ __('Delete') }}"/>
+                    @csrf
+                    @method('delete')
                 </form>
                 @endif
             </div>
