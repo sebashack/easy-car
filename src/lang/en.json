@@ -22,6 +22,7 @@
   "Truck": "Truck",
   "SUV": "SUV",
   "Coupe": "Coupe",
+  "Sport": "Sport",
   "Manufacture year": "Manufacture year",
   "Mark if the car is new": "Mark if the car is new",
   "Mark if the car is available": "Mark if the car is available",
@@ -82,5 +83,6 @@
   "Price to date": "Price to date",
   "Check car": "Check car",
   "View registered users": "View registered users",
-  "Edit": "Edit"
+  "Edit Car": "Edit Car",
+  "Edit CarModel": "Edit CarModel"
 }

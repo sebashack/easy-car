@@ -92,6 +92,7 @@
                                 <option value="truck">{{ __("Truck") }}</option>
                                 <option value="suv">{{ __("SUV") }}</option>
                                 <option value="coupe">{{ __("Coupe") }}</option>
+                                <option value="sport">{{ __("Sport") }}</option>
                             </select>
                         </div>
                         <div class="form-group">
