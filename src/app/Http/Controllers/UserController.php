@@ -18,19 +18,28 @@ class UserController extends Controller
         return view('user.index')->with('viewData', $viewData);
     }
 
-    public function show(string $id): View|RedirectResponse
+    public function show(): View|RedirectResponse
     {
-        $auth_id = Auth::id();
-        $user = User::findOrFail($id);
+        $user = Auth::user();
 
-        if ($auth_id != $user->getId()) {
-            return redirect()->route('home.unauthorized');
-        } else {
-            $viewData = [];
-            $viewData['title'] = 'User Profile';
-            $viewData['user'] = $user;
-
-            return view('user.show')->with('viewData', $viewData);
+        if ($user->isAdmin()) {
+            return redirect()->route('user.showAdmin');
         }
+
+        $viewData = [];
+        $viewData['title'] = 'User Profile';
+        $viewData['user'] = $user;
+
+        return view('user.show')->with('viewData', $viewData);
+    }
+
+    public function showAdmin(): View
+    {
+        $user = Auth::user();
+        $viewData = [];
+        $viewData['title'] = 'Admin Profile';
+        $viewData['user'] = $user;
+
+        return view('user.showAdmin')->with('viewData', $viewData);
     }
 }

@@ -18,9 +18,11 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index')
 Route::get('/unauthorized', 'App\Http\Controllers\HomeController@unauthorized')->name('home.unauthorized');
 
 // Users
-Route::get('/users', 'App\Http\Controllers\UserController@index')->name('user.index');
+Route::get('/users', 'App\Http\Controllers\UserController@index')->name('user.index')->middleware('auth', 'isAdmin');
 
-Route::get('/users/{id}', 'App\Http\Controllers\UserController@show')->name('user.show')->middleware('auth');
+Route::get('/users/profile', 'App\Http\Controllers\UserController@show')->name('user.show')->middleware('auth');
+
+Route::get('/admins/profile', 'App\Http\Controllers\UserController@showAdmin')->name('user.showAdmin')->middleware('auth', 'isAdmin');
 
 // Reviews
 Route::get('/reviews', 'App\Http\Controllers\ReviewController@index')->name('review.index');

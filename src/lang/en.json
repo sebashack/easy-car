@@ -61,5 +61,10 @@
   "See more": "See more",
   "Message": "Message",
   "State": "State",
-  "Car id": "Car id"
+  "Car id": "Car id",
+  "My profile": "My profile",
+  "Home": "Home",
+  "Logout": "Logout",
+  "Register": "Register",
+  "Login": "Login"
 }

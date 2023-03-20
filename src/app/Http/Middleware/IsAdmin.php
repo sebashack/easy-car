@@ -20,6 +20,6 @@ class IsAdmin
             return $next($request);
         }
 
-        return redirect('/unauthorized');
+        return redirect()->route('home.unauthorized');
     }
 }
