@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Http\Request;
 
 class PublishRequest extends Model
@@ -12,8 +13,10 @@ class PublishRequest extends Model
      * $this->attributes['id'] - int - contains the publishRquest primary key (id)
      * $this->attributes['message'] - string - contains the request message
      * $this->attributes['state'] - enum[Pending, Accepted, Rejected] - contains the request state
-     * $this->attributes['carId'] - int - contains the car foreign key (id) associeted
+     * $this->attributes['car_id'] - int - contains the car foreign key (id) associeted
      * $this->attributes['user_id'] - int - contains the foreign key of the corresponding user
+     * $this->user - User - contains the associated User
+     * $this->car - Car - contains the associated Car
      */
     protected $fillable = ['message', 'state', 'car_id', 'user_id'];
 
@@ -22,14 +25,34 @@ class PublishRequest extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function getId(): int
-    {
-        return $this->attributes['id'];
-    }
-
     public function getUser(): User
     {
         return $this->user;
+    }
+
+    public function setUser(User $user): void
+    {
+        $this->user = $user;
+    }
+
+    public function car(): BelongsTo
+    {
+        return $this->belongsTo(Car::class);
+    }
+
+    public function getCar(): Car
+    {
+        return $this->car;
+    }
+
+    public function setCar(Car $car): void
+    {
+        $this->car = $car;
+    }
+
+    public function getId(): int
+    {
+        return $this->attributes['id'];
     }
 
     public function getMessage(): string
@@ -57,9 +80,9 @@ class PublishRequest extends Model
         return $this->attributes['car_id'];
     }
 
-    public function setCarId($carId): void
+    public function setCarId($car_id): void
     {
-        $this->attributes['carId'] = $carId;
+        $this->attributes['car_id'] = $car_id;
     }
 
     // Validations

@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Http\Request;
 
 class Car extends Model
@@ -24,19 +24,15 @@ class Car extends Model
      * $this->attributes['manudacture_year'] - year - contains a year indicating car year
      * $this->attributes['car_model_id'] - int - contains the id of the corresponding car model
      * $this->carMdoel - CarModel - contains the associate car model
+     * $this->publishRequest - PublishRequest - contains the associate publishRequest
      */
-    use HasFactory;
-
     protected $fillable = ['color', 'kilometers', 'price', 'is_new', 'is_available', 'transmission_type', 'type', 'manufacture_year', 'image_uri', 'car_model_id'];
+
+    protected $attributes = [ 'is_available' => true ];
 
     public function carModel(): BelongsTo
     {
         return $this->belongsTo(CarModel::class);
-    }
-
-    public function getCarModelId(): int
-    {
-        return $this->attribues['car_model_id'];
     }
 
     public function getCarModel(): CarModel
@@ -47,6 +43,26 @@ class Car extends Model
     public function setCarModel(CarModel $carModel): void
     {
         $this->carModel = $carModel;
+    }
+
+    public function getCarModelId(): int
+    {
+        return $this->attribues['car_model_id'];
+    }
+
+    public function publishRequest(): HasOne
+    {
+        return $this->hasOne(PublishRequest::class);
+    }
+
+    public function getPublishRequest(): PublishRequest
+    {
+        return $this->publishRequest;
+    }
+
+    public function setPublishRequest(PublishRequest $publishRquest): void
+    {
+        $this->publishRequest = $publishRequest;
     }
 
     public function getId(): int
@@ -142,6 +158,19 @@ class Car extends Model
     public function setManufactureDate(int $manufacture_year): void
     {
         $this->attributes['manufacture_year'] = $manufacture_year;
+    }
+
+    public function carIsVisible(): bool
+    {
+        if ($this->getIsAvailable()) {
+            if ($this->publishRequest !== null && ! ($this->publishRequest->getState() == 'accepted')) {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
     }
 
     // Validators
