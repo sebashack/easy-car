@@ -20,6 +20,14 @@
                 >
                     {{ __("Check car model") }}
                 </a>
+                @if ($viewData['is_admin'])
+                    <a
+                        href="{{ route('carModel.edit', ['id'=> $carModel->getId()]) }}"
+                        class="btn bg-primary text-white"
+                    >
+                    <span>&#9998;</span>
+                    </a>
+                @endif
             </div>
         </div>
     </div>

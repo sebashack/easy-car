@@ -12,7 +12,9 @@ class CarModelController extends Controller
 {
     public function index(): View
     {
+        $user = Auth::user();
         $viewData = [];
+        $viewData['is_admin'] = boolval($user) && $user->isAdmin();
         $viewData['title'] = 'Car Models - EasyCar';
         $viewData['carModels'] = CarModel::all();
 

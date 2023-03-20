@@ -63,6 +63,10 @@ Route::get('/car-models/{id}', 'App\Http\Controllers\CarModelController@show')->
 
 Route::post('/car-models/save', 'App\Http\Controllers\CarModelController@save')->name('carModel.save')->middleware('auth', 'isAdmin');
 
+Route::get('/car-models/edit/{id}', 'App\Http\Controllers\CarModelController@edit')->name('carModel.edit')->middleware('auth', 'isAdmin');
+
+Route::patch('/car-models/{id}', 'App\Http\Controllers\CarModelController@update')->name('carModel.update')->middleware('auth', 'isAdmin');
+
 Route::delete('/car-models/delete/{id}', 'App\Http\Controllers\CarModelController@delete')->name('carModel.delete')->middleware('auth', 'isAdmin');
 
 // Publish request
