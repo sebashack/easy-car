@@ -72,5 +72,6 @@
   "pending": "pending",
   "rejected": "rejected",
   "accpeted": "accepted",
-  "Id": "Id"
+  "Successfully rejected": "Successfully rejected",
+  "Successfully accepted": "Successfully accepted"
 }
