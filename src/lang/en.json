@@ -22,6 +22,7 @@
   "Truck": "Truck",
   "SUV": "SUV",
   "Coupe": "Coupe",
+  "Sport": "Sport",
   "Manufacture year": "Manufacture year",
   "Mark if the car is new": "Mark if the car is new",
   "Mark if the car is available": "Mark if the car is available",
@@ -68,7 +69,6 @@
   "Logout": "Logout",
   "Register": "Register",
   "Login": "Login",
-  "State": "State",
   "pending": "pending",
   "rejected": "rejected",
   "accpeted": "accepted",
@@ -82,5 +82,7 @@
   "Total": "Total",
   "Price to date": "Price to date",
   "Check car": "Check car",
-  "View registered users": "View registered users"
+  "View registered users": "View registered users",
+  "Edit Car": "Edit Car",
+  "Edit CarModel": "Edit CarModel"
 }
