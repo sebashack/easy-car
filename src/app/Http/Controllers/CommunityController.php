@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\CarModel;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class CommunityController extends Controller
@@ -18,6 +16,7 @@ class CommunityController extends Controller
                 ->limit(5)
                 ->get();
         $viewData['carModels'] = $carModels;
+
         return view('community.index')->with('viewData', $viewData);
     }
 }
