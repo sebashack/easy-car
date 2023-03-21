@@ -13,25 +13,39 @@ class ReviewController extends Controller
     public function index(): View
     {
         $viewData = [];
+        $user = Auth::user();
         $viewData['title'] = 'Reviews - EasyCar';
-        $viewData['reviews'] = Review::all();
+        if ($user->isAdmin()) {
+            $viewData['reviews'] = Review::all()->sortBy('rating');
+        }else{
+            $viewData['reviews'] = $user->getReviews()->sortBy('rating');
+        }
+        $viewData['is_admin'] = boolval($user) && $user->isAdmin();
 
         return view('review.index')->with('viewData', $viewData);
     }
 
     public function show(string $id): View
     {
-        $user_id = Auth::id();
+        $user = Auth::user();
         $viewData = [];
         $review = Review::findOrFail($id);
+        $review_owner = $review->getUser();
         $viewData['title'] = 'User Review';
+        $viewData['is_the_review_owner'] = Auth::id() == $review_owner->getId();
+        $viewData['review_owner'] = $review_owner;
         $viewData['review'] = $review;
+        $viewData['is_admin'] = boolval($user) && $user->isAdmin();
 
         return view('review.show')->with('viewData', $viewData);
     }
 
-    public function create(string $id): View
+    public function create(string $id): View|RedirectResponse
     {
+        $user = Auth::user();
+        if ($user->isAdmin()) {
+            return redirect()->route('home.unauthorized');
+        }
         $viewData = [];
         $viewData['title'] = 'Create Review';
         $viewData['model_id'] = $id;

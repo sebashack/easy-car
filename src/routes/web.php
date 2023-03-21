@@ -27,11 +27,11 @@ Route::get('/users/profile', 'App\Http\Controllers\UserController@show')->name('
 Route::get('/admins/profile', 'App\Http\Controllers\UserController@showAdmin')->name('user.showAdmin')->middleware('auth', 'isAdmin');
 
 // Reviews
-Route::get('/reviews', 'App\Http\Controllers\ReviewController@index')->name('review.index');
+Route::get('/reviews', 'App\Http\Controllers\ReviewController@index')->name('review.index')->middleware('auth');
 
 Route::get('/reviews/create/{id}', 'App\Http\Controllers\ReviewController@create')->name('review.create')->middleware('auth');
 
-Route::get('/reviews/{id}', 'App\Http\Controllers\ReviewController@show')->name('review.show');
+Route::get('/reviews/{id}', 'App\Http\Controllers\ReviewController@show')->name('review.show')->middleware('auth');
 
 Route::post('/reviews/save/{id}', 'App\Http\Controllers\ReviewController@save')->name('review.save')->middleware('auth');
 

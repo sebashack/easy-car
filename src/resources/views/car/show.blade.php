@@ -77,5 +77,5 @@
 </div>
 @endsection
 @section('scripts')
-<script src="{{ asset('js/reviewsManage.js') }}"></script>
+<script src="{{ asset('js/reviewsManageInCar.js') }}"></script>
 @endsection
