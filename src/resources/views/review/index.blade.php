@@ -5,7 +5,6 @@
     <h1>{{ __("Reviews") }}</h1>
     <div class="row">
         @foreach ($viewData["reviews"] as $review)
-        @if ($review->getUser()->getId() == $viewData['current_user_id'] || $viewData['is_admin'])
         <div class="col-md-4 col-lg-3 mb-2">
             <div class="card">
                 <div class="card-body text-center">
@@ -35,7 +34,6 @@
                 </div>
             </div>
         </div>
-        @endif
         @endforeach
     </div>
 </div>

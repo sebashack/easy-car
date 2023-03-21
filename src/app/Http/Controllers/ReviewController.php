@@ -15,8 +15,11 @@ class ReviewController extends Controller
         $viewData = [];
         $user = Auth::user();
         $viewData['title'] = 'Reviews - EasyCar';
-        $viewData['reviews'] = Review::all();
-        $viewData['current_user_id'] = Auth::id();
+        if ($user->isAdmin()) {
+            $viewData['reviews'] = Review::all()->sortBy('rating');
+        }else{
+            $viewData['reviews'] = $user->getReviews()->sortBy('rating');
+        }
         $viewData['is_admin'] = boolval($user) && $user->isAdmin();
 
         return view('review.index')->with('viewData', $viewData);
