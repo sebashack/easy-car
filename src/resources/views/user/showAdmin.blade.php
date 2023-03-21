@@ -28,6 +28,13 @@
                 <a href="{{ route('publishRequest.index') }}" class="list-group-item link-info"> {{ __('View car publish requests') }} </a>
             </ul>
         </div>
+        <br/>
+        <div>
+            <h3>Orders</h3>
+            <ul class="list-group">
+                <a href="{{ route('order.index') }}" class="list-group-item link-info"> {{ __('View car orders') }} </a>
+            </ul>
+        </div>
     <div>
     <br/>
     <br/>

@@ -8,7 +8,7 @@
 
     <br />
     @auth
-    <a class="btn bg-danger text-white" href="orders/create">
+    <a class="btn bg-info text-white" href="{{ route('order.create') }}">
         {{ __("Check out your cars") }}: {{ $viewData["cart_length"] }}
     </a>
     <br />

@@ -73,5 +73,13 @@
   "rejected": "rejected",
   "accpeted": "accepted",
   "Successfully rejected": "Successfully rejected",
-  "Successfully accepted": "Successfully accepted"
+  "Successfully accepted": "Successfully accepted",
+  "Car Orders": "Car Orders",
+  "Customer": "Customer",
+  "Check model": "Check model",
+  "Check order": "Check order",
+  "Show reviews": "Show reviews",
+  "Total": "Total",
+  "Price to date": "Price to date",
+  "Check car": "Check car"
 }

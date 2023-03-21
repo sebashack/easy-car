@@ -31,6 +31,26 @@ class OrderController extends Controller
         return view('order.create')->with('viewData', $viewData);
     }
 
+    public function index(Request $request): View
+    {
+        $viewData = [];
+        $viewData['title'] = 'Orders - EasyCar';
+        $viewData['orders'] = Order::all()->sortBy('created_at');
+
+        return view('order.index')->with('viewData', $viewData);
+    }
+
+    public function show(string $id): View
+    {
+        $viewData = [];
+        $viewData['title'] = 'Orders - EasyCar';
+        $order = Order::findOrFail($id);
+        $viewData['order'] = $order;
+        $viewData['items'] = $order->getItems();
+
+        return view('order.show')->with('viewData', $viewData);
+    }
+
     public function save(Request $request): RedirectResponse
     {
         Order::validate($request);
