@@ -56,6 +56,7 @@ class OrderController extends Controller
         $user = Auth::user();
         $order = Order::findOrFail($id);
         $customer = $order->getUser();
+        $viewData['is_admin'] = boolval($user) && $user->isAdmin();
 
         if ($user->isAdmin() || $user->getId() === $customer->getId()) {
             $viewData['order'] = $order;
@@ -122,7 +123,8 @@ class OrderController extends Controller
     public function pdf(string $id)
     {
         $order = Order::findOrFail($id);
-        $pdf = Pdf::loadView('order.pdf',compact('order'));
-        return $pdf->download('order.pdf');
+        $pdf_name = 'invoice-of-order-'.$order->getId().'.pdf';
+        $pdf = Pdf::loadView('layouts.pdf',compact('order'));
+        return $pdf->download($pdf_name);
     }
 }
