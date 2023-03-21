@@ -25,7 +25,7 @@
                         enctype="multipart/form-data"
                     >
                         @csrf
-                        @method('PATCH')
+                        @method('patch')
                         <input
                             type="text"
                             value="{{ $viewData['car']->getColor() }}"
@@ -91,7 +91,7 @@
                                 <option value="truck" {{ $viewData['car']->getType() == 'truck' ? 'selected' : ''}}>{{ __("Truck") }}</option>
                                 <option value="suv" {{ $viewData['car']->getType() == 'suv' ? 'selected' : ''}}>{{ __("SUV") }}</option>
                                 <option value="coupe" {{ $viewData['car']->getType() == 'coupe' ? 'selected' : ''}}>{{ __("Coupe") }}</option>
-                                <option value="sport" {{ $viewData['car']->getType() == 'sport' ? 'selected' : ''}}>{{ __("Coupe") }}</option>
+                                <option value="sport" {{ $viewData['car']->getType() == 'sport' ? 'selected' : ''}}>{{ __("Sport") }}</option>
                             </select>
                         </div>
                         <div class="form-group">
