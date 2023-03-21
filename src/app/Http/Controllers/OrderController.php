@@ -35,20 +35,34 @@ class OrderController extends Controller
     {
         $viewData = [];
         $viewData['title'] = 'Orders - EasyCar';
-        $viewData['orders'] = Order::all()->sortBy('created_at');
+
+        $user = Auth::user();
+
+        if ($user->isAdmin()) {
+            $viewData['orders'] = Order::all()->sortBy('created_at');
+        } else {
+            $viewData['orders'] = $user->getOrders();
+        }
 
         return view('order.index')->with('viewData', $viewData);
     }
 
-    public function show(string $id): View
+    public function show(string $id): View|RedirectResponse
     {
         $viewData = [];
         $viewData['title'] = 'Orders - EasyCar';
+        $user = Auth::user();
         $order = Order::findOrFail($id);
-        $viewData['order'] = $order;
-        $viewData['items'] = $order->getItems();
+        $customer = $order->getUser();
 
-        return view('order.show')->with('viewData', $viewData);
+        if ($user->isAdmin() || $user->getId() === $customer->getId()) {
+            $viewData['order'] = $order;
+            $viewData['items'] = $order->getItems();
+
+            return view('order.show')->with('viewData', $viewData);
+        } else {
+            return redirect()->route('home.unauthorized');
+        }
     }
 
     public function save(Request $request): RedirectResponse
