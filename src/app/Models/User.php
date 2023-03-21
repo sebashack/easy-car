@@ -103,4 +103,14 @@ class User extends Authenticatable
     {
         return $this->attributes['is_admin'];
     }
+
+    public function getBalance(): int
+    {
+        return $this->attributes['balance'];
+    }
+
+    public function setBalance(int $balance): void
+    {
+        $this->attributes['balance'] = $balance;
+    }
 }

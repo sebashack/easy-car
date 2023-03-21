@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Validation\ValidationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
@@ -67,6 +69,7 @@ class OrderController extends Controller
 
     public function save(Request $request): RedirectResponse
     {
+
         Order::validate($request);
         $items = [];
         $total = 0;
@@ -79,10 +82,25 @@ class OrderController extends Controller
             }
         }
 
+        $userId = Auth::id();
+        $user = User::findOrFail($userId);
+        if ($user->getBalance() < $total) {
+            throw ValidationException::withMessages(['insufficient funds']);
+        }
+
+        $current_balance = $user->getBalance() - $total;
+        User::where('id', $userId)->update(['balance' => $current_balance]);
+
+        if ($fetchedCars) {
+            foreach ($fetchedCars as $key => $car) {
+                Car::where('id', $key)->update(['is_available' => false]);
+            }
+        }
+
         $order = Order::create([
             'shipping_address' => $request->shipping_address,
             'total' => $total,
-            'user_id' => $id = Auth::id(),
+            'user_id' => $userId,
         ]);
 
         $order->items()->createMany($items);
@@ -92,7 +110,7 @@ class OrderController extends Controller
         return back()->with('status', __('Successfully created'));
     }
 
-    public function removeAll(Request $request): RedirectResponse
+    public function remove(Request $request): RedirectResponse
     {
         $request->session()->forget('cart_car_ids');
 
