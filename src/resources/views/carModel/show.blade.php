@@ -12,7 +12,9 @@
                     <strong>{{ __("Description") }}:</strong> {{ $viewData['carModel']->getDescription() }}
                 </p>
                 @auth
+                @if (!$viewData['is_admin'])
                 <a class="btn btn-primary mb-3" href="{{ route('review.create',['id'=> $viewData['carModel']->getId()]) }}">Make review</a>
+                @endif
                 @endauth
                 <button class="btn btn-primary mb-3 reviews">Show reviews</button>
                 <div class="hide">
