@@ -9,19 +9,9 @@
         <div class="card">
             <div class="card-body text-center">
                 @if ($user->isAdmin() === true)
-                <a
-                    href="{{ route('user.show', ['id'=> $user->getId()]) }}"
-                    class="link-info"
-                >
-                    {{ $user->getEmail() }} (admin)
-                </a>
+                <p>{{ $user->getEmail() }} (admin)</p>
                 @else
-                <a
-                    href="{{ route('user.show', ['id'=> $user->getId()]) }}"
-                    class="link-info"
-                >
-                    {{ $user->getEmail() }}
-                </a>
+                <p>{{ $user->getEmail() }}</p>
                 @endif
             </div>
         </div>

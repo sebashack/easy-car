@@ -17,10 +17,14 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index')
 
 Route::get('/unauthorized', 'App\Http\Controllers\HomeController@unauthorized')->name('home.unauthorized');
 
-// Users
-Route::get('/users', 'App\Http\Controllers\UserController@index')->name('user.index');
+Auth::routes();
 
-Route::get('/users/{id}', 'App\Http\Controllers\UserController@show')->name('user.show')->middleware('auth');
+// Users
+Route::get('/users', 'App\Http\Controllers\UserController@index')->name('user.index')->middleware('auth', 'isAdmin');
+
+Route::get('/users/profile', 'App\Http\Controllers\UserController@show')->name('user.show')->middleware('auth');
+
+Route::get('/admins/profile', 'App\Http\Controllers\UserController@showAdmin')->name('user.showAdmin')->middleware('auth', 'isAdmin');
 
 // Reviews
 Route::get('/reviews', 'App\Http\Controllers\ReviewController@index')->name('review.index');
@@ -66,12 +70,16 @@ Route::get('/publish-requests/{id}', 'App\Http\Controllers\PublishRequestControl
 
 Route::post('/publish-requests/save', 'App\Http\Controllers\PublishRequestController@save')->name('publishRequest.save')->middleware('auth');
 
-Route::delete('/publish-requests/delete/{id}', 'App\Http\Controllers\PublishRequestController@delete')->name('publishRequest.delete')->middleware('auth', 'isAdmin');
+Route::put('/publish-requests/accept/{id}', 'App\Http\Controllers\PublishRequestController@accept')->name('publishRequest.accept')->middleware('auth', 'isAdmin');
 
-Auth::routes();
+Route::put('/publish-requests/reject/{id}', 'App\Http\Controllers\PublishRequestController@reject')->name('publishRequest.reject')->middleware('auth', 'isAdmin');
 
 // Order
 Route::get('/orders/create', 'App\Http\Controllers\OrderController@create')->name('order.create')->middleware('auth');
+
+Route::get('/orders', 'App\Http\Controllers\OrderController@index')->name('order.index')->middleware('auth');
+
+Route::get('/orders/{id}', 'App\Http\Controllers\OrderController@show')->name('order.show')->middleware('auth');
 
 Route::post('/orders/save', 'App\Http\Controllers\OrderController@save')->name('order.save')->middleware('auth');
 

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Item extends Model
 {
@@ -15,9 +16,9 @@ class Item extends Model
      */
     protected $fillable = ['price_to_date', 'car_id'];
 
-    public function car(): HasOne
+    public function car(): BelongsTo
     {
-        return $this->hasOne(Car::class);
+        return $this->BelongsTo(Car::class);
     }
 
     public function getId(): int

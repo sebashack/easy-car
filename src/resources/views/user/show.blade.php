@@ -1,21 +1,17 @@
 @extends('layouts.app')
 @section('title', $viewData["title"])
 @section('content')
-<div class="card mb-3">
-    <div class="row g-0">
-        <div class="col-md-8">
-            <div class="card-body">
-                <h3 class="card-title">
-                    {{ $viewData['user']->getName() }}
-                    {{ $viewData['user']->getLastName() }}
-                </h3>
-                @if ($viewData['user']->isAdmin() )
-                <a href="{{ route('carModel.create') }}" class="link-info">
-                    Create car model
-                </a>
-                @endif
-            </div>
+<div>
+    <h1 class="card-title">{{ $viewData['user']->getName() }} {{ $viewData['user']->getLastName() }}</h1>
+    <br/>
+    <br/>
+    <div>
+        <div>
+            <h3>Car publish requests</h3>
+            <ul class="list-group">
+                <a href="{{ route('publishRequest.create') }}" class="list-group-item link-info"> {{ __('Create car publish request') }} </a>
+            </ul>
         </div>
-    </div>
+    <div>
 </div>
 @endsection

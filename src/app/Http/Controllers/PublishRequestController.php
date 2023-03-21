@@ -27,7 +27,15 @@ class PublishRequestController extends Controller
         $viewData = [];
         $publishRequest = PublishRequest::findOrFail($id);
         $viewData['title'] = 'User PublishRequest';
+
         $viewData['publishRequest'] = $publishRequest;
+
+        $car = $publishRequest->getCar();
+        $viewData['car'] = $car;
+        $viewData['carModel'] = $car->getCarModel();
+
+        $publisher = $publishRequest->getUser();
+        $viewData['publisher_name'] = $publisher->getName().' '.$publisher->getLastName();
 
         return view('publishRequest.show')->with('viewData', $viewData);
     }
@@ -70,10 +78,31 @@ class PublishRequestController extends Controller
         return back()->with('status', __('Successfully created'));
     }
 
-    public function delete(string $id): RedirectResponse
+    public function accept(string $id): RedirectResponse
     {
-        PublishRequest::destroy($id);
+        $publishRequest = PublishRequest::findOrFail($id);
 
-        return redirect('publish-requests');
+        if ($publishRequest->getState() === 'pending') {
+            $publishRequest->setState('accepted');
+            $publishRequest->update();
+
+            return back()->with('status_updated', __('Successfully accepted'));
+        } else {
+            return back()->with('status_not_updated', __('State cannot be changed'));
+        }
+    }
+
+    public function reject(string $id): RedirectResponse
+    {
+        $publishRequest = PublishRequest::findOrFail($id);
+
+        if ($publishRequest->getState() === 'pending') {
+            $publishRequest->setState('rejected');
+            $publishRequest->update();
+
+            return back()->with('status_updated', __('Successfully rejected'));
+        } else {
+            return back()->with('status_not_updated', __('State cannot be changed'));
+        }
     }
 }
