@@ -26,6 +26,8 @@
         @endif
         @endforeach
     <div>
-    <a class="btn btn-success mb-2"  href="{{ route('order.pdf',['id'=>$viewData['order']->getId()]) }}">PDF</a>
+        @if (!$viewData['is_admin'])
+            <a class="btn btn-success mb-2"  href="{{ route('layouts.pdf',['id'=>$viewData['order']->getId()]) }}">PDF</a>
+        @endif
 </div>
 @endsection

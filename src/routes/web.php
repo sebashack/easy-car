@@ -84,7 +84,7 @@ Route::put('/publish-requests/reject/{id}', 'App\Http\Controllers\PublishRequest
 
 // Order
 
-Route::get('/orders/pdf/{id}', 'App\Http\Controllers\OrderController@pdf')->name('order.pdf')->middleware('auth');
+Route::get('/orders/pdf/{id}', 'App\Http\Controllers\OrderController@pdf')->name('layouts.pdf')->middleware('auth');
 
 Route::get('/orders/create', 'App\Http\Controllers\OrderController@create')->name('order.create')->middleware('auth');
 
