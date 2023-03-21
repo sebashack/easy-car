@@ -119,9 +119,9 @@ class OrderController extends Controller
         return back();
     }
 
-    public function pdf()
+    public function pdf(string $id)
     {
-        $order = Order::all();
+        $order = Order::findOrFail($id);
         $pdf = Pdf::loadView('order.pdf',compact('order'));
         return $pdf->download('order.pdf');
     }

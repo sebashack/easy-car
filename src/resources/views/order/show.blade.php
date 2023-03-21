@@ -26,6 +26,6 @@
         @endif
         @endforeach
     <div>
-    <a href="{{ route('order.pdf') }}">Descargar orden</a>
+    <a class="btn btn-success mb-2"  href="{{ route('order.pdf',['id'=>$viewData['order']->getId()]) }}">PDF</a>
 </div>
 @endsection
