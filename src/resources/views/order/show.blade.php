@@ -26,5 +26,6 @@
         @endif
         @endforeach
     <div>
+    <a href="{{ route('order.pdf') }}">Descargar orden</a>
 </div>
 @endsection

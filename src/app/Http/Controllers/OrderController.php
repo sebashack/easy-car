@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class OrderController extends Controller
 {
@@ -116,5 +117,12 @@ class OrderController extends Controller
         $request->session()->forget('cart_car_ids');
 
         return back();
+    }
+
+    public function pdf()
+    {
+        $order = Order::all();
+        $pdf = Pdf::loadView('order.pdf',compact('order'));
+        return $pdf->download('order.pdf');
     }
 }
