@@ -17,6 +17,9 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index')
 
 Route::get('/unauthorized', 'App\Http\Controllers\HomeController@unauthorized')->name('home.unauthorized');
 
+// Community info
+Route::get('/community', 'App\Http\Controllers\CommunityController@index')->name('community.index');
+
 Auth::routes();
 
 // Users
