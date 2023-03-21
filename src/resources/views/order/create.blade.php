@@ -77,7 +77,7 @@
                     </form>
                     <br />
                     <a
-                        href="{{ route('order.removeAll') }}"
+                        href="{{ route('order.remove') }}"
                         class="btn bg-primary text-white"
                     >
                         {{ __("Delete") }}
