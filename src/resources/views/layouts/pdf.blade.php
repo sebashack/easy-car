@@ -49,11 +49,11 @@
   <table class="table table-bordered table-striped text-center font-ty">
     <thead class="header">
       <tr>
-        <th>Id</th>
-        <th>Brand</th>
-        <th>Model</th>
-        <th>Color</th>
-        <th>Price</th>
+        <th>{{ __('Id') }}</th>
+        <th>{{ __('Brand') }}</th>
+        <th>{{ __('Model') }}</th>
+        <th>{{ __('Color') }}</th>
+        <th>{{ __('Price') }}</th>
       </tr>
     </thead>
     <tbody>
