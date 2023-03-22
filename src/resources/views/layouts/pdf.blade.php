@@ -14,18 +14,16 @@
   <div class="h-30"></div>
 </div>
 
-<div class="font-ty">
 <h1>Order: {{ $order->getId() }}</h1>
 
-<hr />
-  <div class="row mt-3 font-ty mb-4">
-    <div class="col-2">
+  <div class="font-ty mb-4">
+    <div>
       <h5>{{ __('Invoice to') }}</h5>
       <p>
         {{ $order->getUser()->getName() }} {{ $order->getUser()->getLastName() }}
       </p>
     </div>
-    <div class="col-2">
+    <div>
       <h5>{{ __('Send to') }}</h5>
       <p>
         {{ $order->getShippingAddress() }}
@@ -34,15 +32,15 @@
         {{ $order->getUser()->getEmail() }}
       </p>
     </div>
-    <div class="col-2">
+    <div>
       <h5>{{ __('Invoice number') }}</h5>
       <p> 10000{{ $order->getId() }}</p>
     </div>
-    <div class="col-2">
+    <div>
       <h5>Date</h5>
       <p>{{ $order->getDateStr() }}</p>
     </div>
-    <div class="col-2">
+    <div>
       <h5>Expiration date</h5>
       <p>{{ $order->getDateStr() }}</p>
     </div>
@@ -80,12 +78,9 @@
     </tfoot>
   </table>
 
-<div class="cond row">
-  <div class="col-12 mt-3 font-ty">
+  <div class="mt-3 font-ty">
     <h5>{{ __('Thanks') }}</h5>
   </div>
-</div>
-</div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>

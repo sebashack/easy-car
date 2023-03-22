@@ -6,10 +6,10 @@
     <p><strong>{{ __('Customer') }}</strong>: {{ $viewData['order']->getUser()->getName() }} {{ $viewData['order']->getUser()->getLastName() }} </p>
     <p><strong>{{ __('Total') }}</strong>: ${{ $viewData['order']->getTotal() }} </p>
     <div>
+    <div class="row">
         @foreach ($viewData["items"] as $item)
         @php $car = $item->getCar(); @endphp
         @if ($car)
-        <div class="row">
             <div class="col-md-4 col-lg-3 mb-2">
                 <div class="card">
                     <div class="card-body text-center">
@@ -22,12 +22,12 @@
                     </div>
                 </div>
             </div>
-        </div>
         @endif
         @endforeach
+    </div>
     <div>
         @if (!$viewData['is_admin'])
             <a class="btn btn-success mb-2"  href="{{ route('layouts.pdf',['id'=>$viewData['order']->getId()]) }}">PDF</a>
         @endif
-</div>
+    </div>
 @endsection
