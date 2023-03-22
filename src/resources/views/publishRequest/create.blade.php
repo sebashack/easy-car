@@ -36,6 +36,7 @@
                                 <option value="automatic">{{ __('Automatic') }}</option>
                                 <option value="mechanic">{{ __('Mechanic') }}</option>
                                 <option value="triptronic">{{ __('Triptonic') }}</option>
+                                <option value="sport">{{ __("Sport") }}</option>
                             </select>
                         </div>
                         <div class="form-group">
