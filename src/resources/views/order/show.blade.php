@@ -5,7 +5,11 @@
     <p><strong>{{ __('Date') }}</strong>: {{ $viewData['order']->getDateStr() }}</p>
     <p><strong>{{ __('Customer') }}</strong>: {{ $viewData['order']->getUser()->getName() }} {{ $viewData['order']->getUser()->getLastName() }} </p>
     <p><strong>{{ __('Total') }}</strong>: ${{ $viewData['order']->getTotal() }} </p>
-    <div>
+    <div class="mt-3 mb-1">
+        @if (!$viewData['is_admin'])
+            <a class="btn btn-success mb-2"  href="{{ route('layouts.pdf',['id'=>$viewData['order']->getId()]) }}">PDF</a>
+        @endif
+    </div>
     <div class="row">
         @foreach ($viewData["items"] as $item)
         @php $car = $item->getCar(); @endphp
@@ -24,10 +28,5 @@
             </div>
         @endif
         @endforeach
-    </div>
-    <div>
-        @if (!$viewData['is_admin'])
-            <a class="btn btn-success mb-2"  href="{{ route('layouts.pdf',['id'=>$viewData['order']->getId()]) }}">PDF</a>
-        @endif
     </div>
 @endsection
