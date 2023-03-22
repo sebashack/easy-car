@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use App\Models\Order;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
-use Barryvdh\DomPDF\Facade\Pdf;
 
 class OrderController extends Controller
 {
@@ -124,7 +124,8 @@ class OrderController extends Controller
     {
         $order = Order::findOrFail($id);
         $pdf_name = 'invoice-of-order-'.$order->getId().'.pdf';
-        $pdf = Pdf::loadView('layouts.pdf',compact('order'));
+        $pdf = Pdf::loadView('layouts.pdf', compact('order'));
+
         return $pdf->download($pdf_name);
     }
 }

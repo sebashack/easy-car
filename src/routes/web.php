@@ -97,6 +97,3 @@ Route::post('/orders/save', 'App\Http\Controllers\OrderController@save')->name('
 Route::get('/orders/{id}', 'App\Http\Controllers\OrderController@show')->name('order.show')->middleware('auth');
 
 Route::get('/orders/removeAll', 'App\Http\Controllers\OrderController@removeAll')->name('order.removeAll')->middleware('auth');
-
-
-
