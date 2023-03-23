@@ -83,6 +83,9 @@ Route::put('/publish-requests/accept/{id}', 'App\Http\Controllers\PublishRequest
 Route::put('/publish-requests/reject/{id}', 'App\Http\Controllers\PublishRequestController@reject')->name('publishRequest.reject')->middleware('auth', 'isAdmin');
 
 // Order
+
+Route::get('/orders/pdf/{id}', 'App\Http\Controllers\OrderController@downloadPdf')->name('layouts.pdf')->middleware('auth');
+
 Route::get('/orders/create', 'App\Http\Controllers\OrderController@create')->name('order.create')->middleware('auth');
 
 Route::get('/orders/remove', 'App\Http\Controllers\OrderController@remove')->name('order.remove')->middleware('auth');

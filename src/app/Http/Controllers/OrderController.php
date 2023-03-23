@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use App\Models\Order;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -55,6 +56,7 @@ class OrderController extends Controller
         $user = Auth::user();
         $order = Order::findOrFail($id);
         $customer = $order->getUser();
+        $viewData['is_admin'] = boolval($user) && $user->isAdmin();
 
         if ($user->isAdmin() || $user->getId() === $customer->getId()) {
             $viewData['order'] = $order;
@@ -116,5 +118,14 @@ class OrderController extends Controller
         $request->session()->forget('cart_car_ids');
 
         return back();
+    }
+
+    public function downloadPdf(string $id)
+    {
+        $order = Order::findOrFail($id);
+        $pdf_name = 'invoice-of-order-'.$order->getId().'.pdf';
+        $pdf = Pdf::loadView('layouts.pdf', compact('order'));
+
+        return $pdf->download($pdf_name);
     }
 }
