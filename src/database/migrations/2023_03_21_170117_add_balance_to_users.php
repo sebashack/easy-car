@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->bigInteger('balance')->default(10000000);
+            $table->bigInteger('balance')->default(200000000);
         });
     }
 

@@ -85,7 +85,7 @@ class OrderController extends Controller
         $userId = Auth::id();
         $user = User::findOrFail($userId);
         if ($user->getBalance() < $total) {
-            throw ValidationException::withMessages(['insufficient funds']);
+            throw ValidationException::withMessages([__('Insufficient funds')]);
         }
 
         $current_balance = $user->getBalance() - $total;
