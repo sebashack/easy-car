@@ -17,7 +17,7 @@ class ReviewController extends Controller
         $viewData['title'] = 'Reviews - EasyCar';
         if ($user->isAdmin()) {
             $viewData['reviews'] = Review::all()->sortBy('rating');
-        }else{
+        } else {
             $viewData['reviews'] = $user->getReviews()->sortBy('rating');
         }
         $viewData['is_admin'] = boolval($user) && $user->isAdmin();

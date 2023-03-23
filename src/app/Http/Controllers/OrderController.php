@@ -7,6 +7,7 @@ use App\Models\Order;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
 class OrderController extends Controller
@@ -79,10 +80,28 @@ class OrderController extends Controller
             }
         }
 
+        $user = Auth::user();
+        $userBalance = $user->getBalance();
+        if ($userBalance < $total) {
+            throw ValidationException::withMessages([__('Insufficient funds')]);
+        }
+
+        $currentBalance = $userBalance - $total;
+        $user->setBalance($currentBalance);
+        $user->update();
+
+        if ($fetchedCars) {
+            foreach ($fetchedCars as $key => $carId) {
+                $car = Car::findOrFail($carId);
+                $car->setIsAvailable(false);
+                $car->update();
+            }
+        }
+
         $order = Order::create([
             'shipping_address' => $request->shipping_address,
             'total' => $total,
-            'user_id' => $id = Auth::id(),
+            'user_id' => $user->getId(),
         ]);
 
         $order->items()->createMany($items);
@@ -92,7 +111,7 @@ class OrderController extends Controller
         return back()->with('status', __('Successfully created'));
     }
 
-    public function removeAll(Request $request): RedirectResponse
+    public function remove(Request $request): RedirectResponse
     {
         $request->session()->forget('cart_car_ids');
 

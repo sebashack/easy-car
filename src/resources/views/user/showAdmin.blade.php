@@ -4,6 +4,7 @@
 <div>
     <h1 class="card-title">{{ $viewData['user']->getName() }} {{ $viewData['user']->getLastName() }}</h1>
     <br/>
+    <p>Current balance: ${{ $viewData['user']->getBalance() }}</p>
     <br/>
     <div>
         <div>
