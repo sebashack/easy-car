@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use App\Models\Order;
-use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -81,26 +80,28 @@ class OrderController extends Controller
             }
         }
 
-        $userId = Auth::id();
-        $user = User::findOrFail($userId);
+        $user = Auth::user();
         $userBalance = $user->getBalance();
         if ($userBalance < $total) {
             throw ValidationException::withMessages([__('Insufficient funds')]);
         }
 
-        $current_balance = $userBalance - $total;
-        User::where('id', $userId)->update(['balance' => $current_balance]);
+        $currentBalance = $userBalance - $total;
+        $user->setBalance($currentBalance);
+        $user->update();
 
         if ($fetchedCars) {
-            foreach ($fetchedCars as $key => $car) {
-                Car::where('id', $key)->update(['is_available' => false]);
+            foreach ($fetchedCars as $key => $carId) {
+                $car = Car::findOrFail($carId);
+                $car->setIsAvailable(false);
+                $car->update();
             }
         }
 
         $order = Order::create([
             'shipping_address' => $request->shipping_address,
             'total' => $total,
-            'user_id' => $userId,
+            'user_id' => $user->getId(),
         ]);
 
         $order->items()->createMany($items);
