@@ -37,11 +37,11 @@
       <p> 10000{{ $order->getId() }}</p>
     </div>
     <div>
-      <h5>Date</h5>
+      <h5>{{ __('Date') }}</h5>
       <p>{{ $order->getDateStr() }}</p>
     </div>
     <div>
-      <h5>Expiration date</h5>
+      <h5>{{ __('Expiration date') }}</h5>
       <p>{{ $order->getDateStr() }}</p>
     </div>
   </div>
