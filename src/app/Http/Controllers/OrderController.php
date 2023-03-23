@@ -6,9 +6,9 @@ use App\Models\Car;
 use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Validation\ValidationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
 class OrderController extends Controller
@@ -69,7 +69,6 @@ class OrderController extends Controller
 
     public function save(Request $request): RedirectResponse
     {
-
         Order::validate($request);
         $items = [];
         $total = 0;
