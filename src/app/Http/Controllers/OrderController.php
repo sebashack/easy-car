@@ -84,11 +84,12 @@ class OrderController extends Controller
 
         $userId = Auth::id();
         $user = User::findOrFail($userId);
-        if ($user->getBalance() < $total) {
+        $userBalance = $user->getBalance();
+        if ($userBalance < $total) {
             throw ValidationException::withMessages([__('Insufficient funds')]);
         }
 
-        $current_balance = $user->getBalance() - $total;
+        $current_balance = $userBalance - $total;
         User::where('id', $userId)->update(['balance' => $current_balance]);
 
         if ($fetchedCars) {
