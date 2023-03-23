@@ -120,7 +120,7 @@ class OrderController extends Controller
         return back();
     }
 
-    public function download_pdf(string $id)
+    public function downloadPdf(string $id)
     {
         $order = Order::findOrFail($id);
         $pdf_name = 'invoice-of-order-'.$order->getId().'.pdf';
