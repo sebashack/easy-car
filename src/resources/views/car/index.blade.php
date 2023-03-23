@@ -6,6 +6,80 @@
         <h1>{{ __("Cars") }}</h1>
     </div>
 
+
+    <form method="GET" action="{{ route('car.index') }}" enctype="multipart/form-data" >
+        @csrf
+        <div class="input-group">
+            <div class="form-group">
+                <select class="form-control" name="car_state">
+                    <option value="NA">
+                        {{ __("Condition") }}
+                    </option>
+                    <option value="new">
+                        {{ __("New") }}
+                    </option>
+                    <option value="used">
+                        {{ __("Used") }}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <select class="form-control" name="car_brand">
+                    <option value="NA">
+                        {{ __("Brand") }}
+                    </option>
+                    @foreach($viewData['carModels'] as $carModel)
+                    <option value="{{ $carModel->getBrand() }}">
+                        {{ $carModel->getBrand() }}
+                    </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+                <select class="form-control" name="transmission_type">
+                    <option value="NA">
+                        {{ __("Transmission") }}
+                    </option>
+                    <option value="automatic">
+                        {{ __("Automatic") }}
+                    </option>
+                    <option value="mechanic">
+                        {{ __("Mechanic") }}
+                    </option>
+                    <option value="triptonic">
+                        {{ __("Triptonic") }}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <select class="form-control" name="price_range">
+                    <option value="NA">
+                        {{ __("Price range") }}
+                    </option>
+                    <option value="range1">
+                        {{ __("$10M -- $40M") }}
+                    </option>
+                    <option value="range2">
+                        {{ __("$40M -- $80M") }}
+                    </option>
+                    <option value="range3">
+                        {{ __("$80M -- $120M") }}
+                    </option>
+                    <option value="range4">
+                        {{ __("$120M -- $150M") }}
+                    </option>
+                    <option value="range5">
+                        {{ __("$150M -- $200M") }}
+                    </option>
+                    <option value="range6">
+                        {{ __("$200M >") }}
+                    </option>
+                </select>
+            </div>
+            <input type="submit" class="btn btn-primary" value="{{ __('Filter') }}"/>
+        </div>
+    </form>
+
     <br />
     @auth
     @if (!$viewData['is_admin'])
