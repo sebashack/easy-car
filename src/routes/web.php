@@ -38,8 +38,6 @@ Route::post('/reviews/save/{id}', 'App\Http\Controllers\ReviewController@save')-
 Route::delete('/reviews/delete/{id}', 'App\Http\Controllers\ReviewController@delete')->name('review.delete')->middleware('auth');
 
 // Cars
-Route::get('/cars', 'App\Http\Controllers\CarController@index')->name('car.index');
-
 Route::get('/cars/create', 'App\Http\Controllers\CarController@create')->name('car.create')->middleware('auth', 'isAdmin');
 
 Route::get('/cars/{id}', 'App\Http\Controllers\CarController@show')->name('car.show');
@@ -53,6 +51,8 @@ Route::patch('/cars/{id}', 'App\Http\Controllers\CarController@update')->name('c
 Route::get('/cars/addToCart/{id}', 'App\Http\Controllers\CarController@addToCart')->name('car.addToCart');
 
 Route::delete('/cars/delete/{id}', 'App\Http\Controllers\CarController@delete')->name('car.delete')->middleware('auth', 'isAdmin');
+
+Route::get('/cars/{car_state?}/{car_brand?}/{transmission_type?}/{price_range?}', 'App\Http\Controllers\CarController@index')->name('car.index');
 
 // Car model
 Route::get('/car-models', 'App\Http\Controllers\CarModelController@index')->name('carModel.index');

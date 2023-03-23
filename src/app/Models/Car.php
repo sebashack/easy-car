@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -171,6 +173,19 @@ class Car extends Model
         } else {
             return false;
         }
+    }
+
+    public static function getCarsBySearchParams(?string $state, ?string $brand, ?string $transmission, ?array $priceRange): Collection
+    {
+        return Car::when($state, function (Builder $query, string $state) {
+            return $query->where('is_new', $state === 'new');
+        })->when($brand, function (Builder $query, string $brand) {
+            return $query->join('car_models', 'cars.car_model_id', '=', 'car_models.id')->where('car_models.brand', $brand);
+        })->when($transmission, function (Builder $query, string $transmission) {
+            return $query->where('transmission_type', $transmission);
+        })->when($priceRange, function (Builder $query, array $priceRange) {
+            return $query->whereBetween('price', $priceRange);
+        })->get();
     }
 
     // Validators

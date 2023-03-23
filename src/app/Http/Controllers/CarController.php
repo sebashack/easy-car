@@ -18,7 +18,44 @@ class CarController extends Controller
         $viewData = [];
         $viewData['is_admin'] = boolval($user) && $user->isAdmin();
         $viewData['title'] = 'Cars - EasyCar';
-        $viewData['cars'] = Car::all();
+
+        $state = null;
+        $stateOption = $request->query('car_state');
+        if ($stateOption != 'NA') {
+            $state = $stateOption;
+        }
+
+        $brand = null;
+        $brandOption = $request->query('car_brand');
+        if ($brandOption != 'NA') {
+            $brand = $brandOption;
+        }
+
+        $transmission = null;
+        $transmissionOption = $request->query('transmission_type');
+        if ($transmissionOption != 'NA') {
+            $transmission = $transmissionOption;
+        }
+
+        $priceRange = null;
+        $rangeOption = $request->query('price_range');
+        $tenMillion = 10000000;
+        if ($rangeOption === 'range1') {
+        } elseif ($rangeOption === 'range2') {
+            $priceRange = [$tenMillion, 4 * $tenMillion];
+        } elseif ($rangeOption === 'range3') {
+            $priceRange = [4 * $tenMillion, 8 * $tenMillion];
+        } elseif ($rangeOption === 'range4') {
+            $priceRange = [8 * $tenMillion, 12 * $tenMillion];
+        } elseif ($rangeOption === 'range5') {
+            $priceRange = [12 * $tenMillion, 15 * $tenMillion];
+        } elseif ($rangeOption === 'range6') {
+            $priceRange = [20 * $tenMillion, 100 * $tenMillion];
+        }
+
+        $viewData['cars'] = Car::getCarsBySearchParams($state, $brand, $transmission, $priceRange);
+        $viewData['carModels'] = CarModel::all();
+
         $carIds = $request->session()->get('cart_car_ids');
         if ($carIds) {
             $viewData['cart_length'] = count($carIds);

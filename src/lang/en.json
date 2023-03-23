@@ -85,5 +85,9 @@
   "Edit Car": "Edit Car",
   "Edit CarModel": "Edit CarModel",
   "Id": "Id",
-  "Insufficient funds": "Insufficient funds"
+  "Insufficient funds": "Insufficient funds",
+  "Model": "Model",
+  "Used": "Used",
+  "New": "New",
+  "Condition": "Condition"
 }
