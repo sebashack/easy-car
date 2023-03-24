@@ -56,8 +56,6 @@ class OrderController extends Controller
         $user = Auth::user();
         $order = Order::findOrFail($id);
         $customer = $order->getUser();
-        $viewData['is_admin'] = boolval($user) && $user->isAdmin();
-
         if ($user->isAdmin() || $user->getId() === $customer->getId()) {
             $viewData['order'] = $order;
             $viewData['items'] = $order->getItems();
