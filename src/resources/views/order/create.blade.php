@@ -80,7 +80,7 @@
                         href="{{ route('order.remove') }}"
                         class="btn bg-primary text-white"
                     >
-                        {{ __("Delete") }}
+                        {{ __("Clear") }}
                     </a>
                     @endif
                 </div>

@@ -22,12 +22,13 @@ Route::get('/community', 'App\Http\Controllers\CommunityController@index')->name
 
 Auth::routes();
 
+// Admin
+Route::get('/admins/profile', 'App\Http\Controllers\AdminController@show')->name('admin.show')->middleware('auth', 'isAdmin');
+
+Route::get('/admins/users', 'App\Http\Controllers\AdminController@showUsers')->name('admin.showUsers')->middleware('auth', 'isAdmin');
+
 // Users
-Route::get('/users', 'App\Http\Controllers\UserController@index')->name('user.index')->middleware('auth', 'isAdmin');
-
 Route::get('/users/profile', 'App\Http\Controllers\UserController@show')->name('user.show')->middleware('auth');
-
-Route::get('/admins/profile', 'App\Http\Controllers\UserController@showAdmin')->name('user.showAdmin')->middleware('auth', 'isAdmin');
 
 // Reviews
 Route::get('/reviews', 'App\Http\Controllers\ReviewController@index')->name('review.index')->middleware('auth');
@@ -40,37 +41,47 @@ Route::post('/reviews/save/{id}', 'App\Http\Controllers\ReviewController@save')-
 
 Route::delete('/reviews/delete/{id}', 'App\Http\Controllers\ReviewController@delete')->name('review.delete')->middleware('auth');
 
+// AdminCars
+Route::get('/admins/cars/create', 'App\Http\Controllers\AdminCarController@create')->name('adminCar.create')->middleware('auth', 'isAdmin');
+
+Route::post('/admins/cars/save', 'App\Http\Controllers\AdminCarController@save')->name('adminCar.save')->middleware('auth', 'isAdmin');
+
+Route::get('/admins/cars/edit/{id}', 'App\Http\Controllers\AdminCarController@edit')->name('adminCar.edit')->middleware('auth', 'isAdmin');
+
+Route::delete('/admins/cars/delete/{id}', 'App\Http\Controllers\AdminCarController@delete')->name('adminCar.delete')->middleware('auth', 'isAdmin');
+
+Route::get('/admins/cars', 'App\Http\Controllers\AdminCarController@index')->name('adminCar.index')->middleware('auth', 'isAdmin');
+
+Route::patch('/admins/cars/{id}', 'App\Http\Controllers\AdminCarController@update')->name('adminCar.update')->middleware('auth', 'isAdmin');
+
+Route::get('/admins/cars/{id}', 'App\Http\Controllers\AdminCarController@show')->name('adminCar.show');
+
 // Cars
-Route::get('/cars/create', 'App\Http\Controllers\CarController@create')->name('car.create')->middleware('auth', 'isAdmin');
-
 Route::get('/cars/{id}', 'App\Http\Controllers\CarController@show')->name('car.show');
-
-Route::post('/cars/save', 'App\Http\Controllers\CarController@save')->name('car.save')->middleware('auth', 'isAdmin');
-
-Route::get('/cars/edit/{id}', 'App\Http\Controllers\CarController@edit')->name('car.edit')->middleware('auth', 'isAdmin');
-
-Route::patch('/cars/{id}', 'App\Http\Controllers\CarController@update')->name('car.update')->middleware('auth', 'isAdmin');
 
 Route::get('/cars/addToCart/{id}', 'App\Http\Controllers\CarController@addToCart')->name('car.addToCart');
 
-Route::delete('/cars/delete/{id}', 'App\Http\Controllers\CarController@delete')->name('car.delete')->middleware('auth', 'isAdmin');
-
 Route::get('/cars/{car_state?}/{car_brand?}/{transmission_type?}/{price_range?}', 'App\Http\Controllers\CarController@index')->name('car.index');
+
+// AdminCarModel
+Route::get('/admins/car-models', 'App\Http\Controllers\AdminCarModelController@index')->name('adminCarModel.index')->middleware('auth', 'isAdmin');
+
+Route::get('/admins/car-models/create', 'App\Http\Controllers\AdminCarModelController@create')->name('adminCarModel.create')->middleware('auth', 'isAdmin');
+
+Route::post('/admins/car-models/save', 'App\Http\Controllers\AdminCarModelController@save')->name('adminCarModel.save')->middleware('auth', 'isAdmin');
+
+Route::get('/admins/car-models/{id}', 'App\Http\Controllers\AdminCarModelController@show')->name('adminCarModel.show');
+
+Route::get('/admins/car-models/edit/{id}', 'App\Http\Controllers\AdminCarModelController@edit')->name('adminCarModel.edit')->middleware('auth', 'isAdmin');
+
+Route::delete('/admins/car-models/delete/{id}', 'App\Http\Controllers\AdminCarModelController@delete')->name('adminCarModel.delete')->middleware('auth', 'isAdmin');
+
+Route::patch('/admins/car-models/{id}', 'App\Http\Controllers\AdminCarModelController@update')->name('adminCarModel.update')->middleware('auth', 'isAdmin');
 
 // Car model
 Route::get('/car-models', 'App\Http\Controllers\CarModelController@index')->name('carModel.index');
 
-Route::get('/car-models/create', 'App\Http\Controllers\CarModelController@create')->name('carModel.create')->middleware('auth', 'isAdmin');
-
 Route::get('/car-models/{id}', 'App\Http\Controllers\CarModelController@show')->name('carModel.show');
-
-Route::post('/car-models/save', 'App\Http\Controllers\CarModelController@save')->name('carModel.save')->middleware('auth', 'isAdmin');
-
-Route::get('/car-models/edit/{id}', 'App\Http\Controllers\CarModelController@edit')->name('carModel.edit')->middleware('auth', 'isAdmin');
-
-Route::patch('/car-models/{id}', 'App\Http\Controllers\CarModelController@update')->name('carModel.update')->middleware('auth', 'isAdmin');
-
-Route::delete('/car-models/delete/{id}', 'App\Http\Controllers\CarModelController@delete')->name('carModel.delete')->middleware('auth', 'isAdmin');
 
 // Publish request
 Route::get('/publish-requests', 'App\Http\Controllers\PublishRequestController@index')->name('publishRequest.index')->middleware('auth', 'isAdmin');

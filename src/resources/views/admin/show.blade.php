@@ -10,16 +10,16 @@
         <div>
             <h3>{{ __('Car models') }}</h3>
             <ul class="list-group">
-                <a href="{{ route('carModel.index') }}" class="list-group-item link-info"> {{ __('View car models') }} </a>
-                <a href="{{ route('carModel.create') }}" class="list-group-item link-info"> {{ __('Register new car model') }} </a>
+                <a href="{{ route('adminCarModel.index') }}" class="list-group-item link-info"> {{ __('View car models') }} </a>
+                <a href="{{ route('adminCarModel.create') }}" class="list-group-item link-info"> {{ __('Register new car model') }} </a>
             </ul>
         </div>
         <br/>
         <div>
             <h3>{{ __('Cars') }}</h3>
             <ul class="list-group">
-                <a href="{{ route('car.index') }}" class="list-group-item link-info"> {{ __('View cars') }} </a>
-                <a href="{{ route('car.create') }}" class="list-group-item link-info"> {{ __('Register new car') }} </a>
+                <a href="{{ route('adminCar.index') }}" class="list-group-item link-info"> {{ __('View cars') }} </a>
+                <a href="{{ route('adminCar.create') }}" class="list-group-item link-info"> {{ __('Register new car') }} </a>
             </ul>
         </div>
         <br/>
@@ -40,7 +40,7 @@
         <div>
             <h3>User</h3>
             <ul class="list-group">
-                <a href="{{ route('user.index') }}" class="list-group-item link-info"> {{ __('View registered users') }} </a>
+                <a href="{{ route('admin.showUsers') }}" class="list-group-item link-info"> {{ __('View registered users') }} </a>
             </ul>
         </div>
     <div>

@@ -6,7 +6,6 @@
         <h1>{{ __("Cars") }}</h1>
     </div>
 
-
     <form method="GET" action="{{ route('car.index') }}" enctype="multipart/form-data" >
         @csrf
         <div class="input-group">
@@ -82,13 +81,11 @@
 
     <br />
     @auth
-    @if (!$viewData['is_admin'])
     <a class="btn bg-info text-white" href="{{ route('order.create') }}">
         {{ __("Check out your cars") }}: {{ $viewData["cart_length"] }}
     </a>
     <br />
     <br />
-    @endif
     @endauth
     <div class="row">
         @foreach ($viewData["cars"] as $car)
@@ -103,7 +100,7 @@
                     <p>
                         {{ $car->getCarModel()->getBrand() . ' ' . $car->getCarModel()->getModel()}}
                     </p>
-                    <p>{{ __("Color") }}: {{ $car->getColor() }}</p>
+                    <p>{{ __("Price") }}: ${{ $car->getPrice() }}</p>
                     <a
                         href="{{ route('car.show', ['id'=> $car->getId()]) }}"
                         class="btn bg-primary text-white"
@@ -111,23 +108,13 @@
                         {{ __("Check Car") }}
                     </a>
                     @auth
-                    @if (!$viewData['is_admin'])
                     <a
                         href="{{ route('car.addToCart', ['id'=> $car->getId()]) }}"
                         class="btn bg-primary text-white"
                     >
                         {{ __("Add to cart") }}
                     </a>
-                    @endif
                     @endauth
-                    @if ($viewData['is_admin'])
-                    <a
-                        href="{{ route('car.edit', ['id'=> $car->getId()]) }}"
-                        class="btn bg-primary text-white"
-                    >
-                    <span>&#9998;</span>
-                    </a>
-                    @endif
                 </div>
             </div>
         </div>

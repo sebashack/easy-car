@@ -13,10 +13,16 @@
                     <p>{{ __("Brand") }}: {{ $carModel->getBrand() }}</p>
                     <p>{{ __("Model") }}: {{ $carModel->getModel() }}</p>
                     <a
-                        href="{{ route('carModel.show', ['id'=> $carModel->getId()]) }}"
+                        href="{{ route('adminCarModel.show', ['id'=> $carModel->getId()]) }}"
                         class="btn bg-primary text-white"
                     >
                         {{ __("Check car model") }}
+                    </a>
+                    <a
+                        href="{{ route('adminCarModel.edit', ['id'=> $carModel->getId()]) }}"
+                        class="btn bg-primary text-white"
+                    >
+                    <span>&#9998;</span>
                     </a>
                 </div>
             </div>

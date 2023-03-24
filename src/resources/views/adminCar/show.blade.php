@@ -10,7 +10,6 @@
             src="{{ URL::asset('storage/' . $viewData['car']->getImageUri())}}"
             class="img-fluid rounded-start"
         />
-
         <div class="card-body">
             <h5 class="card-title">
                 {{ __("Details") }}
@@ -30,7 +29,7 @@
             </p>
             <p>{{ __("Transmission") }}: {{ $viewData['car']->getTransmissionType() }}</p>
             <button class="btn btn-primary mb-3">{{ __('Show reviews') }}</button>
-            <a href="{{ route('carModel.show',['id'=>$viewData['model']->getId()]) }}" class="btn btn-primary mb-3">{{ __('Check model') }}</a>
+            <a href="{{ route('adminCarModel.show',['id'=>$viewData['model']->getId()]) }}" class="btn btn-primary mb-3">{{ __('Check model') }}</a>
             <div class="hide">
                 <div class="row">
                     @foreach ($viewData['model']->getReviews() as $review)
@@ -60,6 +59,11 @@
                     @endforeach
                 </div>
             </div>
+            <form action="{{ route('adminCar.delete', ['id'=> $viewData['car']->getId()]) }}" method="post">
+              <input class="btn btn-danger text-white" type="submit" value="{{ __('Delete car') }}" />
+              @csrf
+              @method('delete')
+            </form  >
         </div>
       </div>
     </div>
