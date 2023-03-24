@@ -63,7 +63,7 @@ Route::get('/cars/addToCart/{id}', 'App\Http\Controllers\CarController@addToCart
 
 Route::get('/cars/{car_state?}/{car_brand?}/{transmission_type?}/{price_range?}', 'App\Http\Controllers\CarController@index')->name('car.index');
 
-// Admin Car Model
+// AdminCarModel
 Route::get('/admins/car-models', 'App\Http\Controllers\AdminCarModelController@index')->name('adminCarModel.index')->middleware('auth', 'isAdmin');
 
 Route::get('/admins/car-models/create', 'App\Http\Controllers\AdminCarModelController@create')->name('adminCarModel.create')->middleware('auth', 'isAdmin');
