@@ -10,8 +10,8 @@
         <div>
             <h3>{{ __('Car models') }}</h3>
             <ul class="list-group">
-                <a href="{{ route('carModel.index') }}" class="list-group-item link-info"> {{ __('View car models') }} </a>
-                <a href="{{ route('carModel.create') }}" class="list-group-item link-info"> {{ __('Register new car model') }} </a>
+                <a href="{{ route('adminCarModel.index') }}" class="list-group-item link-info"> {{ __('View car models') }} </a>
+                <a href="{{ route('adminCarModel.create') }}" class="list-group-item link-info"> {{ __('Register new car model') }} </a>
             </ul>
         </div>
         <br/>

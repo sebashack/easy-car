@@ -11,9 +11,6 @@
                 <p class="card-text">
                     <strong>{{ __("Description") }}:</strong> {{ $viewData['carModel']->getDescription() }}
                 </p>
-                @auth
-                <a class="btn btn-primary mb-3" href="{{ route('review.create',['id'=> $viewData['carModel']->getId()]) }}">Make review</a>
-                @endauth
                 <button class="btn btn-primary mb-3 reviews">Show reviews</button>
                 <div class="hide">
                 <div class="row">
@@ -38,19 +35,28 @@
                                 <p class="car-text">
                                     {{ __("Review") }}: {{ $review->getContent() }}
                                 </p>
-                                @if ($viewData['current_user_id'] == $review->getUser()->getId())
-                                    <form action="{{ route('review.delete', ['id'=> $review->getId()]) }}" method="post">
-                                        <input class="btn btn-danger text-white" type="submit" value="{{ __('Delete') }}" />
-                                        @csrf
-                                        @method('delete')
-                                    </form  >
-                                @endif
+                                @auth
+                                <form action="{{ route('review.delete', ['id'=> $review->getId()]) }}" method="post">
+                                    <input class="btn btn-danger text-white" type="submit" value="{{ __('Delete') }}" />
+                                    @csrf
+                                    @method('delete')
+                                </form  >
+                                @endauth
                             </div>
                         </div>
                     </div>
                     @endforeach
                 </div>
                 </div>
+                </br>
+                </br>
+                @auth
+                <form action="{{ route('adminCarModel.delete', ['id'=> $viewData['carModel']->getId()]) }}" method="post">
+                    <input class="btn bg-danger text-white" type="submit" value="{{ __('Delete') }}"/>
+                    @csrf
+                    @method('delete')
+                </form>
+                @endauth
             </div>
     </div>
 </div>

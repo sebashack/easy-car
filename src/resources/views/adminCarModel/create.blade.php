@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __("Edit CarModel") }}</div>
+                <div class="card-header">{{ __("Add Car Model") }}</div>
                 <div class="card-body">
                     @if($errors->any())
                     <ul id="errors" class="alert alert-danger list-unstyled">
@@ -18,26 +18,28 @@
                         {{ session("status") }}
                     </div>
                     @endif
-                    <form method="POST" action="{{ route('carModel.update',['id'=> $viewData['carModel']->getId()]) }}">
+                    <form method="POST" action="{{ route('adminCarModel.save') }}">
                         @csrf
-                        @method('PATCH')
                         <input
                             type="text"
                             class="form-control mb-2"
-                            value="{{ $viewData['carModel']->getBrand() }}"
-                            name="brand"                            
+                            placeholder="{{ __('Enter brand') }}"
+                            name="brand"
+                            value="{{ old('brand') }}"
                         />
                         <input
                             type="text"
                             class="form-control mb-2"
-                            value="{{ $viewData['carModel']->getModel() }}"
-                            name="model"                            
+                            placeholder="{{ __('Enter model') }}"
+                            name="model"
+                            value="{{ old('model') }}"
                         />
                         <input
                             type="text"
                             class="form-control mb-2"
-                            value="{{ $viewData['carModel']->getDescription() }}"
+                            placeholder="{{ __('Enter description') }}"
                             name="description"
+                            value="{{ old('description') }}"
                         />
                         <input
                             type="submit"

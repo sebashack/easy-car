@@ -100,7 +100,7 @@
                     <p>
                         {{ $car->getCarModel()->getBrand() . ' ' . $car->getCarModel()->getModel()}}
                     </p>
-                    <p>{{ __("Color") }}: {{ $car->getColor() }}</p>
+                    <p>{{ __("Price") }}: ${{ $car->getPrice() }}</p>
                     <a
                         href="{{ route('car.show', ['id'=> $car->getId()]) }}"
                         class="btn bg-primary text-white"

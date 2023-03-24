@@ -29,7 +29,7 @@
             </p>
             <p>{{ __("Transmission") }}: {{ $viewData['car']->getTransmissionType() }}</p>
             <button class="btn btn-primary mb-3">{{ __('Show reviews') }}</button>
-            <a href="{{ route('carModel.show',['id'=>$viewData['model']->getId()]) }}" class="btn btn-primary mb-3">{{ __('Check model') }}</a>
+            <a href="{{ route('adminCarModel.show',['id'=>$viewData['model']->getId()]) }}" class="btn btn-primary mb-3">{{ __('Check model') }}</a>
             <div class="hide">
                 <div class="row">
                     @foreach ($viewData['model']->getReviews() as $review)
