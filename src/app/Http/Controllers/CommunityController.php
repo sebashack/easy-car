@@ -11,8 +11,10 @@ class CommunityController extends Controller
     {
         $viewData = [];
         $viewData['title'] = 'PublishRequests - EasyCar';
-        $carModels = CarModel::getBestRatingCarModels();
-        $viewData['carModels'] = $carModels;
+        $carModelsRating = CarModel::getBestRatingCarModels();
+        $carModelsSelled = CarModel::getMostSelledCarModels();
+        $viewData['carModelsRating'] = $carModelsRating;
+        $viewData['carModelsSelled'] = $carModelsSelled;
 
         return view('community.index')->with('viewData', $viewData);
     }

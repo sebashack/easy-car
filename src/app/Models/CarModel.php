@@ -6,6 +6,7 @@ use  Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CarModel extends Model
 {
@@ -84,6 +85,19 @@ class CarModel extends Model
                 ->limit(5)
                 ->get();
 
+        return $carModels;
+    }
+
+    public static function getMostSelledCarModels(): Collection
+    {
+        $carModels = CarModel::select('car_models.*', DB::raw('count(*) as total_sold'))
+        ->join('cars', 'car_models.id', '=', 'cars.car_model_id')
+        ->join('items', 'cars.id', '=', 'items.car_id')
+        ->join('orders', 'items.order_id', '=', 'orders.id')
+        ->groupBy('car_models.id')
+        ->orderBy('total_sold', 'desc')
+        ->limit(5)
+        ->get();
         return $carModels;
     }
 
