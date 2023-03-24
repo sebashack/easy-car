@@ -98,6 +98,7 @@ class CarModel extends Model
         ->orderBy('total_sold', 'desc')
         ->limit(5)
         ->get();
+
         return $carModels;
     }
 

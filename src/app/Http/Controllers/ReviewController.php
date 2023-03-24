@@ -42,10 +42,6 @@ class ReviewController extends Controller
 
     public function create(string $id): View|RedirectResponse
     {
-        $user = Auth::user();
-        if ($user->isAdmin()) {
-            return redirect()->route('home.unauthorized');
-        }
         $viewData = [];
         $viewData['title'] = 'Create Review';
         $viewData['model_id'] = $id;

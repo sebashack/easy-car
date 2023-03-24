@@ -42,10 +42,6 @@ class PublishRequestController extends Controller
 
     public function create(): View|RedirectResponse
     {
-        $user = Auth::user();
-        if ($user->isAdmin() == true) {
-            return redirect()->route('home.unauthorized');
-        }
         $viewData = [];
         $viewData['title'] = __('Create car publish request');
         $viewData['carModels'] = CarModel::all();
