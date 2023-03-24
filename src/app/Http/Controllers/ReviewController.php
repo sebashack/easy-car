@@ -63,25 +63,35 @@ class ReviewController extends Controller
         return back()->with('status', __('Successfully created'));
     }
 
-    public function edit(string $id): View
+    public function edit(string $id): View|RedirectResponse 
     {
-        $viewData = [];
+        $user = Auth::user();
         $review = Review::findOrFail($id);
-        $viewData['title'] = 'Review info- Easy Car';
-        $viewData['id'] = $review->getId();
-        $viewData['review'] = $review;
-
-        return view('review.edit')->with('viewData', $viewData);
+        if ($user->getId() == $review->getUser()->getId()) {
+            $viewData = [];
+            $viewData['title'] = 'Review info- Easy Car';
+            $viewData['id'] = $review->getId();
+            $viewData['review'] = $review;
+    
+            return view('review.edit')->with('viewData', $viewData);
+        }else{
+            return redirect()->route('home.unauthorized');
+        }
     }
 
     public function update(request $request, string $id): RedirectResponse 
     {
+        $user = Auth::user();
         Review::validate($request);
         $review = Review::findOrFail($id);
-        $review->setRating($request->rating);
-        $review->setContent($request->content);
-        $review->update();
-        return redirect(route('review.index'));
+        if ($user->getId() == $review->getUser()->getId()) {
+            $review->setRating($request->rating);
+            $review->setContent($request->content);
+            $review->update();
+            return redirect(route('review.index'));
+        }else{
+            return redirect()->route('home.unauthorized');
+        }
     }
 
     public function delete(string $id): RedirectResponse
