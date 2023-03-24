@@ -10,7 +10,6 @@
             src="{{ URL::asset('storage/' . $viewData['car']->getImageUri())}}"
             class="img-fluid rounded-start"
         />
-
         <div class="card-body">
             <h5 class="card-title">
                 {{ __("Details") }}
@@ -60,6 +59,11 @@
                     @endforeach
                 </div>
             </div>
+            <form action="{{ route('adminCar.delete', ['id'=> $viewData['car']->getId()]) }}" method="post">
+              <input class="btn btn-danger text-white" type="submit" value="{{ __('Delete car') }}" />
+              @csrf
+              @method('delete')
+            </form  >
         </div>
       </div>
     </div>

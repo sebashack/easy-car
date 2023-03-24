@@ -21,7 +21,7 @@
 
                     <form
                         method="POST"
-                        action="{{ route('car.update',['id'=> $viewData['car']->getId()]) }}"
+                        action="{{ route('adminCar.update',['id'=> $viewData['car']->getId()]) }}"
                         enctype="multipart/form-data"
                     >
                         @csrf
@@ -43,7 +43,7 @@
                             type="number"
                             class="form-control mb-2"
                             value="{{ $viewData['car']->getPrice() }}"
-                            name="price"                         
+                            name="price"
                         />
                         <div class="form-group">
                             <label>{{ __("Image") }}:</label>

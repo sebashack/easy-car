@@ -82,13 +82,11 @@
 
     <br />
     @auth
-    @if (!$viewData['is_admin'])
     <a class="btn bg-info text-white" href="{{ route('order.create') }}">
         {{ __("Check out your cars") }}: {{ $viewData["cart_length"] }}
     </a>
     <br />
     <br />
-    @endif
     @endauth
     <div class="row">
         @foreach ($viewData["cars"] as $car)
@@ -111,23 +109,13 @@
                         {{ __("Check Car") }}
                     </a>
                     @auth
-                    @if (!$viewData['is_admin'])
                     <a
                         href="{{ route('car.addToCart', ['id'=> $car->getId()]) }}"
                         class="btn bg-primary text-white"
                     >
                         {{ __("Add to cart") }}
                     </a>
-                    @endif
                     @endauth
-                    @if ($viewData['is_admin'])
-                    <a
-                        href="{{ route('car.edit', ['id'=> $car->getId()]) }}"
-                        class="btn bg-primary text-white"
-                    >
-                    <span>&#9998;</span>
-                    </a>
-                    @endif
                 </div>
             </div>
         </div>
