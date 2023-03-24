@@ -63,7 +63,7 @@ class ReviewController extends Controller
         return back()->with('status', __('Successfully created'));
     }
 
-    public function edit(string $id): View|RedirectResponse 
+    public function edit(string $id): View|RedirectResponse
     {
         $user = Auth::user();
         $review = Review::findOrFail($id);
@@ -72,14 +72,14 @@ class ReviewController extends Controller
             $viewData['title'] = 'Review info- Easy Car';
             $viewData['id'] = $review->getId();
             $viewData['review'] = $review;
-    
+
             return view('review.edit')->with('viewData', $viewData);
-        }else{
+        } else {
             return redirect()->route('home.unauthorized');
         }
     }
 
-    public function update(request $request, string $id): RedirectResponse 
+    public function update(request $request, string $id): RedirectResponse
     {
         $user = Auth::user();
         Review::validate($request);
@@ -88,8 +88,9 @@ class ReviewController extends Controller
             $review->setRating($request->rating);
             $review->setContent($request->content);
             $review->update();
+
             return redirect(route('review.index'));
-        }else{
+        } else {
             return redirect()->route('home.unauthorized');
         }
     }
