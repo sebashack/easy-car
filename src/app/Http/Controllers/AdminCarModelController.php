@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CarModel;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Illuminate\Http\RedirectResponse;
-use App\Models\CarModel;
 
 class AdminCarModelController extends Controller
 {
@@ -76,5 +76,4 @@ class AdminCarModelController extends Controller
 
         return redirect()->route('adminCarModel.index');
     }
-
 }
