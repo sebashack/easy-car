@@ -63,6 +63,27 @@ class ReviewController extends Controller
         return back()->with('status', __('Successfully created'));
     }
 
+    public function edit(string $id): View
+    {
+        $viewData = [];
+        $review = Review::findOrFail($id);
+        $viewData['title'] = 'Review info- Easy Car';
+        $viewData['id'] = $review->getId();
+        $viewData['review'] = $review;
+
+        return view('review.edit')->with('viewData', $viewData);
+    }
+
+    public function update(request $request, string $id): RedirectResponse 
+    {
+        Review::validate($request);
+        $review = Review::findOrFail($id);
+        $review->setRating($request->rating);
+        $review->setContent($request->content);
+        $review->update();
+        return redirect(route('review.index'));
+    }
+
     public function delete(string $id): RedirectResponse
     {
         Review::destroy($id);

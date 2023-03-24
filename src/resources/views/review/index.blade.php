@@ -31,6 +31,14 @@
                     >
                         {{ __("Check review") }}
                     </a>
+                    @if (!$viewData['is_admin'])
+                    <a
+                    href="{{ route('review.edit', ['id'=> $review->getId()]) }}"
+                    class="btn bg-primary text-white"
+                    >
+                        <span>&#9998;</span>
+                    </a>
+                    @endif
                 </div>
             </div>
         </div>

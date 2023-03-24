@@ -41,6 +41,10 @@ Route::post('/reviews/save/{id}', 'App\Http\Controllers\ReviewController@save')-
 
 Route::delete('/reviews/delete/{id}', 'App\Http\Controllers\ReviewController@delete')->name('review.delete')->middleware('auth');
 
+Route::get('/reviews/edit/{id}', 'App\Http\Controllers\ReviewController@edit')->name('review.edit')->middleware('auth');
+
+Route::patch('/reviews/{id}', 'App\Http\Controllers\ReviewController@update')->name('review.update')->middleware('auth');
+
 // AdminCars
 Route::get('/admins/cars/create', 'App\Http\Controllers\AdminCarController@create')->name('adminCar.create')->middleware('auth', 'isAdmin');
 
