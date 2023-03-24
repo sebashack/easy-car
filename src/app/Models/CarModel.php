@@ -83,6 +83,7 @@ class CarModel extends Model
                 ->orderByDesc('reviews_avg_rating')
                 ->limit(5)
                 ->get();
+
         return $carModels;
     }
 

@@ -40,7 +40,7 @@
         <div>
             <h3>User</h3>
             <ul class="list-group">
-                <a href="{{ route('user.index') }}" class="list-group-item link-info"> {{ __('View registered users') }} </a>
+                <a href="{{ route('admin.showUsers') }}" class="list-group-item link-info"> {{ __('View registered users') }} </a>
             </ul>
         </div>
     <div>
