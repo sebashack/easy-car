@@ -6,7 +6,6 @@
         <h1>{{ __("Cars") }}</h1>
     </div>
 
-
     <form method="GET" action="{{ route('car.index') }}" enctype="multipart/form-data" >
         @csrf
         <div class="input-group">

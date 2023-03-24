@@ -23,7 +23,7 @@ class Car extends Model
      * $this->attributes['image_uri'] - string - contains a string indicating car image
      * $this->attributes['transmission_type'] - enum - contains a enum indicating transmission types
      * $this->attributes['type'] - enum - contains a enum indicating car types
-     * $this->attributes['manudacture_year'] - year - contains a year indicating car year
+     * $this->attributes['manufacture_year'] - year - contains a year indicating car year
      * $this->attributes['car_model_id'] - int - contains the id of the corresponding car model
      * $this->carMdoel - CarModel - contains the associate car model
      * $this->publishRequest - PublishRequest - contains the associate publishRequest
@@ -42,9 +42,9 @@ class Car extends Model
         return $this->carModel;
     }
 
-    public function setCarModel(CarModel $carModel): void
+    public function setCarModelId(int $id): void
     {
-        $this->carModel = $carModel;
+        $this->attributes['car_model_id'] = $id;
     }
 
     public function getCarModelId(): int
@@ -157,9 +157,9 @@ class Car extends Model
         return $this->attributes['manufacture_year'];
     }
 
-    public function setManufactureDate(int $manufacture_year): void
+    public function setManufactureYear(int $year): void
     {
-        $this->attributes['manufacture_year'] = $manufacture_year;
+        $this->attributes['manufacture_year'] = $year;
     }
 
     public function carIsVisible(): bool

@@ -13,7 +13,6 @@ class CarController extends Controller
 {
     public function index(Request $request): View
     {
-        $user = Auth::user();
         $viewData = [];
         $viewData['title'] = 'Cars - EasyCar';
 
@@ -66,7 +65,6 @@ class CarController extends Controller
 
     public function show(string $id): View
     {
-        $user = Auth::user();
         $viewData = [];
         $car = Car::findOrFail($id);
         $viewData['title'] = 'Car';

@@ -59,7 +59,6 @@ class AdminCarController extends Controller
             'price' => $request->price,
             'is_new' => $request->is_new === 'on',
             'image_uri' => $imageName,
-            'car_model_id' => 1,
             'transmission_type' => $request->transmission_type,
             'type' => $request->type,
             'manufacture_year' => $request->manufacture_year,
@@ -95,27 +94,25 @@ class AdminCarController extends Controller
     public function update(request $request, string $id): RedirectResponse
     {
         Car::validateUpdate($request);
+
+        $car = Car::findOrFail($id);
         if ($request->hasFile('image_uri')) {
-            $car = Car::findOrFail($id);
             $storeInterface = app(ImageStorage::class);
             $imageName = $storeInterface->store($request);
-            Car::where('id', $id)->update([
-                'image_uri' => $imageName,
-            ]);
-            $imageName = $storeInterface->delete($car->getImageUri());
+            $prevUri = $car->getImageUri();
+            $car->setImageUri($imageName);
+            $storeInterface->delete($prevUri);
         }
 
-        Car::where('id', $id)->update([
-            'color' => $request->color,
-            'kilometers' => $request->kilometers,
-            'price' => $request->price,
-            'is_new' => $request->is_new === 'on',
-            'car_model_id' => 1,
-            'transmission_type' => $request->transmission_type,
-            'type' => $request->type,
-            'manufacture_year' => $request->manufacture_year,
-            'car_model_id' => $request->car_model_id,
-        ]);
+        $car->setKilometers($request->kilometers);
+        $car->setIsNew($request->is_new === 'on');
+        $car->setPrice($request->price);
+        $car->setCarModelId($request->car_model_id);
+        $car->setManufactureYear($request->manufacture_year);
+        $car->setColor($request->color);
+        $car->setTransmissionType($request->transmission_type);
+        $car->setType($request->type);
+        $car->update();
 
         return redirect(route('adminCar.index'));
     }
