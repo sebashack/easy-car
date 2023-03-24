@@ -44,11 +44,12 @@ class AdminCarModelController extends Controller
     {
         CarModel::validate($request);
 
-        CarModel::where('id', $id)->update([
-            'brand' => $request->brand,
-            'model' => $request->model,
-            'description' => $request->description,
-        ]);
+        $carModel = CarModel::findOrFail($id);
+
+        $carModel->setBrand($request->brand);
+        $carModel->setModel($request->model);
+        $carModel->setDescription($request->description);
+        $carModel->update();
 
         return redirect(route('adminCarModel.index'));
     }
