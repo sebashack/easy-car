@@ -20,7 +20,6 @@ class ReviewController extends Controller
         } else {
             $viewData['reviews'] = $user->getReviews()->sortBy('rating');
         }
-        $viewData['is_admin'] = boolval($user) && $user->isAdmin();
 
         return view('review.index')->with('viewData', $viewData);
     }
@@ -61,6 +60,38 @@ class ReviewController extends Controller
         ]);
 
         return back()->with('status', __('Successfully created'));
+    }
+
+    public function edit(string $id): View|RedirectResponse
+    {
+        $user = Auth::user();
+        $review = Review::findOrFail($id);
+        if ($user->getId() == $review->getUser()->getId()) {
+            $viewData = [];
+            $viewData['title'] = 'Review info- Easy Car';
+            $viewData['id'] = $review->getId();
+            $viewData['review'] = $review;
+
+            return view('review.edit')->with('viewData', $viewData);
+        } else {
+            return redirect()->route('home.unauthorized');
+        }
+    }
+
+    public function update(request $request, string $id): RedirectResponse
+    {
+        $user = Auth::user();
+        Review::validate($request);
+        $review = Review::findOrFail($id);
+        if ($user->getId() == $review->getUser()->getId()) {
+            $review->setRating($request->rating);
+            $review->setContent($request->content);
+            $review->update();
+
+            return redirect(route('review.index'));
+        } else {
+            return redirect()->route('home.unauthorized');
+        }
     }
 
     public function delete(string $id): RedirectResponse

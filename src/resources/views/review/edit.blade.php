@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><strong>{{ __("Your Review") }}</strong></div>
+                <div class="card-header">{{ __("Edit review") }}</div>
                 <div class="card-body">
                     @if($errors->any())
                     <ul id="errors" class="alert alert-danger list-unstyled">
@@ -18,16 +18,15 @@
                         {{ session("status") }}
                     </div>
                     @endif
-                    <form method="post" action="{{ route('review.save', ['id'=>$viewData['model_id']]) }}">
+                    <form method="POST" action="{{ route('review.update',['id'=> $viewData['review']->getId()]) }}">
                         @csrf
+                        @method('patch')
                         <input
                             type="text"
                             class="form-control mb-2"
-                            placeholder="{{ __('Enter review') }}"
+                            value="{{ $viewData['review']->getContent() }}"
                             name="content"
-                            value="{{ old('content') }}"
                         />
-                        </br>
                         <div class="form-group">
                             <label for="Rating"><strong>{{ __("Rating") }}:</strong></label>
                             <select class="form-control" name="rating">
@@ -42,7 +41,7 @@
                         <input
                             type="submit"
                             class="btn btn-primary"
-                            value="{{ __('Send') }}"
+                            value="Update"
                         />
                     </form>
                 </div>
