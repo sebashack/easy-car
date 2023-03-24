@@ -77,6 +77,15 @@ class CarModel extends Model
         $this->attributes['description'] = $description;
     }
 
+    public static function getBestRatingCarModels(): Collection
+    {
+        $carModels = CarModel::withAvg('reviews', 'rating')
+                ->orderByDesc('reviews_avg_rating')
+                ->limit(5)
+                ->get();
+        return $carModels;
+    }
+
     public static function validate(Request $request): void
     {
         $request->validate([

@@ -11,10 +11,7 @@ class CommunityController extends Controller
     {
         $viewData = [];
         $viewData['title'] = 'PublishRequests - EasyCar';
-        $carModels = CarModel::withAvg('reviews', 'rating')
-                ->orderByDesc('reviews_avg_rating')
-                ->limit(5)
-                ->get();
+        $carModels = CarModel::getBestRatingCarModels();
         $viewData['carModels'] = $carModels;
 
         return view('community.index')->with('viewData', $viewData);
