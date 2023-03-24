@@ -8,22 +8,17 @@
         <div class="col-md-4 col-lg-3 mb-2">
             <div class="card">
                 <div class="card-body text-center">
-                    <h4>{{ __("Id") }}: {{ $review->getId() }}</h4>
+                    <h4>{{ __("Brand") }}: {{ $review->getCarModel()->getBrand() }}</h4>
                     @if ($review->getRating() == 5)
-                        {{ __("Rating") }}:
-                        <p class="star">★★★★★</p>
+                        <p>&#11088 &#11088 &#11088 &#11088 &#11088</p>
                         @elseif ($review->getRating() == 4)
-                        {{ __("Rating") }}:
-                        <p class="star">★★★★</p>
+                        <p>&#11088 &#11088 &#11088 &#11088</p>
                         @elseif ($review->getRating() == 3)
-                        {{ __("Rating") }}:
-                        <p class="star">★★★</p>
+                        <p>&#11088 &#11088 &#11088</p>
                         @elseif ($review->getRating() == 2)
-                        {{ __("Rating") }}:
-                        <p class="star">★★</p>
+                        <p>&#11088 &#11088</p>
                         @else
-                        {{ __("Rating") }}:
-                        <p class="star">★</p>
+                        <p class="star">&#11088</p>
                     @endif
                     <a
                         href="{{ route('review.show', ['id'=> $review->getId()]) }}"
@@ -31,14 +26,12 @@
                     >
                         {{ __("Check review") }}
                     </a>
-                    @if (!$viewData['is_admin'])
                     <a
                     href="{{ route('review.edit', ['id'=> $review->getId()]) }}"
                     class="btn bg-primary text-white"
                     >
                         <span>&#9998;</span>
                     </a>
-                    @endif
                 </div>
             </div>
         </div>

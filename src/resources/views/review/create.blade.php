@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __("Create Review") }}</div>
+                <div class="card-header"><strong>{{ __("Your Review") }}</strong></div>
                 <div class="card-body">
                     @if($errors->any())
                     <ul id="errors" class="alert alert-danger list-unstyled">
@@ -18,7 +18,7 @@
                         {{ session("status") }}
                     </div>
                     @endif
-                    <form method="POST" action="{{ route('review.save', ['id'=>$viewData['model_id']]) }}">
+                    <form method="post" action="{{ route('review.save', ['id'=>$viewData['model_id']]) }}">
                         @csrf
                         <input
                             type="text"
@@ -27,13 +27,18 @@
                             name="content"
                             value="{{ old('content') }}"
                         />
-                        <input
-                            type="text"
-                            class="form-control mb-2"
-                            placeholder="{{ __('Enter rating') }}"
-                            name="rating"
-                            value="{{ old('rating') }}"
-                        />
+                        </br>
+                        <div class="form-group">
+                            <label for="Rating"><strong>{{ __("Rating") }}:</strong></label>
+                            <select class="form-control" name="rating">
+                                <option value="1">&#11088</option>
+                                <option value="2">&#11088 &#11088</option>
+                                <option value="3">&#11088 &#11088 &#11088</option>
+                                <option value="4">&#11088 &#11088 &#11088 &#11088</option>
+                                <option value="5">&#11088 &#11088 &#11088 &#11088 &#11088</option>
+                            </select>
+                        </div>
+                        </br>
                         <input
                             type="submit"
                             class="btn btn-primary"

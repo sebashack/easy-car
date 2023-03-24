@@ -20,7 +20,6 @@ class ReviewController extends Controller
         } else {
             $viewData['reviews'] = $user->getReviews()->sortBy('rating');
         }
-        $viewData['is_admin'] = boolval($user) && $user->isAdmin();
 
         return view('review.index')->with('viewData', $viewData);
     }

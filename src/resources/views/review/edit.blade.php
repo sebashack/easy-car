@@ -20,19 +20,24 @@
                     @endif
                     <form method="POST" action="{{ route('review.update',['id'=> $viewData['review']->getId()]) }}">
                         @csrf
-                        @method('PATCH')
-                        <input
-                            type="text"
-                            class="form-control mb-2"
-                            value="{{ $viewData['review']->getRating() }}"
-                            name="rating"                            
-                        />
+                        @method('patch')
                         <input
                             type="text"
                             class="form-control mb-2"
                             value="{{ $viewData['review']->getContent() }}"
-                            name="content"                            
+                            name="content"
                         />
+                        <div class="form-group">
+                            <label for="Rating"><strong>{{ __("Rating") }}:</strong></label>
+                            <select class="form-control" name="rating">
+                                <option value="1">&#11088</option>
+                                <option value="2">&#11088 &#11088</option>
+                                <option value="3">&#11088 &#11088 &#11088</option>
+                                <option value="4">&#11088 &#11088 &#11088 &#11088</option>
+                                <option value="5">&#11088 &#11088 &#11088 &#11088 &#11088</option>
+                            </select>
+                        </div>
+                        </br>
                         <input
                             type="submit"
                             class="btn btn-primary"
