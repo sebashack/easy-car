@@ -19,7 +19,7 @@
             <h3>{{ __('Cars') }}</h3>
             <ul class="list-group">
                 <a href="{{ route('car.index') }}" class="list-group-item link-info"> {{ __('View cars') }} </a>
-                <a href="{{ route('car.create') }}" class="list-group-item link-info"> {{ __('Register new car') }} </a>
+                <a href="{{ route('adminCar.create') }}" class="list-group-item link-info"> {{ __('Register new car') }} </a>
             </ul>
         </div>
         <br/>

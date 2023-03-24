@@ -41,12 +41,13 @@ Route::post('/reviews/save/{id}', 'App\Http\Controllers\ReviewController@save')-
 
 Route::delete('/reviews/delete/{id}', 'App\Http\Controllers\ReviewController@delete')->name('review.delete')->middleware('auth');
 
+// AdminCars
+Route::get('/admins/cars/create', 'App\Http\Controllers\AdminCarController@create')->name('adminCar.create')->middleware('auth', 'isAdmin');
+
+Route::post('/admins/cars/save', 'App\Http\Controllers\AdminCarController@save')->name('adminCar.save')->middleware('auth', 'isAdmin');
+
 // Cars
-Route::get('/cars/create', 'App\Http\Controllers\CarController@create')->name('car.create')->middleware('auth', 'isAdmin');
-
 Route::get('/cars/{id}', 'App\Http\Controllers\CarController@show')->name('car.show');
-
-Route::post('/cars/save', 'App\Http\Controllers\CarController@save')->name('car.save')->middleware('auth', 'isAdmin');
 
 Route::get('/cars/edit/{id}', 'App\Http\Controllers\CarController@edit')->name('car.edit')->middleware('auth', 'isAdmin');
 

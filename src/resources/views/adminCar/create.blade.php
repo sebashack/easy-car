@@ -21,7 +21,7 @@
 
                     <form
                         method="POST"
-                        action="{{ route('car.save') }}"
+                        action="{{ route('adminCar.save') }}"
                         enctype="multipart/form-data"
                     >
                         @csrf

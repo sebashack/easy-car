@@ -66,36 +66,6 @@ class CarController extends Controller
         return view('car.index')->with('viewData', $viewData);
     }
 
-    public function create(): View
-    {
-        $viewData = [];
-        $viewData['title'] = 'Create Car';
-        $viewData['carModels'] = CarModel::all();
-
-        return view('car.create')->with('viewData', $viewData);
-    }
-
-    public function save(Request $request): RedirectResponse
-    {
-        Car::validate($request);
-        $storeInterface = app(ImageStorage::class);
-        $imageName = $storeInterface->store($request);
-        Car::create([
-            'color' => $request->color,
-            'kilometers' => $request->kilometers,
-            'price' => $request->price,
-            'is_new' => $request->is_new === 'on',
-            'image_uri' => $imageName,
-            'car_model_id' => 1,
-            'transmission_type' => $request->transmission_type,
-            'type' => $request->type,
-            'manufacture_year' => $request->manufacture_year,
-            'car_model_id' => $request->car_model_id,
-        ]);
-
-        return back()->with('status', __('Successfully created'));
-    }
-
     public function show(string $id): View
     {
         $user = Auth::user();
