@@ -21,7 +21,7 @@
 </div>
 <hr>
 <div class="text-center">
-<h1>{{ __("Top 5 most selled models") }}</h1>
+<h1>{{ __("Top 5 most sold models") }}</h1>
     <table class="table table-striped">
     <thead>
         <tr>
@@ -30,7 +30,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($viewData['carModelsSelled'] as $carModel)
+        @foreach ($viewData['carModelsSold'] as $carModel)
         <tr>
             <td>{{ $carModel->getBrand() }}</td>
             <td>{{ $carModel->total_sold }}</td>

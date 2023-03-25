@@ -88,7 +88,7 @@ class CarModel extends Model
         return $carModels;
     }
 
-    public static function getMostSelledCarModels(): Collection
+    public static function getMostSoldCarModels(): Collection
     {
         $carModels = CarModel::select('car_models.*', DB::raw('count(*) as total_sold'))
         ->join('cars', 'car_models.id', '=', 'cars.car_model_id')
