@@ -14,65 +14,100 @@
     </head>
     <body>
         <!-- header -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary py-4">
-            <div class="container">
+        <nav class="navbar navbar-expand-lg py-3">
+            <div
+                class="pe-lg-0 ps-lg-5 container-fluid justify-content-between"
+            >
                 <a class="navbar-brand" href="{{ route('home.index') }}">
-                    EasyCar
+                    <img
+                        src="{{ asset('/images/Logo.jpg') }}"
+                        height="100"
+                        alt="logo"
+                    />
                 </a>
                 <button
                     class="navbar-toggler"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavAltMarkup"
-                    aria-controls="navbarNavAltMarkup"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
                     aria-expanded="false"
                     aria-label="Toggle navigation"
                 >
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav ms-auto">
-                        <a
-                            class="nav-link active"
-                            href="{{ route('home.index') }}"
-                        >
-                            {{ __('Home') }}
-                        </a>
-                        <div class="vr bg-white mx-2 d-none d-lg-block"></div>
-                        @guest
-                        <a class="nav-link active" href="{{ route('login') }}">
-                            {{ __('Login') }}
-                        </a>
-                        <a
-                            class="nav-link active"
-                            href="{{ route('register') }}"
-                        >
-                            {{__('Register') }}
-                        </a>
-                        @else
-                        <form
-                            id="logout"
-                            action="{{ route('logout') }}"
-                            method="POST"
-                        >
-                            <a
-                                role="button"
-                                class="nav-link active"
-                                onclick="document.getElementById('logout').submit();"
+                <div
+                    class="collapse navbar-collapse justify-content-end"
+                    id="navbarSupportedContent"
+                >
+                    <div class="nav_left d-lg-flex align-items-center">
+                        <nav>
+                            <div
+                                class="nav d-block d-lg-flex nav-tabs"
+                                id="nav-tab"
+                                role="tablist"
                             >
-                                {{ __('Logout') }}
-                            </a>
-                            @csrf
-                        </form>
-                        @endguest
-                        @auth
-                        <a
-                            class="nav-link active"
-                            href="{{ route('user.show') }}"
-                        >
-                            {{ __('My profile') }}
-                        </a>
-                        @endauth
+                                <a
+                                    class="nav-link active"
+                                    href="{{ route('home.index') }}"
+                                >
+                                    {{ __("Home") }}
+                                </a>
+                                <a
+                                    class="nav-link"
+                                    href="{{ route('car.index') }}"
+                                >
+                                    {{ __("Cars") }}
+                                </a>
+                                @guest
+                                <div class="vr bg-black mx-2 d-none d-lg-block">
+                                </div>
+                                <a
+                                    id="button-link"
+                                    class="nav-link"
+                                    href="{{ route('login') }}"
+                                >
+                                    {{ __("Login") }}
+                                </a>
+                                <a
+                                    class="nav-link"
+                                    href="{{ route('register') }}"
+                                >
+                                    {{ __("Register") }}
+                                </a>
+                                @else
+                                <a
+                                    id="button-link"
+                                    class="nav-link"
+                                    href="{{ route('publishRequest.create') }}"
+                                >
+                                    {{ __("Post your car") }}
+                                </a>
+                                <div class="vr bg-black mx-2 d-none d-lg-block">
+                                </div>
+                                <a
+                                    class="nav-link"
+                                    href="{{ route('user.show') }}"
+                                >
+                                    {{ __("My profile") }}
+                                </a>
+                                <form
+                                    id="logout"
+                                    action="{{ route('logout') }}"
+                                    method="POST"
+                                >
+                                    <a
+                                        role="button"
+                                        class="nav-link"
+                                        onclick="document.getElementById('logout').submit();"
+                                    >
+                                        {{ __("Logout") }}
+                                    </a>
+                                    @csrf
+                                </form>
+                                @endguest
+                            </div>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -81,7 +116,7 @@
         <div class="container my-4">@yield('content')</div>
 
         <!-- footer -->
-        <div class="copyright py-4 text-center text-white">
+        <div class="copyright py-4 text-center text-black">
             <div class="container">
                 <small> Copyright 2023 - EasyCar </small>
             </div>
