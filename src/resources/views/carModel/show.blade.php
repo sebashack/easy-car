@@ -12,9 +12,9 @@
                     <strong>{{ __("Description") }}:</strong> {{ $viewData['carModel']->getDescription() }}
                 </p>
                 @auth
-                <a class="btn btn-primary mb-3" href="{{ route('review.create',['id'=> $viewData['carModel']->getId()]) }}">Make review</a>
+                <a class="btn btn-success mb-3" href="{{ route('review.create',['id'=> $viewData['carModel']->getId()]) }}">Make review</a>
                 @endauth
-                <button class="btn btn-primary mb-3 reviews">Show reviews</button>
+                <button class="btn action-bg-color mb-3 reviews">Show reviews</button>
                 <div class="hide">
                 <div class="row">
                     @foreach ($viewData['carModel']->getReviews() as $review)

@@ -14,7 +14,7 @@
                     <p>{{ __("Model") }}: {{ $carModel->getModel() }}</p>
                     <a
                         href="{{ route('carModel.show', ['id'=> $carModel->getId()]) }}"
-                        class="btn bg-primary text-white"
+                        class="btn action-bg-color"
                     >
                         {{ __("Check car model") }}
                     </a>
