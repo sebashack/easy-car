@@ -1,0 +1,49 @@
+.bt-bg-color{
+    background-color: #ca4e01;;
+    color: white;
+}
+
+.bt-bg-color:hover{
+    background-color: white;
+    color: #ca4e01;;
+    border-width: 1px;
+    border-color: #ca4e01;
+}
+
+.action-bg-color{
+    background-color: black;
+    color: white;
+}
+
+.action-bg-color:hover{
+    background-color: white;
+    color: black;
+    border-width: 1px;
+    border-color: black;
+}
+
+#car-card.card{
+    height: 100%;
+}
+
+#car-info.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.car-card-actions{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.car-card-actions a{
+    font-size: 1vw;
+}
+
+.form-select.mb-2{
+    height: 100%;
+}
