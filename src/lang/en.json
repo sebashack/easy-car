@@ -65,6 +65,8 @@
   "Car id": "Car id",
   "My profile": "My profile",
   "Home": "Home",
+  "Community": "Community",
+  "About": "About",
   "Log out": "Log out",
   "Register": "Register",
   "Log in": "Log in",
@@ -113,5 +115,14 @@
   "View my reviews": "View my reviews",
   "Post your car": "Post your car",
   "Current balance": "Current balance",
-  "Email": "Email"
+  "Email": "Email",
+  "Contact Us": "Contact Us",
+  "About Us": "About Us",
+  "HOME_INTRO": "EasyCar is widely recognized as one of the top-performing car dealerships in Colombia, offering a diverse range of vehicles, both new and pre-owned, at competitive prices. Our commitment to delivering exceptional customer service ensures that our clients receive personalized attention and the necessary support to find the ideal car for their needs.",
+  "ABOUT_P1": "Welcome to EasyCar, your go-to destination for high-quality cars at affordable prices. As one of the leading car dealerships in the region, we pride ourselves on our ability to offer a diverse range of vehicles to suit the unique needs and preferences of each of our customers.",
+  "ABOUT_P2": "At EasyCar, we understand that purchasing a car is a significant investment, which is why we go above and beyond to ensure that every customer receives the best possible service and support. Our friendly and knowledgeable team of experts are always on hand to provide guidance and advice throughout the buying process, helping you to make informed decisions that are tailored to your specific needs and budget.",
+  "ABOUT_P3": "Whether you're in the market for a brand new car, or looking to purchase a pre-owned vehicle, you can rest assured that EasyCar has you covered. We work tirelessly to source the very best cars from trusted suppliers, ensuring that each vehicle in our inventory is of the highest quality and meets our strict standards.",
+  "ABOUT_P4": "With our commitment to offering competitive prices and exceptional customer service, it's no wonder that EasyCar is the dealership of choice for many car buyers in the region. So why not browse our selection of vehicles today and discover the car of your dreams at a price that won't break the bank?",
+  "Address": "Address",
+  "Phone": "Phone"
 }

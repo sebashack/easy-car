@@ -59,6 +59,12 @@
                                 >
                                     {{ __("Cars") }}
                                 </a>
+                                <a
+                                    class="nav-link"
+                                    href="{{ route('community.index') }}"
+                                >
+                                    {{ __("Community") }}
+                                </a>
                                 @guest
                                 <div class="vr bg-black mx-2 d-none d-lg-block">
                                 </div>
@@ -102,16 +108,19 @@
         <div class="container my-4">@yield('content')</div>
 
         <!-- footer -->
-        <div class="copyright py-4 text-center text-black">
-            <div class="container">
-                <small> Copyright 2023 - EasyCar </small>
-            </div>
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <p class="col-md-4 mb-0 text-muted">&copy; 2023 EasyCar</p>
+                <ul class="nav col-md-4 justify-content-end">
+                  <li class="nav-item"><a href="{{ route('home.index') }}" class="nav-link px-2 text-muted">{{ __('Home') }}</a></li>
+                  <li class="nav-item"><a href="{{ route('home.about') }}" class="nav-link px-2 text-muted">{{ __('About') }}</a></li>
+                  <li class="nav-item"><a href="{{ route('home.contact') }}" class="nav-link px-2 text-muted">{{__('Contact Us') }}</a></li>
+                  <li class="nav-item"><a href="{{ route('community.index') }}" class="nav-link px-2 text-muted">{{__('Community') }}</a></li>
+                </ul>
+            </footer>
         </div>
-        <!-- footer -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js" integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous"></script>
         @yield('scripts')
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-            crossorigin="anonymous"
-        ></script>
     </body>
 </html>

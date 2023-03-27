@@ -133,6 +133,7 @@
         </div>
     </div>
 </div>
-@endsection @section('scripts')
+@section('scripts')
 <script src="{{ asset('js/manufactureYear.js') }}"></script>
+@endsection
 @endsection

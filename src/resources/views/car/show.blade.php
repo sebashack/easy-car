@@ -25,12 +25,12 @@
                   <th>{{ __("Color") }}</th>
                   <td>{{ $viewData['car']->getColor() }}</td>
                 </tr>
-              
+
                 <tr>
                   <th>{{ __("Kilometers") }}</th>
                   <td>{{ $viewData['car']->getKilometers() }} km</td>
                 </tr>
-              
+
                 <tr>
                     <th>{{ __("Condition") }}</th>
                     @if ($viewData['car']->getIsNew())
@@ -47,7 +47,7 @@
               </table>
         </div>
         <div class="card-body text-right">
-            <button class="btn action-bg-color mb-3">
+            <button id="show-reviews-btn" class="btn action-bg-color mb-3">
                 {{ __("Show reviews") }}
             </button>
             <a
@@ -66,9 +66,7 @@
                             </div>
                             <div class="card-body text-center">
                                 @if ($review->getRating() == 5)
-                                <p>
-                                    &#11088; &#11088; &#11088; &#11088; &#11088;
-                                </p>
+                                <p>&#11088; &#11088; &#11088; &#11088; &#11088;</p>
                                 @elseif ($review->getRating() == 4)
                                 <p>&#11088; &#11088; &#11088; &#11088;</p>
                                 @elseif ($review->getRating() == 3)
@@ -91,6 +89,7 @@
         </div>
     </div>
 </div>
-@endsection @section('scripts')
-<script src="{{ asset('js/reviewsManageInCar.js') }}"></script>
+@section('scripts')
+<script src="{{ asset('js/showReviews.js') }}"></script>
+@endsection
 @endsection

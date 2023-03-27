@@ -48,7 +48,7 @@
                 </table>
             </div>
             <div class="card-body">
-                <button class="btn action-bg-color mb-3">
+                <button id="show-reviews-btn" class="btn action-bg-color mb-3">
                     {{ __("Show reviews") }}
                 </button>
                 <a
@@ -67,15 +67,15 @@
                                 </div>
                                 <div class="card-body text-center">
                                     @if ($review->getRating() == 5)
-                                    <h5 class="car-title star">★★★★★</h5>
+                                    <p>&#11088; &#11088; &#11088; &#11088; &#11088;</p>
                                     @elseif ($review->getRating() == 4)
-                                    <h5 class="car-title star">★★★★</h5>
+                                    <p>&#11088; &#11088; &#11088; &#11088;</p>
                                     @elseif ($review->getRating() == 3)
-                                    <h5 class="car-title star">★★★</h5>
+                                    <p>&#11088; &#11088; &#11088;</p>
                                     @elseif ($review->getRating() == 2)
-                                    <h5 class="car-title star">★★</h5>
+                                    <p>&#11088; &#11088;</p>
                                     @else
-                                    <h5 class="car-title star">★</h5>
+                                    <p>&#11088;</p>
                                     @endif
                                     <p class="car-text">
                                         {{ __("Review") }}:
@@ -102,6 +102,7 @@
         </div>
     </div>
 </div>
-@endsection @section('scripts')
-<script src="{{ asset('js/reviewsManageInCar.js') }}"></script>
+@section('scripts')
+<script src="{{ asset('js/showReviews.js') }}"></script>
+@endsection
 @endsection
