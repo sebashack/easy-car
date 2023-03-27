@@ -35,3 +35,23 @@
 .form-select.mb-2{
     height: 100%;
 }
+
+.car-info-table tr,
+.car-info-table th,
+.car-info-table td {
+    padding: 5px;
+}
+
+.car-info-table{
+    width: 100%;
+}
+
+.car-info-table tr:first-child(){
+    background-color: #ebebeb;
+    color: black;
+}
+
+.car-info-table tr:nth-child(odd){
+    background-color: #f5f5f5;
+    color: black;
+}
