@@ -51,7 +51,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <select class="form-select mb-2"" name="price_range">
+                <select class="form-select mb-2" name="price_range">
                     <option value="NA">
                         {{ __("Price range") }}
                     </option>
