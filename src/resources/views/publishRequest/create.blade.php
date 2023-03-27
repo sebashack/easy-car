@@ -27,8 +27,8 @@
                         <input type="number" class="form-control mb-2" placeholder="{{ __('Enter kilometers') }}" name="kilometers" value="{{ old('kilometers') }}" />
                         <input type="number" class="form-control mb-2" placeholder="{{ __('Enter price') }}" name="price" value="{{ old('price') }}" />
                         <div class="form-group">
-                            <label>{{ __('Image') }}:</label>
-                            <input type="file" name="image_uri" />
+                            <label for="inputCarImage">{{ __('Image') }}:</label>
+                            <input id="inputCarImage" type="file" name="image_uri" />
                         </div>
                         <div class="form-group">
                             <label for="transmission">{{ __('Transmission') }}:</label>
@@ -61,7 +61,7 @@
                             <label for="year">{{ __('Manufacture year') }}:</label>
                             <input type="number" class="form-control" name="manufacture_year" min="2000" max="2023">
                         </div>
-                        <input type="submit" class="btn btn-primary" value="{{ __('Send') }}" />
+                        <input type="submit" class="btn btn-success" value="{{ __('Send') }}" />
                     </form>
                 </div>
             </div>
