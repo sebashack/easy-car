@@ -13,7 +13,7 @@
         @foreach ($viewData['carModelsRating'] as $carModel)
         <tr>
             <td>{{ $carModel->getBrand() }}</td>
-            <td>{{ $carModel->reviews_avg_rating }}</td>
+            <td>{{ number_format((float)$carModel->reviews_avg_rating, 1, '.', '') }}</td>
         </tr>
         @endforeach
     </tbody>
