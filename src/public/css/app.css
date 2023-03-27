@@ -36,6 +36,18 @@ nav{
   border-color: black;
 }
 
+.action-bg-primary-color{
+  background-color: #ca4e01;;
+  color: white;
+}
+
+.action-bg-primary-color:hover{
+  background-color: white;
+  color: #ca4e01;;
+  border-width: 1px;
+  border-color: #ca4e01;
+}
+
 .card-header{
   background-color: black;
   color: white;

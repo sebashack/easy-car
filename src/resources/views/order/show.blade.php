@@ -20,7 +20,7 @@
                         <p><strong>{{ __('Model') }}</strong>: {{ $carModel->getModel() }} </p>
                         <p><strong>{{ __('Brand') }}</strong>: {{ $carModel->getBrand() }} </p>
                         <p><strong>{{ __('Price to date') }}</strong>: ${{ $item->getPriceToDate() }} </p>
-                        <a href="{{ route('car.show',['id'=>$item->getCar()->getId()]) }}" class="btn btn-sm btn-primary">{{ __('Check car') }}</a>
+                        <a href="{{ route('car.show',['id'=>$item->getCar()->getId()]) }}" class="btn btn-sm action-bg-primary-color">{{ __('Check car') }}</a>
                     </div>
                 </div>
             </div>
