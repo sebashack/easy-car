@@ -11,7 +11,7 @@
                 <p class="card-text">
                     <strong>{{ __("Description") }}:</strong> {{ $viewData['carModel']->getDescription() }}
                 </p>
-                <button class="btn btn-primary mb-3 reviews">Show reviews</button>
+                <button class="btn action-bg-color mb-3 reviews">Show reviews</button>
                 <div class="hide">
                 <div class="row">
                     @foreach ($viewData['carModel']->getReviews() as $review)

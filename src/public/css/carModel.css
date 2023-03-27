@@ -1,0 +1,8 @@
+#car-model-actions{
+    display: flex;
+    justify-content: space-around;
+}
+
+#car-model-actions a{
+    font-size: 1vw;
+}
