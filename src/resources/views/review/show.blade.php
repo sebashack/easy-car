@@ -7,15 +7,15 @@
             <div class="card-body">
                 <h5>{{ $viewData['review']->getCarModel()->getBrand() }}:</h5>
                 @if ($viewData['review']->getRating() == 5)
-                    <p><strong>{{ __('Rating') }}: </strong>&#11088 &#11088 &#11088 &#11088 &#11088</p>
+                    <p><strong>{{ __('Rating') }}: </strong>&#11088; &#11088; &#11088; &#11088; &#11088;</p>
                     @elseif ($viewData['review']->getRating() == 4)
-                    <p><strong>{{ __('Rating') }}: </strong>&#11088 &#11088 &#11088 &#11088</p>
+                    <p><strong>{{ __('Rating') }}: </strong>&#11088; &#11088; &#11088; &#11088;</p>
                     @elseif ($viewData['review']->getRating() == 3)
-                    <p><strong>{{ __('Rating') }}: </strong>&#11088 &#11088 &#11088</p>
+                    <p><strong>{{ __('Rating') }}: </strong>&#11088; &#11088; &#11088;</p>
                     @elseif ($viewData['review']->getRating() == 2)
-                    <p><strong>{{ __('Rating') }}: </strong>&#11088 &#11088</p>
+                    <p><strong>{{ __('Rating') }}: </strong>&#11088; &#11088;</p>
                     @else
-                    <p><strong>{{ __('Rating') }}: </strong>&#11088</p>
+                    <p><strong>{{ __('Rating') }}: </strong>&#11088;</p>
                 @endif
                 <p class="mt-3"><strong>{{ __("User") }}:</strong> {{ $viewData['review_owner']->getName() }}</p>
                 <p><strong>{{ __("Review") }}:</strong> {{ $viewData['review']->getContent() }}</p>

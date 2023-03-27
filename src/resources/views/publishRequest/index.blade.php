@@ -11,7 +11,7 @@
         <p><strong>{{__('Id') }}:</strong> {{ $publishRequest->getId() }}</p>
         <p><strong>{{__('User') }}:</strong> {{ $publishRequest->getUser()->getName() }} {{ $publishRequest->getUser()->getLastName() }}</p>
         <p><strong>{{__('State') }}:</strong> {{ __($publishRequest->getState()) }}</p>
-        <a href="{{ route('publishRequest.show', ['id'=> $publishRequest->getId()]) }}" class="btn bg-primary text-white">{{__('See More')}}</a>
+        <a href="{{ route('publishRequest.show', ['id'=> $publishRequest->getId()]) }}" class="btn action-bg-color">{{__('See More')}}</a>
       </div>
     </div>
   </div>

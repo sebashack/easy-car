@@ -29,7 +29,7 @@
                         />
                         <div class="form-group">
                             <label for="Rating"><strong>{{ __("Rating") }}:</strong></label>
-                            <select class="form-control" name="rating">
+                            <select class="form-select mb-2" name="rating">
                                 <option value="1">&#11088</option>
                                 <option value="2">&#11088 &#11088</option>
                                 <option value="3">&#11088 &#11088 &#11088</option>
@@ -40,7 +40,7 @@
                         </br>
                         <input
                             type="submit"
-                            class="btn btn-primary"
+                            class="btn btn-success"
                             value="Update"
                         />
                     </form>

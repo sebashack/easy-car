@@ -71,14 +71,14 @@
                         />
                         <input
                             type="submit"
-                            class="btn btn-primary"
+                            class="btn btn-success"
                             value="{{ __('Create order') }}"
                         />
                     </form>
                     <br />
                     <a
                         href="{{ route('order.remove') }}"
-                        class="btn bg-primary text-white"
+                        class="btn bg-danger text-white"
                     >
                         {{ __("Clear") }}
                     </a>

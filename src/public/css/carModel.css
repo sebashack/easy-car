@@ -1,0 +1,9 @@
+#car-model-actions{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#car-model-actions a{
+    font-size: 0.7vw;
+}

@@ -1,0 +1,57 @@
+.bt-bg-color{
+    background-color: #ca4e01;
+    color: white;
+}
+
+.bt-bg-color:hover{
+    background-color: #ca4e01;;
+    color: white;
+    border-width: 1px;
+    border-color: #ca4e01;
+}
+
+#car-card.card{
+    height: 100%;
+}
+
+#car-info.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.car-card-actions{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.car-card-actions a{
+    font-size: 0.6vw;
+}
+
+.form-select.mb-2{
+    height: 100%;
+}
+
+.car-info-table tr,
+.car-info-table th,
+.car-info-table td {
+    padding: 5px;
+}
+
+.car-info-table{
+    width: 100%;
+}
+
+.car-info-table tr:first-child(){
+    background-color: #ebebeb;
+    color: black;
+}
+
+.car-info-table tr:nth-child(odd){
+    background-color: #f5f5f5;
+    color: black;
+}

@@ -15,7 +15,7 @@
                     <p><strong>{{ __('Id') }}</strong>: {{ $order->getId() }}</p>
                     <p><strong>{{ __('Date') }}</strong>: {{ $order->getDateStr() }}</p>
                     <p><strong>{{ __('Customer') }}</strong>: {{ $order->getUser()->getName() }} {{ $order->getUser()->getLastName() }} </p>
-                    <a href="{{ route('order.show',['id'=>$order->getId()]) }}" class="btn btn-sm btn-primary">{{ __('Check order') }}</a>
+                    <a href="{{ route('order.show',['id'=>$order->getId()]) }}" class="btn btn-sm action-bg-color">{{ __('Check order') }}</a>
                 </div>
             </div>
         </div>

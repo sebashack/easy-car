@@ -10,7 +10,7 @@
         @csrf
         <div class="input-group">
             <div class="form-group">
-                <select class="form-control" name="car_state">
+                <select class="form-select mb-2" name="car_state">
                     <option value="NA">
                         {{ __("Condition") }}
                     </option>
@@ -23,7 +23,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <select class="form-control" name="car_brand">
+                <select class="form-select mb-2"" name="car_brand">
                     <option value="NA">
                         {{ __("Brand") }}
                     </option>
@@ -35,7 +35,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <select class="form-control" name="transmission_type">
+                <select class="form-select mb-2"" name="transmission_type">
                     <option value="NA">
                         {{ __("Transmission") }}
                     </option>
@@ -51,7 +51,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <select class="form-control" name="price_range">
+                <select class="form-select mb-2" name="price_range">
                     <option value="NA">
                         {{ __("Price range") }}
                     </option>
@@ -75,14 +75,14 @@
                     </option>
                 </select>
             </div>
-            <input type="submit" class="btn btn-primary" value="{{ __('Filter') }}"/>
+            <input type="submit" class="btn bt-bg-color" value="{{ __('Filter') }}"/>
         </div>
     </form>
 
     <br />
     @auth
-    <a class="btn bg-info text-white" href="{{ route('order.create') }}">
-        {{ __("Check out your cars") }}: {{ $viewData["cart_length"] }}
+    <a class="btn btn-outline-dark" href="{{ route('order.create') }}">
+        &#128722; {{ __("Check out your cars") }}: {{ $viewData["cart_length"] }}
     </a>
     <br />
     <br />
@@ -91,30 +91,33 @@
         @foreach ($viewData["cars"] as $car)
         @if($car->carIsVisible())
         <div class="col-md-4 col-lg-3 mb-2">
-            <div class="card">
+            <div id="car-card" class="card">
                 <img
+                    id="car-image"
                     src="{{ URL::asset('storage/' . $car->getImageUri())}}"
                     class="img-fluid rounded-start"
                 />
-                <div class="card-body text-center">
+                <div id="car-info" class="card-body">
                     <p>
                         {{ $car->getCarModel()->getBrand() . ' ' . $car->getCarModel()->getModel()}}
                     </p>
-                    <p>{{ __("Price") }}: ${{ $car->getPrice() }}</p>
-                    <a
-                        href="{{ route('car.show', ['id'=> $car->getId()]) }}"
-                        class="btn bg-primary text-white"
-                    >
-                        {{ __("Check Car") }}
-                    </a>
-                    @auth
-                    <a
-                        href="{{ route('car.addToCart', ['id'=> $car->getId()]) }}"
-                        class="btn bg-primary text-white"
-                    >
-                        {{ __("Add to cart") }}
-                    </a>
-                    @endauth
+                    <h6>{{ __("Price") }}: ${{ $car->getPrice() }}</h6>
+                    <div class="car-card-actions">
+                        <a
+                            href="{{ route('car.show', ['id'=> $car->getId()]) }}"
+                            class="btn action-bg-color"
+                        >
+                            {{ __("Check Car") }}
+                        </a>
+                        @auth
+                        <a
+                            href="{{ route('car.addToCart', ['id'=> $car->getId()]) }}"
+                            class="btn action-bg-color"
+                        >
+                            <b>&#43;</b> &#128722;{{ __("Add to cart") }}
+                        </a>
+                        @endauth
+                    </div>
                 </div>
             </div>
         </div>

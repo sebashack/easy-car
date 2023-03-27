@@ -1,5 +1,4 @@
-@extends('layouts.app')
-@section('title', $viewData["title"])
+@extends('layouts.app') @section('title', $viewData["title"])
 @section('content')
 <div class="text-left">
     <div class="text-center">
@@ -12,18 +11,20 @@
                 <div class="card-body text-center">
                     <p>{{ __("Brand") }}: {{ $carModel->getBrand() }}</p>
                     <p>{{ __("Model") }}: {{ $carModel->getModel() }}</p>
-                    <a
-                        href="{{ route('adminCarModel.show', ['id'=> $carModel->getId()]) }}"
-                        class="btn bg-primary text-white"
-                    >
-                        {{ __("Check car model") }}
-                    </a>
-                    <a
-                        href="{{ route('adminCarModel.edit', ['id'=> $carModel->getId()]) }}"
-                        class="btn bg-primary text-white"
-                    >
-                    <span>&#9998;</span>
-                    </a>
+                    <div id="car-model-actions">
+                        <a
+                            href="{{ route('adminCarModel.show', ['id'=> $carModel->getId()]) }}"
+                            class="btn action-bg-color"
+                        >
+                            {{ __("Check car model") }}
+                        </a>
+                        <a
+                            href="{{ route('adminCarModel.edit', ['id'=> $carModel->getId()]) }}"
+                            class="btn bg-success text-white"
+                        >
+                            <span>&#9998;</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

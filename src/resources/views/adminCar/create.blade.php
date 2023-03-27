@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div id="car-form"class="card">
                 <div class="card-header">{{ __("Create Car") }}</div>
                 <div class="card-body">
                     @if($errors->any())
@@ -48,15 +48,15 @@
                             value="{{ old('price') }}"
                         />
                         <div class="form-group">
-                            <label>{{ __("Image") }}:</label>
-                            <input type="file" name="image_uri" />
+                            <label for="inputCarImage">{{ __("Image") }}:</label>
+                            <input id="inputCarImage" type="file" name="image_uri" />
                         </div>
                         <div class="form-group">
                             <label for="transmission">
                                 {{ __("Transmission") }}:
                             </label>
                             <select
-                                class="form-control"
+                                class="form-select mb-2"
                                 name="transmission_type"
                             >
                                 <option value="automatic">
@@ -74,7 +74,7 @@
                             <label for="carModels">
                                 {{ __("Car Models") }}:
                             </label>
-                            <select class="form-control" name="car_model_id">
+                            <select class="form-select mb-2" name="car_model_id">
                                 @foreach($viewData['carModels'] as $carModel)
                                 <option value="{{ $carModel->getId() }}">
                                     {{ $carModel->getBrand() . ' ' . $carModel->getModel() }}
@@ -86,7 +86,7 @@
                             <label for="vehicle-type">
                                 {{ __("Type of Vehicle") }}:
                             </label>
-                            <select class="form-control" name="type">
+                            <select class="form-select mb-2" name="type">
                                 <option value="van">{{ __("Van") }}</option>
                                 <option value="sedan">{{ __("Sedan") }}</option>
                                 <option value="truck">{{ __("Truck") }}</option>
@@ -124,7 +124,7 @@
                         </div>
                         <input
                             type="submit"
-                            class="btn btn-primary"
+                            class="btn btn-success"
                             value="{{ __('Send') }}"
                         />
                     </form>
@@ -133,6 +133,7 @@
         </div>
     </div>
 </div>
-@endsection @section('scripts')
+@section('scripts')
 <script src="{{ asset('js/manufactureYear.js') }}"></script>
+@endsection
 @endsection

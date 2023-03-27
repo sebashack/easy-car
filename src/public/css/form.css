@@ -1,0 +1,9 @@
+input[type=file]#inputCarImage {
+    width: 350px;
+    max-width: 100%;
+    color: #444;
+    padding: 5px;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid black;
+  }
