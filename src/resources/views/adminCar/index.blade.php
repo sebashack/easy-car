@@ -10,28 +10,30 @@
         @foreach ($viewData["cars"] as $car)
         @if($car->carIsVisible())
         <div class="col-md-4 col-lg-3 mb-2">
-            <div class="card">
+            <div id="car-card" class="card">
                 <img
                     src="{{ URL::asset('storage/' . $car->getImageUri())}}"
                     class="img-fluid rounded-start"
                 />
-                <div class="card-body text-center">
+                <div id="car-info" class="card-body text-center">
                     <p>
                         {{ $car->getCarModel()->getBrand() . ' ' . $car->getCarModel()->getModel()}}
                     </p>
                     <p>{{ __("Color") }}: {{ $car->getColor() }}</p>
-                    <a
-                        href="{{ route('adminCar.show', ['id'=> $car->getId()]) }}"
-                        class="btn bg-primary text-white"
-                    >
-                        {{ __("Check Car") }}
-                    </a>
-                    <a
-                        href="{{ route('adminCar.edit', ['id'=> $car->getId()]) }}"
-                        class="btn bg-primary text-white"
-                    >
-                    <span>&#9998;</span>
-                    </a>
+                    <div>
+                        <a
+                            href="{{ route('adminCar.show', ['id'=> $car->getId()]) }}"
+                            class="btn action-bg-color"
+                        >
+                            {{ __("Check Car") }}
+                        </a>
+                        <a
+                            href="{{ route('adminCar.edit', ['id'=> $car->getId()]) }}"
+                            class="btn action-bg-color"
+                        >
+                        <span>&#9998;</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
