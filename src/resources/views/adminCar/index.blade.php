@@ -29,7 +29,7 @@
                         </a>
                         <a
                             href="{{ route('adminCar.edit', ['id'=> $car->getId()]) }}"
-                            class="btn action-bg-color"
+                            class="btn bg-success text-white"
                         >
                         <span>&#9998;</span>
                         </a>

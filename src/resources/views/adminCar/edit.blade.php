@@ -46,16 +46,16 @@
                             name="price"
                         />
                         <div class="form-group">
-                            <label>{{ __("Image") }}:</label>
+                            <label for="inputCarImage">{{ __("Image") }}:</label>
                             <img src="{{ URL::asset('storage/' . $viewData['car']->getImageUri()) }}" alt="Imagen del carro" width="100">
-                            <input type="file" name="image_uri" />
+                            <input id="inputCarImage" type="file" name="image_uri" />
                         </div>
                         <div class="form-group">
                             <label for="transmission">
                                 {{ __("Transmission") }}:
                             </label>
                             <select
-                                class="form-control"
+                                class="form-select mb-2"
                                 name="transmission_type"
                             >
                                 <option value="automatic" {{ $viewData['car']->getTransmissionType() == 'automatic' ? 'selected' : ''}}>
@@ -73,7 +73,7 @@
                             <label for="carModels">
                                 {{ __("Car Models") }}:
                             </label>
-                            <select class="form-control" name="car_model_id">
+                            <select class="form-select mb-2" name="car_model_id">
                                 @foreach($viewData['carModels'] as $carModel)
                                 <option value="{{ $carModel->getId() }}"  {{ $viewData['model']->getModel() == $carModel->getModel() ? 'selected' : ''}}>
                                     {{ $carModel->getBrand() . ' ' . $carModel->getModel() }}
@@ -85,7 +85,7 @@
                             <label for="vehicle-type">
                                 {{ __("Type of Vehicle") }}:
                             </label>
-                            <select class="form-control" name="type">
+                            <select class="form-select mb-2" name="type">
                                 <option value="van" {{ $viewData['car']->getType() == 'van' ? 'selected' : ''}}>{{ __("Van") }}</option>
                                 <option value="sedan" {{ $viewData['car']->getType() == 'sedan' ? 'selected' : ''}}>{{ __("Sedan") }}</option>
                                 <option value="truck" {{ $viewData['car']->getType() == 'truck' ? 'selected' : ''}}>{{ __("Truck") }}</option>
@@ -125,7 +125,7 @@
                         </div>
                         <input
                             type="submit"
-                            class="btn btn-primary"
+                            class="btn btn-success"
                             value="{{ __('Send') }}"
                         />
                     </form>
