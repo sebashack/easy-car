@@ -82,7 +82,7 @@
     <br />
     @auth
     <a class="btn btn-outline-dark" href="{{ route('order.create') }}">
-        &#128722; {{ __("Check out your cars") }}: {{ $viewData["cart_length"] }}
+        &#128100; {{ __("Check out your cars") }}: {{ $viewData["cart_length"] }}
     </a>
     <br />
     <br />
