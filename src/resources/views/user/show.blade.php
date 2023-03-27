@@ -2,10 +2,31 @@
 @section('title', $viewData["title"])
 @section('content')
 <div>
-    <h1 class="card-title text-center">Profile &#128100;</h1>
-    <p class="card-title"><b>User:</b> {{ $viewData['user']->getName() }} {{ $viewData['user']->getLastName() }}</p>
-    <p class="card-title"><b>Email:</b> {{ $viewData['user']->getEmail() }}</p>
-    <p class="card-info"><b>Current balance &#128184;:</b> ${{ $viewData['user']->getBalance() }}</p>
+    <h1 class="card-title text-center">{{ __("My profile") }} &#128100;</h1>
+    <div class="profile-info-container">
+        <div>
+            <p class="card-info">
+                <b>{{ __("User") }}:</b> {{ $viewData['user']->getName() }}
+                {{ $viewData['user']->getLastName() }}
+            </p>
+            <p class="card-info">
+                <b>{{ __("Email") }}:</b> {{ $viewData['user']->getEmail() }}
+            </p>
+            <p class="card-info"><b>{{ __("Current balance") }} &#128184;:</b> ${{ $viewData['user']->getBalance() }}</p>
+        </div>
+        <div>
+            <form id="logout" action="{{ route('logout') }}" method="POST">
+                <a
+                    role="button"
+                    class="btn btn-outline-danger"
+                    onclick="document.getElementById('logout').submit();"
+                >
+                    {{ __("Log out") }}
+                </a>
+                @csrf
+            </form>
+        </div>
+    </div>
     <hr />
     <div>
         <div>

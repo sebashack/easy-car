@@ -65,9 +65,9 @@
   "Car id": "Car id",
   "My profile": "My profile",
   "Home": "Home",
-  "Logout": "Logout",
+  "Log out": "Log out",
   "Register": "Register",
-  "Login": "Login",
+  "Log in": "Log in",
   "pending": "pending",
   "rejected": "rejected",
   "accpeted": "accepted",
@@ -111,5 +111,7 @@
   "View my orders": "View my orders",
   "Orders": "Orders",
   "View my reviews": "View my reviews",
-  "Post your car": "Post your car"
+  "Post your car": "Post your car",
+  "Current balance": "Current balance",
+  "Email": "Email"
 }

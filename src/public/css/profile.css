@@ -2,3 +2,9 @@
     background-color: black;
     color: white;
 }
+
+.profile-info-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

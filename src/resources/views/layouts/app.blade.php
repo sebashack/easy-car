@@ -67,7 +67,7 @@
                                     class="nav-link"
                                     href="{{ route('login') }}"
                                 >
-                                    {{ __("Login") }}
+                                    {{ __("Log in") }}
                                 </a>
                                 <a
                                     class="nav-link"
@@ -91,20 +91,6 @@
                                 >
                                     {{ __("My profile") }}
                                 </a>
-                                <form
-                                    id="logout"
-                                    action="{{ route('logout') }}"
-                                    method="POST"
-                                >
-                                    <a
-                                        role="button"
-                                        class="nav-link"
-                                        onclick="document.getElementById('logout').submit();"
-                                    >
-                                        {{ __("Logout") }}
-                                    </a>
-                                    @csrf
-                                </form>
                                 @endguest
                             </div>
                         </nav>
