@@ -114,7 +114,7 @@
                             href="{{ route('car.addToCart', ['id'=> $car->getId()]) }}"
                             class="btn action-bg-color"
                         >
-                            <b>&#43;</b> {{ __("Add to cart") }}
+                            <b>&#43;</b> &#128722;{{ __("Add to cart") }}
                         </a>
                         @endauth
                     </div>

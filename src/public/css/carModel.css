@@ -1,6 +1,7 @@
 #car-model-actions{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 10px;
 }
 
 #car-model-actions a{

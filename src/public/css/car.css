@@ -1,11 +1,11 @@
 .bt-bg-color{
-    background-color: #ca4e01;;
+    background-color: #ca4e01;
     color: white;
 }
 
 .bt-bg-color:hover{
-    background-color: white;
-    color: #ca4e01;;
+    background-color: #ca4e01;;
+    color: white;
     border-width: 1px;
     border-color: #ca4e01;
 }
