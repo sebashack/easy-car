@@ -10,6 +10,7 @@
             <img
                 src="{{ URL::asset('storage/' . $viewData['car']->getImageUri())}}"
                 class="img-fluid rounded-start"
+                width="100%"
             />
         </div>
 
