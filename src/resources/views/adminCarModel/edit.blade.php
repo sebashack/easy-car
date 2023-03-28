@@ -25,13 +25,13 @@
                             type="text"
                             class="form-control mb-2"
                             value="{{ $viewData['carModel']->getBrand() }}"
-                            name="brand"                            
+                            name="brand"
                         />
                         <input
                             type="text"
                             class="form-control mb-2"
                             value="{{ $viewData['carModel']->getModel() }}"
-                            name="model"                            
+                            name="model"
                         />
                         <input
                             type="text"
