@@ -105,8 +105,8 @@ class CarModel extends Model
     public static function validate(Request $request): void
     {
         $request->validate([
-            'model' => 'required|min:1|max:20',
-            'brand' => 'required|min:1|max:20',
+            'model' => 'required|min:1|max:60',
+            'brand' => 'required|min:1|max:60',
             'description' => 'required|min:3|max:670',
         ]);
     }
