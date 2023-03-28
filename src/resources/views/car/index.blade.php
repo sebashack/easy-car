@@ -23,7 +23,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <select class="form-select mb-2"" name="car_brand">
+                <select class="form-select mb-2" name="car_brand">
                     <option value="NA">
                         {{ __("Brand") }}
                     </option>
@@ -35,7 +35,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <select class="form-select mb-2"" name="transmission_type">
+                <select class="form-select mb-2" name="transmission_type">
                     <option value="NA">
                         {{ __("Transmission") }}
                     </option>
@@ -81,7 +81,7 @@
 
     <br />
     @auth
-    <a class="btn btn-outline-dark" href="{{ route('order.create') }}">
+    <a class="btn bt-bg-color" href="{{ route('order.create') }}">
         &#128722; {{ __("Check out your cars") }}: {{ $viewData["cart_length"] }}
     </a>
     <br />

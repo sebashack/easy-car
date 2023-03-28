@@ -26,25 +26,27 @@ nav{
 }
 
 .action-bg-color{
-  background-color: black;
-  color: white;
-}
-
-.action-bg-color:hover{
   background-color: white;
   color: black;
   border-width: 1px;
   border-color: black;
 }
 
+.action-bg-color:hover{
+  background-color: black;
+  color: white;
+  border-width: 1px;
+  border-color: black;
+}
+
 .action-bg-primary-color{
-  background-color: #ca4e01;;
+  background-color: #ca4e01;
   color: white;
 }
 
 .action-bg-primary-color:hover{
   background-color: white;
-  color: #ca4e01;;
+  color: #ca4e01;
   border-width: 1px;
   border-color: #ca4e01;
 }
