@@ -23,13 +23,15 @@
 
 .car-card-actions{
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
+    gap: 1vw;
+    justify-content: center;
     align-items: center;
     width: 100%;
 }
 
 .car-card-actions a{
-    font-size: 0.6vw;
+    font-size: 10px;
 }
 
 .form-select.mb-2{
