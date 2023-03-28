@@ -107,7 +107,7 @@ class CarModel extends Model
         $request->validate([
             'model' => 'required|min:1|max:60',
             'brand' => 'required|min:1|max:60',
-            'description' => 'required|min:3|max:670',
+            'description' => 'required|min:3|max:255',
         ]);
     }
 }

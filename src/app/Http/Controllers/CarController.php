@@ -50,7 +50,7 @@ class CarController extends Controller
         }
 
         $viewData['cars'] = Car::getCarsBySearchParams($state, $brand, $transmission, $priceRange);
-        $viewData['carModels'] = CarModel::all();
+        $viewData['carModels'] = CarModel::all()->unique('brand');
 
         $carIds = $request->session()->get('cart_car_ids');
         if ($carIds) {

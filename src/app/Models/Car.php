@@ -177,7 +177,7 @@ class Car extends Model
 
     public static function getCarsBySearchParams(?string $state, ?string $brand, ?string $transmission, ?array $priceRange): Collection
     {
-        return Car::when($state, function (Builder $query, string $state) {
+        return Car::select('cars.*')->when($state, function (Builder $query, string $state) {
             return $query->where('is_new', $state === 'new');
         })->when($brand, function (Builder $query, string $brand) {
             return $query->join('car_models', 'cars.car_model_id', '=', 'car_models.id')->where('car_models.brand', $brand);
