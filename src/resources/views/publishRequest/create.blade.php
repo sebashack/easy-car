@@ -35,7 +35,7 @@
                             <select class="form-select mb-2" name="transmission_type" default="automatic">
                                 <option value="automatic">{{ __('Automatic') }}</option>
                                 <option value="mechanic">{{ __('Mechanic') }}</option>
-                                <option value="triptronic">{{ __('Triptonic') }}</option>
+                                <option value="triptonic">{{ __('Triptonic') }}</option>
                                 <option value="sport">{{ __("Sport") }}</option>
                             </select>
                         </div>
