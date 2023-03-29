@@ -12,7 +12,7 @@
     <tbody>
         @foreach ($viewData['carModelsRating'] as $carModel)
         <tr>
-            <td>{{ $carModel->getBrand() }}</td>
+            <td>{{ $carModel->getBrand() . " " . $carModel->getModel() }}</td>
             <td>{{ number_format((float)$carModel->reviews_avg_rating, 1, '.', '') }}</td>
         </tr>
         @endforeach
@@ -32,7 +32,7 @@
     <tbody>
         @foreach ($viewData['carModelsSold'] as $carModel)
         <tr>
-            <td>{{ $carModel->getBrand() }}</td>
+            <td>{{ $carModel->getBrand() . " " . $carModel->getModel() }}</td>
             <td>{{ $carModel->total_sold }}</td>
         </tr>
         @endforeach
