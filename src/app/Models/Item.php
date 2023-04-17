@@ -13,8 +13,6 @@ class Item extends Model
      * $this->attributes['price_to_date'] - int
      * $this->attributes['order_id'] - int - associated order
      * $this->attributes['car_id'] - int - associated car
-     * $this->attributes['created_at'] - timestamp - contains the timestamp indicating the creation time of the review
-     * $this->attributes['updated_at'] - timestamp - contains the timestamp indicating the last update time of the review
      */
     protected $fillable = ['price_to_date', 'car_id'];
 
@@ -41,15 +39,5 @@ class Item extends Model
     public function setPriceToDate(int $price): void
     {
         $this->attributes['price_to_date'] = $price;
-    }
-
-    public function getCreatedAt($value)
-    {
-        return $this->attributes['created_at'];
-    }
-
-    public function getUpdatedAt($value)
-    {
-        return $this->attributes['updated_at'];
     }
 }

@@ -15,10 +15,6 @@ class PublishRequest extends Model
      * $this->attributes['state'] - enum[Pending, Accepted, Rejected] - contains the request state
      * $this->attributes['car_id'] - int - contains the car foreign key (id) associeted
      * $this->attributes['user_id'] - int - contains the foreign key of the corresponding user
-     * $this->attributes['created_at'] - timestamp - contains the timestamp indicating the creation time of the review
-     * $this->attributes['updated_at'] - timestamp - contains the timestamp indicating the last update time of the review
-     * $this->attributes['created_at'] - timestamp - contains the timestamp indicating the creation time of the review
-     * $this->attributes['updated_at'] - timestamp - contains the timestamp indicating the last update time of the review
      * $this->user - User - contains the associated User
      * $this->car - Car - contains the associated Car
      */
@@ -87,16 +83,6 @@ class PublishRequest extends Model
     public function setCarId($car_id): void
     {
         $this->attributes['car_id'] = $car_id;
-    }
-
-    public function getCreatedAt($value)
-    {
-        return $this->attributes['created_at'];
-    }
-
-    public function getUpdatedAt($value)
-    {
-        return $this->attributes['updated_at'];
     }
 
     // Validations
