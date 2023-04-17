@@ -24,6 +24,8 @@ class Car extends Model
      * $this->attributes['transmission_type'] - enum - contains a enum indicating transmission types
      * $this->attributes['type'] - enum - contains a enum indicating car types
      * $this->attributes['manufacture_year'] - year - contains a year indicating car year
+     * $this->attributes['created_at'] - timestamp - contains the timestamp indicating the creation time of the review
+     * $this->attributes['updated_at'] - timestamp - contains the timestamp indicating the last update time of the review
      * $this->attributes['car_model_id'] - int - contains the id of the corresponding car model
      * $this->carMdoel - CarModel - contains the associate car model
      * $this->publishRequest - PublishRequest - contains the associate publishRequest
@@ -160,6 +162,16 @@ class Car extends Model
     public function setManufactureYear(int $year): void
     {
         $this->attributes['manufacture_year'] = $year;
+    }
+
+    public function getCreatedAt($value)
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function getUpdatedAt($value)
+    {
+        return $this->attributes['updated_at'];
     }
 
     public function carIsVisible(): bool
