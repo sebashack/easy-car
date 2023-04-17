@@ -15,6 +15,8 @@ class Review extends Model
      * $this->attributes['rating'] - int - contains the car model's numeric rating (from 1 to 5)
      * $this->attributes['car_model_id'] - int - contains the foreign key of the corresponding car model
      * $this->attributes['user_id'] - int - contains the foreign key of the corresponding user
+     * $this->attributes['created_at'] - timestamp - contains the timestamp indicating the creation time of the review
+     * $this->attributes['updated_at'] - timestamp - contains the timestamp indicating the last update time of the review
      */
     protected $fillable = ['content', 'rating', 'car_model_id', 'user_id'];
 
@@ -76,6 +78,16 @@ class Review extends Model
     public function setRating($rating): void
     {
         $this->attributes['rating'] = $rating;
+    }
+
+    public function getCreatedAt(): DateTime
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function getUpdatedAt(): DateTime
+    {
+        return $this->attributes['updated_at'];
     }
 
     // Validators

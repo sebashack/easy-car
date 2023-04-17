@@ -16,6 +16,8 @@ class CarModel extends Model
      * $this->attributes['brand'] - string - contains the car brand
      * $this->attributes['model'] - string - contains the car model
      * $this->attributes['description'] - string - contains the car description
+     * $this->attributes['created_at'] - timestamp - contains the timestamp indicating the creation time of the review
+     * $this->attributes['updated_at'] - timestamp - contains the timestamp indicating the last update time of the review
      * $this->cars - Car[] - contains the associated cars
      * $this->cars - Review[] - contains the associated reviews
      */
@@ -76,6 +78,16 @@ class CarModel extends Model
     public function setDescription(string $description): void
     {
         $this->attributes['description'] = $description;
+    }
+
+    public function getCreatedAt(): DateTime
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function getUpdatedAt(): DateTime
+    {
+        return $this->attributes['updated_at'];
     }
 
     public static function getBestRatingCarModels(): Collection
