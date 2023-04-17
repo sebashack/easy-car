@@ -164,12 +164,12 @@ class Car extends Model
         $this->attributes['manufacture_year'] = $year;
     }
 
-    public function getCreatedAt($value)
+    public function getCreatedAt(): DateTime
     {
         return $this->attributes['created_at'];
     }
 
-    public function getUpdatedAt($value)
+    public function getUpdatedAt(): DateTime
     {
         return $this->attributes['updated_at'];
     }

@@ -72,12 +72,12 @@ class Order extends Model
         return $this->created_at->format('d/m/Y');
     }
 
-    public function getCreatedAt($value)
+    public function getCreatedAt(): DateTime
     {
         return $this->attributes['created_at'];
     }
 
-    public function getUpdatedAt($value)
+    public function getUpdatedAt(): DateTime
     {
         return $this->attributes['updated_at'];
     }
