@@ -10,7 +10,7 @@ class CommunityController extends Controller
     public function index(): View
     {
         $viewData = [];
-        $viewData['title'] = 'PublishRequests - EasyCar';
+        $viewData['title'] = __('Community');
         $carModelsRating = CarModel::getBestRatingCarModels();
         $carModelsSold = CarModel::getMostSoldCarModels();
         $viewData['carModelsRating'] = $carModelsRating;

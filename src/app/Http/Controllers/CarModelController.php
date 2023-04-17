@@ -11,7 +11,7 @@ class CarModelController extends Controller
     public function index(): View
     {
         $viewData = [];
-        $viewData['title'] = 'Car Models - EasyCar';
+        $viewData['title'] = __('Car models');
         $viewData['carModels'] = CarModel::all();
 
         return view('carModel.index')->with('viewData', $viewData);
@@ -21,7 +21,7 @@ class CarModelController extends Controller
     {
         $viewData = [];
         $carModel = CarModel::findOrFail($id);
-        $viewData['title'] = 'Car Model Info - Easy Car';
+        $viewData['title'] = __('Car model');
         $viewData['id'] = $carModel->getId();
         $viewData['carModel'] = $carModel;
         $viewData['current_user_id'] = Auth::id();

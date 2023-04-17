@@ -13,7 +13,7 @@ class CarController extends Controller
     public function index(Request $request): View
     {
         $viewData = [];
-        $viewData['title'] = 'Cars - EasyCar';
+        $viewData['title'] = __('Cars - EasyCar');
 
         $state = null;
         $stateOption = $request->query('car_state');

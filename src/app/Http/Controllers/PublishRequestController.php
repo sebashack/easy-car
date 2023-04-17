@@ -16,7 +16,7 @@ class PublishRequestController extends Controller
     public function index(): View
     {
         $viewData = [];
-        $viewData['title'] = 'PublishRequests - EasyCar';
+        $viewData['title'] = __('Publish requests');
         $viewData['publishRequests'] = PublishRequest::all();
 
         return view('publishRequest.index')->with('viewData', $viewData);

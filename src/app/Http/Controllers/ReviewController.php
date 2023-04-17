@@ -14,7 +14,8 @@ class ReviewController extends Controller
     {
         $viewData = [];
         $user = Auth::user();
-        $viewData['title'] = 'Reviews - EasyCar';
+        $viewData['title'] = __('Reviews');
+
         if ($user->isAdmin()) {
             $viewData['reviews'] = Review::all()->sortBy('rating');
         } else {
@@ -30,7 +31,8 @@ class ReviewController extends Controller
         $viewData = [];
         $review = Review::findOrFail($id);
         $review_owner = $review->getUser();
-        $viewData['title'] = 'User Review';
+        $viewData['title'] = __('User review');
+
         $viewData['is_the_review_owner'] = Auth::id() == $review_owner->getId();
         $viewData['review_owner'] = $review_owner;
         $viewData['review'] = $review;
@@ -42,7 +44,7 @@ class ReviewController extends Controller
     public function create(string $id): View|RedirectResponse
     {
         $viewData = [];
-        $viewData['title'] = 'Create Review';
+        $viewData['title'] = __('Create review');
         $viewData['model_id'] = $id;
 
         return view('review.create')->with('viewData', $viewData);
@@ -68,7 +70,7 @@ class ReviewController extends Controller
         $review = Review::findOrFail($id);
         if ($user->getId() == $review->getUser()->getId()) {
             $viewData = [];
-            $viewData['title'] = 'Review info- Easy Car';
+            $viewData['title'] = __('Review');
             $viewData['id'] = $review->getId();
             $viewData['review'] = $review;
 

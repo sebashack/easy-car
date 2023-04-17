@@ -5,7 +5,9 @@
   "Delete": "Delete",
   "Delete car": "Delete car",
   "Reviews": "Reviews",
+  "User review": "User review",
   "Create Review": "Create Review",
+  "Create review": "Create review",
   "Enter review": "Enter review",
   "Enter rating": "Enter rating",
   "Send": "Send",
@@ -50,9 +52,12 @@
   "Enter description": "Enter description",
   "Car Model": "Car Model",
   "Car model": "Car model",
+  "Car models": "Car models",
   "Details": "Details",
   "Review": "Review",
   "User": "User",
+  "Users": "Users",
+  "Admin profile": "Admin profile",
   "Add to cart": "Add to cart",
   "Create order": "Create order",
   "No items in cart": "No items in cart",
@@ -124,5 +129,8 @@
   "ABOUT_P3": "Whether you're in the market for a brand new car, or looking to purchase a pre-owned vehicle, you can rest assured that EasyCar has you covered. We work tirelessly to source the very best cars from trusted suppliers, ensuring that each vehicle in our inventory is of the highest quality and meets our strict standards.",
   "ABOUT_P4": "With our commitment to offering competitive prices and exceptional customer service, it's no wonder that EasyCar is the dealership of choice for many car buyers in the region. So why not browse our selection of vehicles today and discover the car of your dreams at a price that won't break the bank?",
   "Address": "Address",
-  "Phone": "Phone"
+  "Phone": "Phone",
+  "Cars - EasyCar": "Cars - EasyCar",
+  "Publish requests": "Publish requests",
+  "Community": "Community"
 }

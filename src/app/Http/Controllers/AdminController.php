@@ -11,7 +11,7 @@ class AdminController extends Controller
     public function showUsers(): View
     {
         $viewData = [];
-        $viewData['title'] = 'Users - EasyCar';
+        $viewData['title'] = __('Users');
         $viewData['users'] = User::all();
 
         return view('admin.showUsers')->with('viewData', $viewData);
@@ -21,7 +21,7 @@ class AdminController extends Controller
     {
         $user = Auth::user();
         $viewData = [];
-        $viewData['title'] = 'Admin Profile';
+        $viewData['title'] = __('Admin profile');
         $viewData['user'] = $user;
 
         return view('admin.show')->with('viewData', $viewData);

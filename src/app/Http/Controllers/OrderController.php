@@ -16,7 +16,7 @@ class OrderController extends Controller
     public function create(Request $request): View
     {
         $viewData = [];
-        $viewData['title'] = 'Create Order';
+        $viewData['title'] = __('Create order');
 
         $cars = [];
         $total = 0;
@@ -36,7 +36,7 @@ class OrderController extends Controller
     public function index(Request $request): View
     {
         $viewData = [];
-        $viewData['title'] = 'Orders - EasyCar';
+        $viewData['title'] = __('Orders');
 
         $user = Auth::user();
 
@@ -52,7 +52,8 @@ class OrderController extends Controller
     public function show(string $id): View|RedirectResponse
     {
         $viewData = [];
-        $viewData['title'] = 'Orders - EasyCar';
+        $viewData['title'] = __('Orders');
+
         $user = Auth::user();
         $order = Order::findOrFail($id);
         $customer = $order->getUser();
