@@ -17,6 +17,8 @@ class Order extends Model
      * $this->attributes['user_id'] - string - associated user
      * $this->attributes['total'] - int - total price
      * $this->items - Item[] - assosicated items
+     * $this->attributes['created_at'] - timestamp - contains the timestamp indicating the creation time of the review
+     * $this->attributes['updated_at'] - timestamp - contains the timestamp indicating the last update time of the review
      */
     protected $fillable = ['shipping_address', 'total', 'user_id'];
 
@@ -68,6 +70,16 @@ class Order extends Model
     public function getDateStr(): string
     {
         return $this->created_at->format('d/m/Y');
+    }
+
+    public function getCreatedAt($value)
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function getUpdatedAt($value)
+    {
+        return $this->attributes['updated_at'];
     }
 
     // Validators
