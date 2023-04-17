@@ -18,13 +18,6 @@ class AdminCarController extends Controller
         $viewData['cars'] = Car::all();
         $viewData['carModels'] = CarModel::all();
 
-        $carIds = $request->session()->get('cart_car_ids');
-        if ($carIds) {
-            $viewData['cart_length'] = count($carIds);
-        } else {
-            $viewData['cart_length'] = 0;
-        }
-
         return view('adminCar.index')->with('viewData', $viewData);
     }
 
