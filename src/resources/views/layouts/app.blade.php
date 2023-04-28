@@ -66,7 +66,7 @@
                                     {{ __("Community") }}
                                 </a>
                                 <li class="nav-item dropdown">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                     {{ __("Choose a language") }}
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
