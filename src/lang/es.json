@@ -132,6 +132,13 @@
     "Publish requests": "Solicitud de publicacion",
     "Choose a language": "Escoge un lenguaje",
     "Spanish": "Español",
-    "English": "Ingles"
+    "English": "Ingles",
+    "Register now": "Registrate ahora",
+    "Register new car model": "Registrar nuevo modelo de carro",
+    "Register new car": "Registrar nuevo carro",
+    "View car publish requests": "Ver solicitudes de publicacion de carros",
+    "View car orders": "Ver ordenes de carros",
+    "Order": "Orden",
+    "invoice-of-order-":"factura-de-la-orden-"
   }
   

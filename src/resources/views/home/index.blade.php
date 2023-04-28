@@ -10,7 +10,7 @@
       <h1 class="display-4"><strong>{{__('Welcome to EasyCar') }}</strong></h1>
       <p class="lead my-3">{{__('HOME_INTRO') }}</p>
       @guest
-      <p class="lead"><a class="btn btn-primary btn-lg" href="{{ route('register') }}" role="button">Register now</a></p>
+      <p class="lead"><a class="btn btn-primary btn-lg" href="{{ route('register') }}" role="button">{{ __('Register now') }}</a></p>
       @endguest
     </div>
   </div>

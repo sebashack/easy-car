@@ -14,7 +14,7 @@
   <div class="h-30"></div>
 </div>
 
-<h1>Order: {{ $order->getId() }}</h1>
+<h1>{{ __('Order') }}: {{ $order->getId() }}</h1>
 
   <div class="font-ty mb-4">
     <div>
