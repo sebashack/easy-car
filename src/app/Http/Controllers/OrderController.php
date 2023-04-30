@@ -122,9 +122,9 @@ class OrderController extends Controller
     public function downloadPdf(string $id)
     {
         $order = Order::findOrFail($id);
-        $pdf_name = __('invoice-of-order-').$order->getId().'.pdf';
+        $pdfName = __('invoice-of-order-').$order->getId().'.pdf';
         $pdf = Pdf::loadView('layouts.orderPdf', compact('order'));
 
-        return $pdf->download($pdf_name);
+        return $pdf->download($pdfName);
     }
 }

@@ -11,7 +11,7 @@ class SalesReportPdf implements SalesReportGenerator
 {
     public function download(Request $request)
     {
-        $pdf_name = 'sales-report.pdf';
+        $pdfName = 'sales-report.pdf';
         $items = Item::all()->sortBy('created_at');
         $total = 0;
 
@@ -22,6 +22,6 @@ class SalesReportPdf implements SalesReportGenerator
         $report = ['items' => $items, 'total' => $total];
         $pdf = Pdf::loadView('layouts.salesReportPdf', compact('report'));
 
-        return $pdf->download($pdf_name);
+        return $pdf->download($pdfName);
     }
 }
