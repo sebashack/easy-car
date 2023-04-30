@@ -123,7 +123,7 @@ class OrderController extends Controller
     {
         $order = Order::findOrFail($id);
         $pdf_name = __('invoice-of-order-').$order->getId().'.pdf';
-        $pdf = Pdf::loadView('layouts.pdf', compact('order'));
+        $pdf = Pdf::loadView('layouts.orderPdf', compact('order'));
 
         return $pdf->download($pdf_name);
     }

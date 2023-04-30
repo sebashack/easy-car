@@ -43,12 +43,12 @@ class Item extends Model
         $this->attributes['price_to_date'] = $price;
     }
 
-    public function getCreatedAt(): DateTime
+    public function getCreatedAt(): string
     {
         return $this->attributes['created_at'];
     }
 
-    public function getUpdatedAt(): DateTime
+    public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
     }

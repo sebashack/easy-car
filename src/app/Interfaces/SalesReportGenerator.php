@@ -6,5 +6,5 @@ use Illuminate\Http\Request;
 
 interface SalesReportGenerator
 {
-    public function download(Request $request): void;
+    public function download(Request $request);
 }
