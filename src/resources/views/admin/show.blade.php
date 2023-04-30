@@ -37,6 +37,7 @@
                     {{ __("View Cars models") }}
                 </a>
             </div>
+            <br/>
             <div>
                 <a
                     href="{{ route('adminCarModel.create') }}"
@@ -57,12 +58,31 @@
                     {{ __("View Cars") }}
                 </a>
             </div>
+            <br/>
             <div>
                 <a
                     href="{{ route('adminCar.create') }}"
                     class="btn btn-outline-dark"
                 >
                     {{ __("Register new car") }}
+                </a>
+            </div>
+            <br/>
+            <div>
+                <a
+                    href="{{ route('adminCar.downloadReport') . '?report_type=pdf' }}"
+                    class="btn btn-outline-dark"
+                >
+                    {{ __("Download sales report PDF") }}
+                </a>
+            </div>
+            <br/>
+            <div>
+                <a
+                    href="{{ route('adminCar.downloadReport') . '?report_type=csv' }}"
+                    class="btn btn-outline-dark"
+                >
+                    {{ __("Download sales report CSV") }}
                 </a>
             </div>
         </div>
