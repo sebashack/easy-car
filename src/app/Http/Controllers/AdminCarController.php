@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Interfaces\ImageStorage;
+use App\Interfaces\SalesReportGenerator;
 use App\Models\Car;
 use App\Models\CarModel;
 use Illuminate\Http\RedirectResponse;
@@ -108,5 +109,13 @@ class AdminCarController extends Controller
         $car->update();
 
         return redirect(route('adminCar.index'));
+    }
+
+    public function downloadReport(request $request)
+    {
+        $type = $request->get('report_type');
+        $reportGenerator = app(SalesReportGenerator::class, ['report_type' => $type]);
+
+        return $reportGenerator->download($request);
     }
 }

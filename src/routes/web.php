@@ -63,6 +63,8 @@ Route::get('/admins/cars', 'App\Http\Controllers\AdminCarController@index')->nam
 
 Route::patch('/admins/cars/{id}', 'App\Http\Controllers\AdminCarController@update')->name('adminCar.update')->middleware('auth', 'isAdmin');
 
+Route::get('/admins/cars/sales/{report_type?}', 'App\Http\Controllers\AdminCarController@downloadReport')->name('adminCar.downloadReport')->middleware('auth', 'isAdmin');
+
 Route::get('/admins/cars/{id}', 'App\Http\Controllers\AdminCarController@show')->name('adminCar.show');
 
 // Cars

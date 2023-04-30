@@ -195,7 +195,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\ImageServiceProvider::class,
-
+        App\Providers\SalesReportServiceProvider::class,
     ],
 
     /*
