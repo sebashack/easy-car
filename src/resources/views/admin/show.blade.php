@@ -34,7 +34,7 @@
                     href="{{ route('adminCarModel.index') }}"
                     class="btn btn-outline-dark"
                 >
-                    {{ __("View car models") }}
+                    {{ __("View Cars models") }}
                 </a>
             </div>
             <div>
@@ -54,7 +54,7 @@
                     href="{{ route('adminCar.index') }}"
                     class="btn btn-outline-dark"
                 >
-                    {{ __("View cars") }}
+                    {{ __("View Cars") }}
                 </a>
             </div>
             <div>
@@ -68,7 +68,7 @@
         </div>
         <br />
         <div>
-            <h3>Car publish requests</h3>
+            <h3>{{ __('Car publish requests') }}</h3>
             <div class="mb-2">
                 <a
                     href="{{ route('publishRequest.index') }}"
@@ -80,7 +80,7 @@
         </div>
         <br />
         <div>
-            <h3>Orders</h3>
+            <h3>{{ __('Orders') }}</h3>
             <div class="mb-2">
                 <a
                     href="{{ route('order.index') }}"
@@ -92,7 +92,7 @@
         </div>
         <br />
         <div>
-            <h3>User</h3>
+            <h3>{{ __('User') }}</h3>
             <div>
                 <a
                     href="{{ route('admin.showUsers') }}"

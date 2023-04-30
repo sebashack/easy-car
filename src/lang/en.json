@@ -111,8 +111,6 @@
   "Total sold": "Total sold",
   "Edit review": "Edit review",
   "Your review": "Your review",
-  "Rating": "Rating",
-  "Edit review":"Edit review",
   "View Cars": "View Cars",
   "View Cars models": "View Cars models",
   "View my orders": "View my orders",
@@ -132,5 +130,15 @@
   "Phone": "Phone",
   "Cars - EasyCar": "Cars - EasyCar",
   "Publish requests": "Publish requests",
-  "Community": "Community"
+  "Choose a language": "Choose a language",
+  "Spanish": "Spanish",
+  "English": "English",
+  "Register now": "Register now",
+  "Register new car model": "Register new car model",
+  "Register new car": "Register new car",
+  "View car publish requests": "View car publish requests",
+  "View car orders": "View car orders",
+  "Order": "Order",
+  "invoice-of-order-":"invoice-of-order-",
+  "Price range": "Price range"
 }
