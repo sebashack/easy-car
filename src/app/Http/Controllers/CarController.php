@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use App\Models\CarModel;
+use App\Services\PriceRange;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -33,23 +34,9 @@ class CarController extends Controller
             $transmission = $transmissionOption;
         }
 
-        $priceRange = null;
+        $price = new PriceRange();
         $rangeOption = $request->query('price_range');
-        $tenMillion = 10000000;
-
-        if ($rangeOption === 'range1') {
-            $priceRange = [$tenMillion, 4 * $tenMillion];
-        } elseif ($rangeOption === 'range2') {
-            $priceRange = [4 * $tenMillion, 8 * $tenMillion];
-        } elseif ($rangeOption === 'range3') {
-            $priceRange = [8 * $tenMillion, 12 * $tenMillion];
-        } elseif ($rangeOption === 'range4') {
-            $priceRange = [12 * $tenMillion, 15 * $tenMillion];
-        }elseif( $rangeOption === 'range5') {
-            $priceRange = [15 * $tenMillion, 20 * $tenMillion];
-        }elseif ($rangeOption === 'range6') {
-            $priceRange = [20 * $tenMillion, 100 * $tenMillion];
-        }
+        $priceRange = $price->calculatePriceRange($rangeOption);
 
         $viewData['cars'] = Car::getCarsBySearchParams($state, $brand, $transmission, $priceRange);
         $viewData['carModels'] = CarModel::all()->unique('brand');

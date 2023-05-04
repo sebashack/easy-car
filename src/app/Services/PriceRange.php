@@ -5,7 +5,7 @@ class PriceRange
 {
     private const TEN_MILLION = 10000000;
 
-    public function calculatePriceRange(string $rangeOption){
+    public function calculatePriceRange(?string $rangeOption){
        if ($rangeOption === 'range1') {
             return [self::TEN_MILLION, 4 * self::TEN_MILLION];
         } elseif ($rangeOption === 'range2') {
@@ -18,6 +18,8 @@ class PriceRange
             return [15 * self::TEN_MILLION, 20 * self::TEN_MILLION];
         }elseif ($rangeOption === 'range6') {
             return [20 * self::TEN_MILLION, 100 * self::TEN_MILLION];
+        }else{
+            return null;
         }
     }
 }

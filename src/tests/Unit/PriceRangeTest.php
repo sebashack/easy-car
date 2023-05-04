@@ -53,5 +53,13 @@ class PriceRangeTest extends TestCase
         $price = $priceRange->calculatePriceRange($priceOption);
         $this->assertEquals([10000000 * 20, 100 * 10000000], $price);
     }
+
+    public function testCalculatePriceReturnsCorrectPriceForNullRange()
+    {
+        $priceOption = 'null';
+        $priceRange = new PriceRange();
+        $price = $priceRange->calculatePriceRange($priceOption);
+        $this->assertEquals(null, $price);
+    }
     
 }
