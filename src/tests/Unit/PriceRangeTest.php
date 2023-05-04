@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
 use App\Util\PriceRange;
+use PHPUnit\Framework\TestCase;
 
 class PriceRangeTest extends TestCase
 {

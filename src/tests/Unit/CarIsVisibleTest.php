@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
 use App\Util\CarIsVisible;
+use PHPUnit\Framework\TestCase;
 
 class CarIsVisibleTest extends TestCase
 {
