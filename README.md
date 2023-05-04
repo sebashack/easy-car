@@ -89,3 +89,9 @@ cd src && ./artisan storage:link
 ```
 cd src && ./artisan migrate
 ```
+
+
+## Unit tests
+```
+./artisan test
+```
