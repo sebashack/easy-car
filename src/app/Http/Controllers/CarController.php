@@ -36,16 +36,18 @@ class CarController extends Controller
         $priceRange = null;
         $rangeOption = $request->query('price_range');
         $tenMillion = 10000000;
+
         if ($rangeOption === 'range1') {
-        } elseif ($rangeOption === 'range2') {
             $priceRange = [$tenMillion, 4 * $tenMillion];
-        } elseif ($rangeOption === 'range3') {
+        } elseif ($rangeOption === 'range2') {
             $priceRange = [4 * $tenMillion, 8 * $tenMillion];
-        } elseif ($rangeOption === 'range4') {
+        } elseif ($rangeOption === 'range3') {
             $priceRange = [8 * $tenMillion, 12 * $tenMillion];
-        } elseif ($rangeOption === 'range5') {
+        } elseif ($rangeOption === 'range4') {
             $priceRange = [12 * $tenMillion, 15 * $tenMillion];
-        } elseif ($rangeOption === 'range6') {
+        }elseif( $rangeOption === 'range5') {
+            $priceRange = [15 * $tenMillion, 20 * $tenMillion];
+        }elseif ($rangeOption === 'range6') {
             $priceRange = [20 * $tenMillion, 100 * $tenMillion];
         }
 
