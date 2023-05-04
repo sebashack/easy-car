@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
 use App\Services\PriceRange;
+use PHPUnit\Framework\TestCase;
 
 class PriceRangeTest extends TestCase
 {
@@ -14,6 +14,7 @@ class PriceRangeTest extends TestCase
         $price = $priceRange->calculatePriceRange($priceOption);
         $this->assertEquals([10000000, 4 * 10000000], $price);
     }
+
     public function testCalculatePriceReturnsCorrectPriceForSecondRange()
     {
         $priceOption = 'range2';
@@ -61,5 +62,4 @@ class PriceRangeTest extends TestCase
         $price = $priceRange->calculatePriceRange($priceOption);
         $this->assertEquals(null, $price);
     }
-    
 }
