@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use App\Services\PriceRange;
+use App\Util\PriceRange;
 
 class PriceRangeTest extends TestCase
 {
