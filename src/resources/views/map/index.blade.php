@@ -1,8 +1,13 @@
-@extends('layouts.app')
-@section('title', $viewData["title"])
-@section('content')
+<html>
+  <head>
+    <title>Place Autocomplete Hotel Search</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
-<div class="hotel-search">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/map.css') }}" />
+    <script type="module" src="{{ asset('js/map.js') }}"></script>
+  </head>
+  <body>
+    <div class="hotel-search">
       <div id="findhotels">Find car shops:</div>
 
       <div id="locationField">
@@ -60,5 +65,5 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-w_oG7b3CnP4HVZKOqZCU6e05k-lSeKQ&callback=initMap&libraries=places&v=weekly"
       defer
     ></script>
-
-@endsection
+  </body>
+</html>

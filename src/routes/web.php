@@ -127,4 +127,4 @@ Route::get('/set_language/{lang}', 'App\Http\Controllers\LangController@setLangu
 
 // Google maps
 
-Route::get('/car_repair', 'App\Http\Controllers\CarRepair@index')->name('carRepair');
+Route::get('/car_repair', 'App\Http\Controllers\CarRepairController@index')->name('carRepair');

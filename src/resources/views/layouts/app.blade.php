@@ -10,6 +10,9 @@
         />
         <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
         <link rel="stylesheet" href="{{ asset('/css/reviews.css') }}" />
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+        @yield('script-map')
+        @yield('style-map')
         <title>@yield('title', 'EasyCar')</title>
     </head>
     <body>
