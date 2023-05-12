@@ -124,3 +124,7 @@ Route::get('/orders/{id}', 'App\Http\Controllers\OrderController@show')->name('o
 // Lang
 
 Route::get('/set_language/{lang}', 'App\Http\Controllers\LangController@setLanguage')->name('setLanguage');
+
+// Google maps
+
+Route::get('/car_repair', 'App\Http\Controllers\CarRepair@index')->name('carRepair');
