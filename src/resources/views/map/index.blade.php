@@ -1,13 +1,16 @@
-<html>
-  <head>
-    <title>Place Autocomplete Hotel Search</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+@extends('layouts.app')
+@section('title', 'Map car repairs')
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/map.css') }}" />
-    <script type="module" src="{{ asset('js/map.js') }}"></script>
-  </head>
-  <body>
-    <div class="hotel-search">
+@section('script-api')
+<script type="module" src="{{ asset('js/map.js') }}"></script>
+@endsection
+
+@section('map-style')
+<link rel="stylesheet" type="text/css" href="{{ asset('css/map.css') }}" />
+@endsection
+
+@section('content-map')
+<div class="hotel-search">
       <div id="findhotels">Find car shops:</div>
 
       <div id="locationField">
@@ -18,7 +21,7 @@
         Colombia
       </div>
     </div>
-
+    
     <div id="map"></div>
 
     <div id="listing">
@@ -54,6 +57,8 @@
       </div>
     </div>
 
+    
+
     <!-- 
       The `defer` attribute causes the callback to execute after the full HTML
       document has been parsed. For non-blocking uses, avoiding race conditions,
@@ -65,5 +70,4 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-w_oG7b3CnP4HVZKOqZCU6e05k-lSeKQ&callback=initMap&libraries=places&v=weekly"
       defer
     ></script>
-  </body>
-</html>
+@endsection
