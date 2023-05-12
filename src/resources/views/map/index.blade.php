@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Map car repairs')
+@section('title', '__(Map car repairs)')
 
 @section('script-api')
 <script type="module" src="{{ asset('js/map.js') }}"></script>
@@ -11,7 +11,7 @@
 
 @section('content-map')
 <div class="hotel-search">
-      <div id="findhotels">Find car shops:</div>
+      <div id="findhotels">{{ __('Find car shops') }}:</div>
 
       <div id="locationField">
         <input id="autocomplete" placeholder="Enter a city" type="text" />
@@ -38,19 +38,19 @@
             <td id="iw-url"></td>
           </tr>
           <tr id="iw-address-row" class="iw_table_row">
-            <td class="iw_attribute_name">Address:</td>
+            <td class="iw_attribute_name">{{ __('Address') }}:</td>
             <td id="iw-address"></td>
           </tr>
           <tr id="iw-phone-row" class="iw_table_row">
-            <td class="iw_attribute_name">Telephone:</td>
+            <td class="iw_attribute_name">{{ __('Phone') }}:</td>
             <td id="iw-phone"></td>
           </tr>
           <tr id="iw-rating-row" class="iw_table_row">
-            <td class="iw_attribute_name">Rating:</td>
+            <td class="iw_attribute_name">{{ __('Rating') }}:</td>
             <td id="iw-rating"></td>
           </tr>
           <tr id="iw-website-row" class="iw_table_row">
-            <td class="iw_attribute_name">Website:</td>
+            <td class="iw_attribute_name">{{ __('Website') }}:</td>
             <td id="iw-website"></td>
           </tr>
         </table>

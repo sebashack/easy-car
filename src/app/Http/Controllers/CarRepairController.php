@@ -10,5 +10,4 @@ class CarRepairController extends Controller
     {
         return view('map.index');
     }
-
 }
