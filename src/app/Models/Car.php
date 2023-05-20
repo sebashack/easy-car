@@ -200,6 +200,11 @@ class Car extends Model
         })->get();
     }
 
+    public static function getAvailableCars(): Collection
+    {
+        return Car::select('cars.*')->where('is_available', 1)->get();
+    }
+
     // Validators
     public static function validate(Request $request): void
     {
