@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
+
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
@@ -10,6 +11,14 @@
         />
         <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
         <link rel="stylesheet" href="{{ asset('/css/reviews.css') }}" />
+
+
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+        @yield('script-api')
+        @yield('map-style')
         <title>@yield('title', 'EasyCar')</title>
     </head>
     <body>
@@ -65,6 +74,12 @@
                                 >
                                     {{ __("Community") }}
                                 </a>
+                                <a
+                                    class="nav-link"
+                                    href="{{ route('carRepair') }}"
+                                >
+                                    {{ __("Car repair") }}
+                                </a>
                                 <li class="nav-item dropdown">
                                 <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                     {{ __("Choose a language") }}
@@ -115,6 +130,10 @@
         </nav>
 
         <div class="container my-4">@yield('content')</div>
+
+        <div class="h-100 ml-50">
+            @yield('content-map')
+        </div>
 
         <!-- footer -->
         <div class="container">
