@@ -12,7 +12,7 @@ class CarModelController extends Controller
     {
         $viewData = [];
         $viewData['title'] = __('Car models');
-        $viewData['carModels'] = CarModel::all();
+        $viewData['carModels'] = CarModel::paginate(5);
 
         return view('carModel.index')->with('viewData', $viewData);
     }
