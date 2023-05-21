@@ -17,9 +17,9 @@ class ReviewController extends Controller
         $viewData['title'] = __('Reviews');
 
         if ($user->isAdmin()) {
-            $viewData['reviews'] = Review::all()->sortBy('rating');
+            $viewData['reviews'] = Review::orderBy('rating')->paginate(5);
         } else {
-            $viewData['reviews'] = $user->getReviews()->sortBy('rating');
+            $viewData['reviews'] = Review::getReviewsByUserId($user->getId(), 5);
         }
 
         return view('review.index')->with('viewData', $viewData);

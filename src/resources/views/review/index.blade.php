@@ -36,6 +36,7 @@
             </div>
         </div>
         @endforeach
+        {{$viewData["reviews"]->links()}}
     </div>
 </div>
 @endsection
