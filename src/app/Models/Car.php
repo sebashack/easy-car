@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class Car extends Model
 {
@@ -187,9 +188,9 @@ class Car extends Model
         }
     }
 
-    public static function getCarsBySearchParams(?string $state, ?string $brand, ?string $transmission, ?array $priceRange): Collection
+    public static function getCarsBySearchParams(?string $state, ?string $brand, ?string $transmission, ?array $priceRange, int $perPage): LengthAwarePaginator
     {
-        return Car::select('cars.*')->when($state, function (Builder $query, string $state) {
+        return Car::select('cars.*')->where('is_available', 1)->when($state, function (Builder $query, string $state) {
             return $query->where('is_new', $state === 'new');
         })->when($brand, function (Builder $query, string $brand) {
             return $query->join('car_models', 'cars.car_model_id', '=', 'car_models.id')->where('car_models.brand', $brand);
@@ -197,7 +198,7 @@ class Car extends Model
             return $query->where('transmission_type', $transmission);
         })->when($priceRange, function (Builder $query, array $priceRange) {
             return $query->whereBetween('price', $priceRange);
-        })->get();
+        })->paginate($perPage)->withQueryString();
     }
 
     public static function getAvailableCars(): Collection

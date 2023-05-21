@@ -123,6 +123,7 @@
         </div>
         @endif
         @endforeach
+        {{$viewData['cars']->links()}}
     </div>
 </div>
 @endsection

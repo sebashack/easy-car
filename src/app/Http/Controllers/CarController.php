@@ -38,7 +38,7 @@ class CarController extends Controller
         $rangeOption = $request->query('price_range');
         $priceRange = $price->calculatePriceRange($rangeOption);
 
-        $viewData['cars'] = Car::getCarsBySearchParams($state, $brand, $transmission, $priceRange);
+        $viewData['cars'] = Car::getCarsBySearchParams($state, $brand, $transmission, $priceRange, 8);
         $viewData['carModels'] = CarModel::all()->unique('brand');
 
         $carIds = $request->session()->get('cart_car_ids');
