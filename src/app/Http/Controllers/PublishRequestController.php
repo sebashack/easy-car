@@ -17,7 +17,7 @@ class PublishRequestController extends Controller
     {
         $viewData = [];
         $viewData['title'] = __('Publish requests');
-        $viewData['publishRequests'] = PublishRequest::all();
+        $viewData['publishRequests'] = PublishRequest::paginate(5);
 
         return view('publishRequest.index')->with('viewData', $viewData);
     }
