@@ -131,4 +131,3 @@ Route::get('/car_repair', 'App\Http\Controllers\CarRepairController@index')->nam
 
 // Allied products
 Route::get('/allied_product', 'App\Http\Controllers\AlliedProductController@index')->name('alliedProduct');
-

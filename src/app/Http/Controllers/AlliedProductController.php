@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 class AlliedProductController extends Controller
@@ -16,6 +15,7 @@ class AlliedProductController extends Controller
         $shoes = $response->json();
 
         $viewData['shoes'] = $shoes;
+
         return view('shoes.index')->with('viewData', $viewData);
     }
 }
