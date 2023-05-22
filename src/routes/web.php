@@ -128,3 +128,7 @@ Route::get('/set_language/{lang}', 'App\Http\Controllers\LangController@setLangu
 // Google maps
 
 Route::get('/car_repair', 'App\Http\Controllers\CarRepairController@index')->name('carRepair');
+
+// Allied products
+Route::get('/allied_product', 'App\Http\Controllers\AlliedProductController@index')->name('alliedProduct');
+
