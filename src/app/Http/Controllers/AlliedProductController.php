@@ -11,7 +11,8 @@ class AlliedProductController extends Controller
         $viewData = [];
         $viewData['title'] = __('Cars - EasyCar');
 
-        $response = Http::get('http://35.209.141.153/public/api/shoes');
+        $url = $_ENV['EXTERNAL_API_URL'].'/public/api/shoes';
+        $response = Http::get($url);
         $shoes = $response->json();
 
         $viewData['shoes'] = $shoes;
