@@ -29,6 +29,7 @@
             </div>
         </div>
         @endforeach
+        {{$viewData['carModels']->links()}}
     </div>
 </div>
 @endsection

@@ -17,6 +17,7 @@
       </div>
     </div>
     @endforeach
+    {{$viewData['publishRequests']->links()}}
   </div>
 </div>
 @endsection

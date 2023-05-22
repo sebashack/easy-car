@@ -41,9 +41,9 @@ class OrderController extends Controller
         $user = Auth::user();
 
         if ($user->isAdmin()) {
-            $viewData['orders'] = Order::all()->sortBy('created_at');
+            $viewData['orders'] = Order::orderBy('created_at')->paginate(5);
         } else {
-            $viewData['orders'] = $user->getOrders();
+            $viewData['orders'] = Order::getOrdersByUserId($user->getId(), 5);
         }
 
         return view('order.index')->with('viewData', $viewData);

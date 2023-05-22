@@ -20,6 +20,7 @@
             </div>
         </div>
         @endforeach
+        {{$viewData["orders"]->links()}}
     </div>
 </div>
 @endsection

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class Order extends Model
 {
@@ -80,6 +81,13 @@ class Order extends Model
     public function getUpdatedAt(): DateTime
     {
         return $this->attributes['updated_at'];
+    }
+
+    public static function getOrdersByUserId(int $userId, int $perPage): LengthAwarePaginator
+    {
+        return Order::select('orders.*')
+                ->join('users', 'orders.user_id', '=', 'users.id')
+                ->where('users.id', $userId)->paginate($perPage);
     }
 
     // Validators

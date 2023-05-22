@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 
@@ -27,5 +28,6 @@ class AppServiceProvider extends ServiceProvider
         //} catch (Exception $e) {
         //    dump('Database connection failed');
         //}
+        Paginator::useBootstrap();
     }
 }

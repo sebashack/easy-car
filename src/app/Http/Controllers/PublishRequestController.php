@@ -17,7 +17,7 @@ class PublishRequestController extends Controller
     {
         $viewData = [];
         $viewData['title'] = __('Publish requests');
-        $viewData['publishRequests'] = PublishRequest::all();
+        $viewData['publishRequests'] = PublishRequest::paginate(5);
 
         return view('publishRequest.index')->with('viewData', $viewData);
     }
@@ -59,6 +59,7 @@ class PublishRequestController extends Controller
             'kilometers' => $request->kilometers,
             'price' => $request->price,
             'is_new' => false,
+            'is_available' => false,
             'image_uri' => $imageName,
             'transmission_type' => $request->transmission_type,
             'type' => $request->type,
@@ -84,6 +85,9 @@ class PublishRequestController extends Controller
 
         if ($publishRequest->getState() === 'pending') {
             $publishRequest->setState('accepted');
+            $car = $publishRequest->getCar();
+            $car->setIsAvailable(true);
+            $car->update();
             $publishRequest->update();
 
             return back()->with('status_updated', __('Successfully accepted'));

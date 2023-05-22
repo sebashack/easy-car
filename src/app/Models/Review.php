@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class Review extends Model
 {
@@ -88,6 +89,15 @@ class Review extends Model
     public function getUpdatedAt(): DateTime
     {
         return $this->attributes['updated_at'];
+    }
+
+    public static function getReviewsByUserId(int $userId, int $perPage): LengthAwarePaginator
+    {
+        return Review::select('reviews.*')
+                ->join('users', 'reviews.user_id', '=', 'users.id')
+                ->where('users.id', $userId)
+                ->orderBy('reviews.rating')
+                ->paginate($perPage);
     }
 
     // Validators

@@ -13,7 +13,7 @@ class AdminCarModelController extends Controller
     {
         $viewData = [];
         $viewData['title'] = 'Car Models - EasyCar';
-        $viewData['carModels'] = CarModel::all();
+        $viewData['carModels'] = CarModel::paginate(5);
 
         return view('adminCarModel.index')->with('viewData', $viewData);
     }
