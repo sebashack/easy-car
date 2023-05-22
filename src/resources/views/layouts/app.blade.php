@@ -80,6 +80,12 @@
                                 >
                                     {{ __("Car repair") }}
                                 </a>
+                                <a
+                                    class="nav-link"
+                                    href="{{ route('alliedProduct') }}"
+                                >
+                                    {{ __("Allied product") }}
+                                </a>
                                 <div class="dropdown">
                                     <a id="button-link" class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                         {{ __("Choose a language") }}
