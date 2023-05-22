@@ -10,13 +10,22 @@
     font-size: 15px;
     padding: 0.5em 0.5em 0 0.5em;
     color: #000;
-    margin: 0 20px 0 20px;
+    margin: 0 10px 0 10px;
+}
+
+.nav-tabs .dropdown-menu {
+    margin: 0 10px 0 10px;
 }
 
 .nav-tabs #button-link.nav-link {
     background-color: #000;
     border-radius: 5px;
     padding: 0.5em 0.5em;
+    color: #fff;
+}
+
+.nav-tabs #button-link.nav-link a.dropdown-toggle {
+    text-decoration: none;
     color: #fff;
 }
 
@@ -31,4 +40,10 @@
 
 .nav-tabs .nav-link.active {
     border-bottom: 2px solid #000;
+}
+
+@media (max-width: 990px) {
+    .nav-tabs .nav-link {
+        margin-bottom: 10px;
+    }
 }

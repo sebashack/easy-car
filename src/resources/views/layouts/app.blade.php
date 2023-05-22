@@ -80,18 +80,18 @@
                                 >
                                     {{ __("Car repair") }}
                                 </a>
-                                <li class="nav-item dropdown">
-                                <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                    {{ __("Choose a language") }}
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="{{route('setLanguage', ['es'])}}">{{ __("Spanish") }}</a>
-                                    <a class="dropdown-item" href="{{route('setLanguage', ['en'])}}">{{ __("English") }}</a>
+                                <div class="dropdown">
+                                    <a id="button-link" class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                        {{ __("Choose a language") }}
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" href="{{route('setLanguage', ['es'])}}">{{ __("Spanish") }}</a>
+                                        <a class="dropdown-item" href="{{route('setLanguage', ['en'])}}">{{ __("English") }}</a>
+                                    </div>
                                 </div>
-                                </li>
                                 @guest
                                 <div class="vr bg-black mx-2 d-none d-lg-block">
-                                </div>
+-                               </div>
                                 <a
                                     id="button-link"
                                     class="nav-link"
