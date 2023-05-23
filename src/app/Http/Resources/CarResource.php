@@ -10,8 +10,7 @@ class CarResource extends JsonResource
 {
     public function toArray(Request $request): array
     {
-        $model = CarModel::findOrFail($this->getId());
-
+        $model = $this->getCarModel();
         $values = [
             'id' => $this->getId(),
             'color' => $this->getColor(),
