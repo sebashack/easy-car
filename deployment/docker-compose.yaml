@@ -16,8 +16,7 @@ services:
     restart: always
     volumes:
       - ${APP_CONFIG}:/opt/easycar/.env
-      - ${APP_STORAGE}:/opt/easycar/storage
-      - ${APP_PUBLIC}:/opt/easycar/public
+      - ${APP_PUBLIC}:/opt/easycar/storage/app/public
     depends_on:
       - easycar_mysql
   easycar_mysql:
