@@ -6,6 +6,8 @@ ROOT="$( readlink -f "$( dirname "${BASH_SOURCE[0]}" )" )"
 DOCKER_FILE="${ROOT}/docker-compose.yaml"
 
 export APP_CONFIG="${ROOT}/app-data/env"
+export APP_STORAGE="${ROOT}/app-data/storage"
+export APP_PUBLIC="${ROOT}/app-data/public"
 export MYSQL_DATA_DIR="${ROOT}/app-data/data"
 export MYSQL_SCRIPTS_DIR="${ROOT}/app-data/scripts"
 

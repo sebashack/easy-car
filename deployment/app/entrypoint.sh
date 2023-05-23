@@ -1,5 +1,7 @@
 #!/bin/bash
 
+/opt/easycar/artisan storage:link
+
 until /opt/easycar/artisan migrate
 do
   echo "Retrying DB migrations ..."
