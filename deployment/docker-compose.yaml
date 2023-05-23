@@ -1,0 +1,36 @@
+version: '3.1'
+networks:
+  easycar_net:
+    external: false
+
+services:
+  easycar_app:
+    container_name: easycar_app
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - easycar_net
+    restart: always
+    volumes:
+      - ${APP_CONFIG}:/opt/easycar/.env
+    depends_on:
+      - easycar_mysql
+  easycar_mysql:
+    container_name: easycar_mysql
+    image: mysql:8.0.31
+    ports:
+      - "3306:3306"
+    restart: always
+    environment:
+      MYSQL_DATABASE: laraveldb
+      MYSQL_USER: laravel
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_PASSWORD: secret
+    networks:
+      - easycar_net
+    volumes:
+      - ${MYSQL_DATA_DIR}:/var/lib/mysql
+      - ${MYSQL_SCRIPTS_DIR}:/opt/mysql/scripts
