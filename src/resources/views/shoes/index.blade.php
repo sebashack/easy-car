@@ -12,7 +12,7 @@
             <div id="car-card" class="card">
                 <img
                     id="car-image"
-                    src="{{ $shoe['imagen']  }}
+                    src="{{ $shoe['imagen'] }}"
                     class="img-fluid rounded-start"
                 />
                 <div id="car-info" class="card-body">
